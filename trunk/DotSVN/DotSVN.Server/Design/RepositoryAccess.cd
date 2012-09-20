@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="DotSVN.Server.RepositoryAccess.SVNRepositoryFactory">
+    <Position X="2" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>RepositoryAccess\SVNRepositoryFactory.cs</FileName>
+      <HashCode>AAAAAAAAAAAQAAAAiAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DotSVN.Server.RepositoryAccess.SVNRepository">
+    <Position X="5.25" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>RepositoryAccess\SVNRepository.cs</FileName>
+      <HashCode>CAQEAAAAAEAAAAAACAICQAACACEAgAIAAAAEBAAhAAA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="DotSVN.Server.RepositoryAccess.File.FSRepository">
+    <Position X="5.5" Y="6.25" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>RepositoryAccess\File\FSRepository.cs</FileName>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAgAAAAAAABAABAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DotSVN.Server.RepositoryAccess.ISVNSession" Collapsed="true">
+    <Position X="0.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>RepositoryAccess\ISVNSession.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DotSVN.Server.RepositoryAccess.File.FSRepositoryFactory">
+    <Position X="2.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>RepositoryAccess\File\FSRepositoryFactory.cs</FileName>
+      <HashCode>AAAAAAAACAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="DotSVN.Server.RepositoryAccess.ISVNRepository">
+    <Position X="9.25" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>RepositoryAccess\ISVNRepository.cs</FileName>
+      <HashCode>AAAEAAAAAEAAAAAACAICQAAAACEAgAIAAAAEBAAhAAA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+</ClassDiagram>
