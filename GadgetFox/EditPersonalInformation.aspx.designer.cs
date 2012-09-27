@@ -22,40 +22,40 @@ namespace GadgetFox {
         protected global::System.Web.UI.WebControls.Panel editPersonalInformationPanel;
         
         /// <summary>
-        /// firstName control.
+        /// firstNameTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox firstName;
+        protected global::System.Web.UI.WebControls.TextBox firstNameTB;
         
         /// <summary>
-        /// lastName control.
+        /// lastNameTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lastName;
+        protected global::System.Web.UI.WebControls.TextBox lastNameTB;
         
         /// <summary>
-        /// birthDate control.
+        /// birthDateTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox birthDate;
+        protected global::System.Web.UI.WebControls.TextBox birthDateTB;
         
         /// <summary>
-        /// phoneNumber control.
+        /// phoneNumberTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox phoneNumber;
+        protected global::System.Web.UI.WebControls.TextBox phoneNumberTB;
         
         /// <summary>
         /// saveButton control.
