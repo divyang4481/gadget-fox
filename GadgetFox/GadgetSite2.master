@@ -52,12 +52,12 @@
 </div>
 <br/>
 <div id="main">
-	<br/>
-	<br/>
-	<br/>
-	<br/>
 	<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
     </asp:ContentPlaceHolder>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
 	<br/>
 	<br/>
 	<br/>

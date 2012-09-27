@@ -51,10 +51,7 @@
             </asp:TableCell></asp:TableRow><asp:TableRow>
             <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
                 <asp:LinkButton ID="Button4" runat="server" Text="Contact Support" />
-            </asp:TableCell></asp:TableRow></asp:Table><br />
-
-
-
+            </asp:TableCell></asp:TableRow></asp:Table>
 </asp:Content>
 
 
