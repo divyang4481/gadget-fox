@@ -74,6 +74,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <BrowseToURL>~/css/style.css</BrowseToURL>
     </Content>
+    <Content Include="EditDefaultCard.aspx" />
+    <Content Include="EditPersonalInformation.aspx" />
+    <Content Include="EditShippingAddress.aspx" />
     <Content Include="GadgetSite1.Master" />
     <Content Include="Home.aspx" />
     <Content Include="Login.aspx" />
@@ -117,6 +120,27 @@
     <Content Include="CreateAccount.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditDefaultCard.aspx.cs">
+      <DependentUpon>EditDefaultCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditDefaultCard.aspx.designer.cs">
+      <DependentUpon>EditDefaultCard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditPersonalInformation.aspx.cs">
+      <DependentUpon>EditPersonalInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditPersonalInformation.aspx.designer.cs">
+      <DependentUpon>EditPersonalInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditShippingAddress.aspx.cs">
+      <DependentUpon>EditShippingAddress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditShippingAddress.aspx.designer.cs">
+      <DependentUpon>EditShippingAddress.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GadgetSite1.Master.cs">
       <DependentUpon>GadgetSite1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
