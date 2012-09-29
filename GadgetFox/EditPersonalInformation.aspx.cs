@@ -30,7 +30,7 @@ namespace GadgetFox
                             firstNameTB.Text = dr["FirstName"].ToString();
                             lastNameTB.Text = dr["LastName"].ToString();
                             if (dr["DOB"] != null)
-                                birthDateTB.Text = ((System.DateTime)dr["DOB"]).ToShortDateString();
+                                birthDateTB.Text = ((System.DateTime)dr["DOB"]).ToString("dd/MM/yyyy");
                             if (dr["PhoneNum"] != null)
                                 phoneNumberTB.Text = dr["PhoneNum"].ToString();
                         }
