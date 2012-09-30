@@ -45,11 +45,42 @@ namespace GadgetFox
                     }
                 }
             }
+
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void saveButton_Click(object sender, EventArgs e)
         {
-
+            String myConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+            SqlConnection myConnection = new SqlConnection(myConnectionString);
+            try
+            {
+                myConnection.Open();
+                SqlCommand cmd = new SqlCommand("INSERT INTO [GadgetFox].[dbo].[Users] ([FirstName],[LastName],[DOB],[PhoneNum])" +
+                "VALUES(@FirstName,@LastName,@DOB,@PhoneNum)", myConnection);
+                cmd.Parameters.AddWithValue("@FirstName", firstNameTB.Text);
+                cmd.Parameters.AddWithValue("@LastName", lastNameTB.Text);
+                if (!String.IsNullOrEmpty(birthDateTB.Text) || !birthDateTB.Text.Equals("MM/DD/YYYY"))
+                    cmd.Parameters.AddWithValue("@DOB", Convert.ToDateTime(birthDateTB.Text));
+                else
+                    cmd.Parameters.AddWithValue("@DOB", null);
+                cmd.Parameters.AddWithValue("@PhoneNum", phoneNumberTB.Text);
+                int rows = cmd.ExecuteNonQuery();
+                if (rows == 1)
+                {
+                    Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Saved Information successfully')</SCRIPT>");
+                    Response.Redirect("~/Home.aspx");
+                }
+            }
+            catch (SqlException ex)
+            {
+                Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('" + ex.Message + "')</SCRIPT>");
+            }
+            finally
+            {
+                myConnection.Close();
+            }
         }
     }
 }
+    
+
