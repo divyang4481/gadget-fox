@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+<head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>GadgetFox, a Tech Store</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -32,6 +32,10 @@
 
 <body>
     <form id="form1" runat="server">
+ <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    <Scripts>
+    </Scripts>
+</ajaxToolkit:ToolkitScriptManager>
 <div id="header_wrapper">
 	<div id="menu">
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
