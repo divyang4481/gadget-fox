@@ -17,7 +17,7 @@
 * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
 ***********************************************/
 </script>
-<script type="text/javascript" src="js/gadget-fox.js">
+<script type="text/javascript" src="js/gadget-fox.js"> </script>
 <script type="text/javascript">
     ddsmoothmenu.init({
         mainmenuid: "menu_bar", //menu DIV id

@@ -30,7 +30,7 @@ namespace GadgetFox
                             firstNameTB.Text = dr["FirstName"].ToString();
                             lastNameTB.Text = dr["LastName"].ToString();
                             if (dr["DOB"] != null)
-                                birthDateTB.Text = ((System.DateTime)dr["DOB"]).ToString("dd/MM/yyyy");
+                                birthDateTB.Text = ((System.DateTime)dr["DOB"]).ToString("MM/dd/yyyy");
                             if (dr["PhoneNum"] != null)
                                 phoneNumberTB.Text = dr["PhoneNum"].ToString();
                         }
@@ -55,19 +55,23 @@ namespace GadgetFox
             try
             {
                 myConnection.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO [GadgetFox].[dbo].[Users] ([FirstName],[LastName],[DOB],[PhoneNum])" +
-                "VALUES(@FirstName,@LastName,@DOB,@PhoneNum)", myConnection);
+                SqlCommand cmd = new SqlCommand("Update Users set FirstName=@FirstName, LastName=@LastName, PhoneNum=@PhoneNum,DOB=@DOB where " +
+                    "EmailID=@EmailID", myConnection);
                 cmd.Parameters.AddWithValue("@FirstName", firstNameTB.Text);
                 cmd.Parameters.AddWithValue("@LastName", lastNameTB.Text);
                 if (!String.IsNullOrEmpty(birthDateTB.Text) || !birthDateTB.Text.Equals("MM/DD/YYYY"))
                     cmd.Parameters.AddWithValue("@DOB", Convert.ToDateTime(birthDateTB.Text));
                 else
                     cmd.Parameters.AddWithValue("@DOB", null);
-                cmd.Parameters.AddWithValue("@PhoneNum", phoneNumberTB.Text);
+                if (!String.IsNullOrEmpty(birthDateTB.Text))
+                    cmd.Parameters.AddWithValue("@PhoneNum", phoneNumberTB.Text);
+                else
+                    cmd.Parameters.AddWithValue("@PhoneNum", null);
+                cmd.Parameters.AddWithValue("@EmailID",Session["userID"]);
                 int rows = cmd.ExecuteNonQuery();
                 if (rows == 1)
                 {
-                    Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Saved Information successfully')</SCRIPT>");
+                    Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Information Saved successfully')</SCRIPT>");
                     Response.Redirect("~/Home.aspx");
                 }
             }
