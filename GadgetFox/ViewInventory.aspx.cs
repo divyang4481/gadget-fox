@@ -76,7 +76,7 @@ namespace GadgetFox
                 int rows = cmd.ExecuteNonQuery();
                 if (rows == 1)
                     Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('Quantity updated successfully')</SCRIPT>");
-                
+
             }
             catch (SqlException ex)
             {
@@ -96,17 +96,11 @@ namespace GadgetFox
             getInventoryProducts();
         }
 
-        protected void gdvInventory_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void gdvInventory_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-            switch (e.CommandName)
-            {
-                case "Edit":
-                    break;
-            }
-
+            gdvInventory.EditIndex = -1;
+            getInventoryProducts();
         }
-
-
 
     }
 }
