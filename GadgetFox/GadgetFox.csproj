@@ -115,10 +115,12 @@
       <BrowseToURL>~/js/jquery.min.js</BrowseToURL>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="MonitorInventory.aspx" />
     <Content Include="navs\menu_bar.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="PurchaseProducts.aspx" />
+    <Content Include="ViewInventory.aspx" />
     <Content Include="Web.config" />
     <Content Include="Test Page.aspx" />
     <Content Include="CreateAccount.aspx" />
@@ -173,6 +175,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MonitorInventory.aspx.cs">
+      <DependentUpon>MonitorInventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MonitorInventory.aspx.designer.cs">
+      <DependentUpon>MonitorInventory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PurchaseProducts.aspx.cs">
       <DependentUpon>PurchaseProducts.aspx</DependentUpon>
@@ -194,6 +203,13 @@
     </Compile>
     <Compile Include="CreateAccount.aspx.designer.cs">
       <DependentUpon>CreateAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewInventory.aspx.cs">
+      <DependentUpon>ViewInventory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewInventory.aspx.designer.cs">
+      <DependentUpon>ViewInventory.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -167,3 +167,9 @@ h6
 		margin-top: 10px;
 		margin-right: 5px;
 	}
+
+.inventoryGrid
+{
+	width: 80%;
+	margin: 0 auto;
+}

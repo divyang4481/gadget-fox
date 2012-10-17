@@ -25,7 +25,7 @@ namespace GadgetFox
             try
             {
                 myConnection.Open();
-                SqlCommand cmd = new SqlCommand("Select FirstName,LastName from [GadgetFox].[dbo].[Users] where EmailID=@EmailID and Password=@Password", myConnection);
+                SqlCommand cmd = new SqlCommand("Select FirstName,LastName,RoleID from [GadgetFox].[dbo].[Users] where EmailID=@EmailID and Password=@Password", myConnection);
                 cmd.Parameters.AddWithValue("@EmailID", txtEmailID.Text);
                 cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -33,6 +33,7 @@ namespace GadgetFox
                 {
                     Session["user"] = dr["FirstName"] + " " + dr["LastName"];
                     Session["userID"] = txtEmailID.Text;
+                    Session["userRole"] = dr["RoleID"];
                     Response.Redirect("~/Home.aspx");
                 }
                 else
