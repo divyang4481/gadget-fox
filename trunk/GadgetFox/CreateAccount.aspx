@@ -50,7 +50,7 @@
         <asp:TableRow>
             <asp:TableCell>
                 <asp:TextBox ID="txtDOB" runat="server" Text="MM/DD/YYYY"></asp:TextBox>
-                <ajaxToolkit:CalendarExtender ID="dobCalender" runat="server" TargetControlID="txtDOB"></ajaxToolkit:CalendarExtender>
+                <ajaxToolkit:CalendarExtender ID="dobCalender" runat="server" TargetControlID="txtDOB" ClearTime="True"></ajaxToolkit:CalendarExtender>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox ID="txtPhoneNum" runat="server" ></asp:TextBox>
