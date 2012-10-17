@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.SessionState;
 
 namespace GadgetFox
 {
@@ -11,7 +12,13 @@ namespace GadgetFox
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Page.Session["userRole"] != null && Page.Session["userRole"].Equals("2"))
+            {
+                pnlInventoryManager.Visible = true;
+                pnlCustomerHome.Visible = false;
+            }
+            else
+                pnlInventoryManager.Visible = false;
         }
     }
 }
