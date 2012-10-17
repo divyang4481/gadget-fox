@@ -2,9 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="inventoryGrid">
-        <asp:GridView ID="gdvInventory" runat="server" CellPadding="4" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" 
-            AutoGenerateColumns="False" AllowSorting="True" OnSorting="gdvInventory_Sorting" OnRowCommand="gdvInventory_RowCommand"  OnRowUpdating="gdvInventory_RowUpdating" OnRowEditing="gdvInventory_RowEditing">
-            <AlternatingRowStyle BackColor="White"/>
+        <asp:GridView ID="gdvInventory" runat="server" CellPadding="4" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px"
+            AutoGenerateColumns="False" AllowSorting="True" OnSorting="gdvInventory_Sorting" OnRowEditing="gdvInventory_RowEditing" OnRowUpdating="gdvInventory_RowUpdating" OnRowCancelingEdit="gdvInventory_RowCancelingEdit">
+            <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:TemplateField HeaderText="ProductID" SortExpression="ProductID">
                     <ItemTemplate>
@@ -40,6 +40,9 @@
                     <ItemTemplate>
                         <%# Eval("Quantity") %>
                     </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txtQuantity" runat="server" Text='<%# Eval("Quantity") %>'> </asp:TextBox>
+                    </EditItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="CategoryID" SortExpression="CategoryID">
                     <ItemTemplate>
@@ -53,11 +56,8 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Image">
                     <ItemTemplate>
-                        <%# Eval("Quantity") %>
+                        <%# Eval("ImageID") %>
                     </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="txtQuantity" runat="server" Text='<%# Eval("Quantity") %>'> </asp:TextBox>
-                    </EditItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Color" SortExpression="Color">
                     <ItemTemplate>
