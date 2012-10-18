@@ -115,17 +115,21 @@
       <BrowseToURL>~/js/jquery.min.js</BrowseToURL>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="ManageProductInformation.aspx" />
     <Content Include="MonitorInventory.aspx" />
     <Content Include="navs\menu_bar.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="PurchaseProducts.aspx" />
+    <Content Include="SalesDashboard.aspx" />
+    <Content Include="UpdateProductInformation.aspx" />
     <Content Include="ViewInventory.aspx" />
     <Content Include="Web.config" />
     <Content Include="Test Page.aspx" />
     <Content Include="CreateAccount.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\Products.cs" />
     <Compile Include="EditDefaultCard.aspx.cs">
       <DependentUpon>EditDefaultCard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -175,6 +179,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ManageProductInformation.aspx.cs">
+      <DependentUpon>ManageProductInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ManageProductInformation.aspx.designer.cs">
+      <DependentUpon>ManageProductInformation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MonitorInventory.aspx.cs">
       <DependentUpon>MonitorInventory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -190,6 +201,13 @@
     <Compile Include="PurchaseProducts.aspx.designer.cs">
       <DependentUpon>PurchaseProducts.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SalesDashboard.aspx.cs">
+      <DependentUpon>SalesDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SalesDashboard.aspx.designer.cs">
+      <DependentUpon>SalesDashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Test Page.aspx.cs">
       <DependentUpon>Test Page.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -203,6 +221,13 @@
     </Compile>
     <Compile Include="CreateAccount.aspx.designer.cs">
       <DependentUpon>CreateAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateProductInformation.aspx.cs">
+      <DependentUpon>UpdateProductInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateProductInformation.aspx.designer.cs">
+      <DependentUpon>UpdateProductInformation.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewInventory.aspx.cs">
       <DependentUpon>ViewInventory.aspx</DependentUpon>
