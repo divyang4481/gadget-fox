@@ -50,6 +50,7 @@ namespace GadgetFox
 
         protected void textBoxAddProductPrice_TextChanged(object sender, EventArgs e)
         {
+            
             if (!checkBoxInSale.Checked)
             {
                 textBoxAddProductSalePrice.Text = textBoxAddProductPrice.Text;
@@ -96,10 +97,7 @@ namespace GadgetFox
             
             Response.Write("<script>alert('Product added successfully" +ProductID  + "')</script>");
 
-            //Server.Transfer("DisplayFlightDetails.aspx");
-
-
-
+            Server.Transfer("SalesDashboard.aspx");
 
         }
 
@@ -116,6 +114,5 @@ namespace GadgetFox
             textBoxAddProductWeight.Text = "";
         }
 
-        
     }
 }
