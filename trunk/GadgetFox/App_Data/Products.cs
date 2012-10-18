@@ -143,5 +143,128 @@ namespace GadgetFox
 
         }
 
+
+
+        public void fnGetProductDetails(string ProductID, out string Name, out string Description,out decimal Price,out decimal SalePrice, out int InSale,
+                                       out int Quantity, out string CategoryName,out string SubCategoryName, out string Color,out string Weight) 
+                                       //out int ProductStatus)
+        {
+            SqlCommand cmd = new SqlCommand();
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "p_ProductDetails";
+            cmd.Connection = con;
+
+            cmd.Parameters.AddWithValue("@ProductID", ProductID);
+
+            SqlParameter PName = new SqlParameter("@ProductName", SqlDbType.VarChar, 50);
+            PName.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(PName);
+
+            SqlParameter PDesc = new SqlParameter("@ProductDescription", SqlDbType.VarChar, 350);
+            PDesc.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(PDesc);
+
+            SqlParameter CName = new SqlParameter("@CategoryName", SqlDbType.VarChar, 16);
+            CName.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(CName);
+
+            SqlParameter SCName = new SqlParameter("@SubCategoryName", SqlDbType.VarChar, 16);
+            SCName.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(SCName);
+
+            SqlParameter PColor = new SqlParameter("@ProdColor", SqlDbType.VarChar, 16);
+            PColor.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(PColor);
+
+            SqlParameter PWeight = new SqlParameter("@ProdWeight", SqlDbType.VarChar, 16);
+            PWeight.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(PWeight);
+
+            SqlParameter PPrice = new SqlParameter("@ProdPrice", SqlDbType.Decimal);
+            PPrice.Precision = 5;
+            PPrice.Scale = 2;
+            PPrice.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(PPrice);
+
+            SqlParameter PSalePrice = new SqlParameter("@ProdSalePrice", SqlDbType.Decimal);
+            PSalePrice.Precision = 5;
+            PSalePrice.Scale = 2;
+            PSalePrice.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(PSalePrice);
+
+            SqlParameter PInSale = new SqlParameter("@ProdInSale", SqlDbType.Int);
+            PInSale.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(PInSale);
+
+            SqlParameter PQty = new SqlParameter("@ProdQuantity", SqlDbType.Int);
+            PQty.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(PQty);
+
+            //SqlParameter PStatus = new SqlParameter("@Status", SqlDbType.Int);
+            //PStatus.Direction = ParameterDirection.Output;
+            //cmd.Parameters.Add(PStatus);
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+
+            
+            Name = PName.Value.ToString();
+            Description = PDesc.Value.ToString() ;
+            Price = Convert.ToDecimal(PPrice.Value);
+            SalePrice = Convert.ToDecimal(PSalePrice.Value);
+            InSale= Convert.ToInt32(PInSale.Value);
+            Quantity = Convert.ToInt32(PQty.Value);
+            CategoryName = CName.Value.ToString();
+            SubCategoryName = SCName.Value.ToString();
+            Color = PColor.Value.ToString();
+            Weight = PWeight.Value.ToString();
+            //ProductStatus = Convert.ToInt32(PStatus.Value);
+
+        }
+
+
+        public void fn_UpdateProductDetails(string ProductID, string Name, string Description, decimal Price, decimal SalePrice, int InSale,
+                               int Quantity, string CategoryName, string SubCategoryName, string Color, string Weight, out int ProductStatus, out string PID)
+  
+        {
+            SqlCommand cmd = new SqlCommand();
+
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "sp_UpdateProducts";
+            cmd.Connection = con;
+
+            cmd.Parameters.AddWithValue("@ProdID", ProductID);
+            cmd.Parameters.AddWithValue("@ProductName", Name);
+            cmd.Parameters.AddWithValue("@ProductDescription", Description);
+            cmd.Parameters.AddWithValue("@ProdPrice", Price);
+            cmd.Parameters.AddWithValue("@ProdSalePrice", SalePrice);
+            cmd.Parameters.AddWithValue("@ProdInSale", InSale);
+            cmd.Parameters.AddWithValue("@CategoryName", CategoryName);
+            cmd.Parameters.AddWithValue("@SubCategoryName", SubCategoryName);
+            cmd.Parameters.AddWithValue("@ProdColor", Color);
+            cmd.Parameters.AddWithValue("@ProdWeight", Weight);
+            cmd.Parameters.AddWithValue("@ProdQuantity", Quantity);
+
+            SqlParameter Status = new SqlParameter("@Status", SqlDbType.Int);
+            Status.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(Status);
+
+            SqlParameter ProdID = new SqlParameter("@ProductID", SqlDbType.VarChar, 4);
+            ProdID.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(ProdID);
+
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            ProductStatus = Convert.ToInt32(Status.Value);
+            PID = ProdID.Value.ToString();
+
+        }
+
     }
 }
