@@ -5,10 +5,10 @@
         <asp:LinkButton ID="addProductLinkButton" runat="server" Text="Add Product Information" PostBackUrl="~/ManageProductInformation.aspx"> </asp:LinkButton>
     </p>
     <p>
-        <asp:LinkButton ID="editProductLinkButton" runat="server" Text="Edit Product Information" PostBackUrl="~/EditShippingAddress.aspx"> </asp:LinkButton>
+        <asp:LinkButton ID="editProductLinkButton" runat="server" Text="Edit Product Information" PostBackUrl="~/UpdateProductInformation.aspx"> </asp:LinkButton>
     </p>
     <p>
-        <asp:LinkButton ID="removeProductLinkButton" runat="server" Text="Remove Product" PostBackUrl="~/EditDefaultCard.aspx"> </asp:LinkButton>
+        <asp:LinkButton ID="removeProductLinkButton" runat="server" Text="Remove Product" PostBackUrl="~/UpdateProductInformation.aspx"> </asp:LinkButton>
     </p>
     <p>
     </p>
