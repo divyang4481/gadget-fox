@@ -2,76 +2,23 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="inventoryGrid">
-        <asp:GridView ID="gdvInventory" runat="server" CellPadding="4" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px"
-            AutoGenerateColumns="False" AllowSorting="True" OnSorting="gdvInventory_Sorting" OnRowEditing="gdvInventory_RowEditing" OnRowUpdating="gdvInventory_RowUpdating" OnRowCancelingEdit="gdvInventory_RowCancelingEdit">
+         <asp:GridView ID="gdvInventory" runat="server" CellPadding="4" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" AutoGenerateColumns="False" 
+            AllowSorting="True" AllowPaging="True" DataKeyNames="ProductID" DataSourceID="SqlDataSource1">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
-                <asp:TemplateField HeaderText="ProductID" SortExpression="ProductID">
-                    <ItemTemplate>
-                        <%# Eval("ProductID") %>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Name" SortExpression="Name">
-                    <ItemTemplate>
-                        <%# Eval("Name") %>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Description">
-                    <ItemTemplate>
-                        <%# Eval("Description") %>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Price" SortExpression="Price">
-                    <ItemTemplate>
-                        <%# Eval("Price") %>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="SalePrice" SortExpression="SalePrice">
-                    <ItemTemplate>
-                        <%# Eval("SalePrice") %>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="InSale">
-                    <ItemTemplate>
-                        <asp:CheckBox runat="server" Enabled="false" Checked='<%# Eval("InSale") %>' />
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Quantity" SortExpression="Quantity">
-                    <ItemTemplate>
-                        <%# Eval("Quantity") %>
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="txtQuantity" runat="server" Text='<%# Eval("Quantity") %>'> </asp:TextBox>
-                    </EditItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="CategoryID" SortExpression="CategoryID">
-                    <ItemTemplate>
-                        <%# Eval("CategoryID") %>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="SubCategoryID" SortExpression="SubCategoryID">
-                    <ItemTemplate>
-                        <%# Eval("SubCategoryID") %>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Image">
-                    <ItemTemplate>
-                        <%# Eval("ImageID") %>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Color" SortExpression="Color">
-                    <ItemTemplate>
-                        <%# Eval("Color") %>
-                    </ItemTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField HeaderText="Weight">
-                    <ItemTemplate>
-                        <%# Eval("Weight") %>
-                    </ItemTemplate>
-                </asp:TemplateField>
-
-                <asp:CommandField ShowEditButton="True" ButtonType="Button" />
+                <asp:BoundField DataField="ProductID" HeaderText="ProductID" ReadOnly="True" SortExpression="ProductID" />
+                <asp:BoundField DataField="Name" ReadOnly="True" HeaderText="Name" SortExpression="Name" />
+                <asp:BoundField DataField="Description" ReadOnly="True" HeaderText="Description" />
+                <asp:BoundField DataField="Price" HeaderText="Price" ReadOnly="True" SortExpression="Price" />
+                <asp:BoundField DataField="SalePrice" HeaderText="SalePrice" ReadOnly="True" SortExpression="SalePrice" />
+                <asp:CheckBoxField DataField="InSale" HeaderText="InSale" ReadOnly="True" />
+                <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
+                <asp:BoundField DataField="CategoryID" HeaderText="CategoryID" ReadOnly="True" SortExpression="CategoryID" />
+                <asp:BoundField DataField="SubCategoryID" HeaderText="SubCategoryID" ReadOnly="True" SortExpression="SubCategoryID" />
+                <asp:BoundField DataField="ImageID" ReadOnly="True"  HeaderText="ImageID" />
+                <asp:BoundField DataField="Color" HeaderText="Color" ReadOnly="True"  SortExpression="Color" />
+                <asp:BoundField DataField="Weight" HeaderText="Weight" ReadOnly="True" SortExpression="Weight" />
+                <asp:CommandField ButtonType="Button" ShowEditButton="True" />
 
             </Columns>
             <EmptyDataTemplate>
@@ -87,5 +34,13 @@
             <SortedDescendingCellStyle BackColor="#EAEAD3" />
             <SortedDescendingHeaderStyle BackColor="#575357" />
         </asp:GridView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString='<%$ ConnectionStrings:myConnectionString %>' 
+            SelectCommand="SELECT * FROM [Products]" 
+            UpdateCommand="UPDATE [GadgetFox].[dbo].[Products] SET Quantity=@Quantity WHERE ProductID=@ProductID">
+            <UpdateParameters>
+                <asp:Parameter Type="String" name="ProductID"/>
+                <asp:Parameter Type="String" name="Quantity"/>
+            </UpdateParameters>
+        </asp:SqlDataSource>
     </div>
 </asp:Content>
