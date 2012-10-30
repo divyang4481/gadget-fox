@@ -69,6 +69,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ReportIssue.aspx" />
+    <Content Include="ViewCustomerIssues.aspx" />
     <Content Include="css\ddsmoothmenu.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <BrowseToURL>~/css/ddsmoothmenu.css</BrowseToURL>
@@ -130,6 +132,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Data\Products.cs" />
+    <Compile Include="ReportIssue.aspx.cs">
+      <DependentUpon>ReportIssue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportIssue.aspx.designer.cs">
+      <DependentUpon>ReportIssue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewCustomerIssues.aspx.cs">
+      <DependentUpon>ViewCustomerIssues.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewCustomerIssues.aspx.designer.cs">
+      <DependentUpon>ViewCustomerIssues.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditDefaultCard.aspx.cs">
       <DependentUpon>EditDefaultCard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
