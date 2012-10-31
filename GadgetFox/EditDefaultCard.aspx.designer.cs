@@ -94,13 +94,22 @@ namespace GadgetFox {
         protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// expirationDateTB control.
+        /// expMonthTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox expirationDateTB;
+        protected global::System.Web.UI.WebControls.TextBox expMonthTB;
+        
+        /// <summary>
+        /// expYearTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox expYearTB;
         
         /// <summary>
         /// Label2 control.

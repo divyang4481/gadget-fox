@@ -34,7 +34,7 @@ namespace GadgetFox
                             address1TB.Text = dr["Address Line1"].ToString();
                             address2TB.Text = dr["Address Line2"].ToString();
                             cityTB.Text = dr["City"].ToString();
-                            //countryDL.Text = dr["Country"].ToString();
+                            countryDL.Text = dr["Country"].ToString();
                             stateDL.Text = dr["State"].ToString();
                             if (dr["Zip"] != null)
                                 zipcodeTB.Text = dr["Zip"].ToString();
