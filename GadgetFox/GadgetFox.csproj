@@ -71,8 +71,11 @@
   <ItemGroup>
     <Content Include="AddEditDefaultCard.aspx" />
     <Content Include="AddToCart.aspx" />
+    <Content Include="css\gadgetfox.css" />
+    <Content Include="MyAccount.aspx" />
     <Content Include="ProductsPurchase.aspx" />
     <Content Include="ReportIssue.aspx" />
+    <Content Include="SearchResults.aspx" />
     <Content Include="ViewCustomerIssues.aspx" />
     <Content Include="css\ddsmoothmenu.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -149,6 +152,12 @@
       <DependentUpon>AddToCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Data\Products.cs" />
+    <Compile Include="MyAccount.aspx.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyAccount.aspx.designer.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProductsPurchase.aspx.cs">
       <DependentUpon>ProductsPurchase.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -162,6 +171,12 @@
     </Compile>
     <Compile Include="ReportIssue.aspx.designer.cs">
       <DependentUpon>ReportIssue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchResults.aspx.cs">
+      <DependentUpon>SearchResults.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchResults.aspx.designer.cs">
+      <DependentUpon>SearchResults.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewCustomerIssues.aspx.cs">
       <DependentUpon>ViewCustomerIssues.aspx</DependentUpon>
