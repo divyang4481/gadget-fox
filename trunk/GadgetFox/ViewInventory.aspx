@@ -19,7 +19,7 @@
                 <asp:BoundField DataField="Color" HeaderText="Color" ReadOnly="True"  SortExpression="Color" />
                 <asp:BoundField DataField="Weight" HeaderText="Weight" ReadOnly="True" SortExpression="Weight" />
                 <asp:CommandField ButtonType="Button" ShowEditButton="True" />
-
+                
             </Columns>
             <EmptyDataTemplate>
                 <asp:Label ID="lblNoData" runat="server" Text="Inventory is empty."></asp:Label>
