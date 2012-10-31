@@ -10,96 +10,105 @@
 namespace GadgetFox {
     
     
-    public partial class Home {
+    public partial class AddEditDefaultCard {
         
         /// <summary>
-        /// pnlCustomerHome control.
+        /// Panel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlCustomerHome;
+        protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// editPILinkButton control.
+        /// Label6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton editPILinkButton;
+        protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// editSALinkButton control.
+        /// typeOfcardDL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton editSALinkButton;
+        protected global::System.Web.UI.WebControls.DropDownList typeOfcardDL;
         
         /// <summary>
-        /// editAEDCLinkButton control.
+        /// Label7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton editAEDCLinkButton;
+        protected global::System.Web.UI.WebControls.Label Label7;
         
         /// <summary>
-        /// purchaseProductsLB control.
+        /// cardNumberTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton purchaseProductsLB;
+        protected global::System.Web.UI.WebControls.TextBox cardNumberTB;
         
         /// <summary>
-        /// productsPurchaseLinkButton control.
+        /// Label8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton productsPurchaseLinkButton;
+        protected global::System.Web.UI.WebControls.Label Label8;
         
         /// <summary>
-        /// addToCartLinButton control.
+        /// expMonthTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton addToCartLinButton;
+        protected global::System.Web.UI.WebControls.TextBox expMonthTB;
         
         /// <summary>
-        /// pnlInventoryManager control.
+        /// expYearTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlInventoryManager;
+        protected global::System.Web.UI.WebControls.TextBox expYearTB;
         
         /// <summary>
-        /// btnMonitorInventory control.
+        /// Label9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnMonitorInventory;
+        protected global::System.Web.UI.WebControls.Label Label9;
         
         /// <summary>
-        /// btnViewInventory control.
+        /// cvvNumberTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnViewInventory;
+        protected global::System.Web.UI.WebControls.TextBox cvvNumberTB;
+        
+        /// <summary>
+        /// saveButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button saveButton;
     }
 }
