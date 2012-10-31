@@ -14,7 +14,7 @@
                 <br />
                 <asp:LinkButton ID="btnMonitorInventory" runat="server" PostBackUrl="~/MonitorInventory.aspx">Monitor Inventory</asp:LinkButton>
                 <br />
-                <asp:LinkButton ID="btnViewInventory" runat="server" PostBackUrl="~/ViewInventory.aspx">View Inventory</asp:LinkButton>
+                <asp:LinkButton ID="btnViewInventory" runat="server" PostBackUrl="~/ViewInventory.aspx">View/Edit Inventory</asp:LinkButton>
 
             </div>
             <div id="main">
