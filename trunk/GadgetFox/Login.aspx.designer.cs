@@ -13,22 +13,13 @@ namespace GadgetFox {
     public partial class Login {
         
         /// <summary>
-        /// Table1 control.
+        /// loginPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table Table1;
-        
-        /// <summary>
-        /// lblLogin control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLogin;
+        protected global::System.Web.UI.WebControls.Panel loginPanel;
         
         /// <summary>
         /// Label1 control.
@@ -40,15 +31,6 @@ namespace GadgetFox {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-        
-        /// <summary>
         /// txtEmailID control.
         /// </summary>
         /// <remarks>
@@ -56,6 +38,15 @@ namespace GadgetFox {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmailID;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
         /// txtPassword control.
