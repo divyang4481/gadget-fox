@@ -69,6 +69,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddEditDefaultCard.aspx" />
+    <Content Include="AddToCart.aspx" />
+    <Content Include="ProductsPurchase.aspx" />
     <Content Include="ReportIssue.aspx" />
     <Content Include="ViewCustomerIssues.aspx" />
     <Content Include="css\ddsmoothmenu.css">
@@ -131,7 +134,28 @@
     <Content Include="CreateAccount.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEditDefaultCard.aspx.cs">
+      <DependentUpon>AddEditDefaultCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddEditDefaultCard.aspx.designer.cs">
+      <DependentUpon>AddEditDefaultCard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AddToCart.aspx.cs">
+      <DependentUpon>AddToCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddToCart.aspx.designer.cs">
+      <DependentUpon>AddToCart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Data\Products.cs" />
+    <Compile Include="ProductsPurchase.aspx.cs">
+      <DependentUpon>ProductsPurchase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductsPurchase.aspx.designer.cs">
+      <DependentUpon>ProductsPurchase.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ReportIssue.aspx.cs">
       <DependentUpon>ReportIssue.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

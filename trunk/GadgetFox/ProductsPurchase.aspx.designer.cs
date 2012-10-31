@@ -10,96 +10,105 @@
 namespace GadgetFox {
     
     
-    public partial class Home {
+    public partial class ProductsPurchase {
         
         /// <summary>
-        /// pnlCustomerHome control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlCustomerHome;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// editPILinkButton control.
+        /// Panel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton editPILinkButton;
+        protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// editSALinkButton control.
+        /// facebookI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton editSALinkButton;
+        protected global::System.Web.UI.WebControls.Image facebookI;
         
         /// <summary>
-        /// editAEDCLinkButton control.
+        /// twitterI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton editAEDCLinkButton;
+        protected global::System.Web.UI.WebControls.Image twitterI;
         
         /// <summary>
-        /// purchaseProductsLB control.
+        /// youtubeI control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton purchaseProductsLB;
+        protected global::System.Web.UI.WebControls.Image youtubeI;
         
         /// <summary>
-        /// productsPurchaseLinkButton control.
+        /// quantity1DL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton productsPurchaseLinkButton;
+        protected global::System.Web.UI.WebControls.DropDownList quantity1DL;
         
         /// <summary>
-        /// addToCartLinButton control.
+        /// quantity2DL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton addToCartLinButton;
+        protected global::System.Web.UI.WebControls.DropDownList quantity2DL;
         
         /// <summary>
-        /// pnlInventoryManager control.
+        /// quantity3DL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlInventoryManager;
+        protected global::System.Web.UI.WebControls.DropDownList quantity3DL;
         
         /// <summary>
-        /// btnMonitorInventory control.
+        /// addToCart1B control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnMonitorInventory;
+        protected global::System.Web.UI.WebControls.Button addToCart1B;
         
         /// <summary>
-        /// btnViewInventory control.
+        /// addToCart2B control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnViewInventory;
+        protected global::System.Web.UI.WebControls.Button addToCart2B;
+        
+        /// <summary>
+        /// addToCart3B control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addToCart3B;
     }
 }
