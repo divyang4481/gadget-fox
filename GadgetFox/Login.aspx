@@ -3,55 +3,39 @@
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
 
-    <asp:Table ID="Table1" runat="server" HorizontalAlign="Center" Width="323px">
-        <asp:TableHeaderRow>
-            <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
-                <asp:Label ID="lblLogin" runat="server" Text="Account Login"></asp:Label>
-            </asp:TableCell>
-        </asp:TableHeaderRow>
-        <asp:TableRow runat="server">
-
-            <asp:TableCell runat="server">
-                <asp:Label ID="Label1" runat="server" Text="Login ID"></asp:Label>
-            </asp:TableCell>
-
-
-
-            <asp:TableCell>
-                <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
-            </asp:TableCell>
-
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell HorizontalAlign="Center">
-                <asp:TextBox ID="txtEmailID" runat="server" Text="UserName"></asp:TextBox>
-
-            </asp:TableCell>
-            <asp:TableCell HorizontalAlign="Center">
-                <asp:TextBox ID="txtPassword" runat="server" Text="Password" TextMode="Password"></asp:TextBox>
-
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
-                <asp:Button ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell ColumnSpan="2">
-                <asp:Label runat="server" ID="lblLoginError" ForeColor="Red"></asp:Label>
-            </asp:TableCell>
-        </asp:TableRow>
-        <asp:TableRow>
-            <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
-                <asp:LinkButton ID="Button2" runat="server" Text="Create an Account" PostBackUrl="~/CreateAccount.aspx" />
-            </asp:TableCell></asp:TableRow><asp:TableRow>
-            <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
-                <asp:LinkButton ID="Button3" runat="server" Text="Recover Password" />
-            </asp:TableCell></asp:TableRow><asp:TableRow>
-            <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
-                <asp:LinkButton ID="Button4" runat="server" Text="Contact Support" />
-            </asp:TableCell></asp:TableRow></asp:Table>
+	<p style="height: 0px; margin-top: 0px; font-style: normal; font-size: xx-large; top: auto; text-align:center;">Account Login</p>
+	<asp:Panel ID="loginPanel" runat="server" BackColor="Silver" BorderColor="#999999" style="margin: 0px auto;" Width="600px" HorizontalAlign="Center">
+		<div style="width: 250px; margin: 0px auto;">
+            <br />
+			<br /> 
+			<br />
+			<div style="float:left;"><asp:Label ID="Label1" runat="server" Text="Login ID"></asp:Label></div>             
+			<div style="float: right;"><asp:TextBox ID="txtEmailID" runat="server" Text="UserName"></asp:TextBox></div>
+			<br />
+			<br />
+			<div style="float:left;"><asp:Label ID="Label2" runat="server" Text="Password"></asp:Label></div>
+			<div style="float: right;"><asp:TextBox ID="txtPassword" runat="server" Text="Password" TextMode="Password"></asp:TextBox></div>
+			<br />
+			<br /> 
+			<br />
+            <asp:Button ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
+			<br />
+			<br /> 
+            <asp:Label runat="server" ID="lblLoginError" ForeColor="Red"></asp:Label>
+			<br /> 
+			<br />
+            <asp:LinkButton ID="Button2" runat="server" Text="Create an Account" PostBackUrl="~/CreateAccount.aspx" />
+			<br /> 
+			<br />
+            <asp:LinkButton ID="Button3" runat="server" Text="Recover Password" />
+ 			<br /> 
+			<br />
+            <asp:LinkButton ID="Button4" runat="server" Text="Contact Support" />
+			<br />
+			<br /> 
+			<br />
+      	</div>
+    </asp:Panel>      
 </asp:Content>
 
 
