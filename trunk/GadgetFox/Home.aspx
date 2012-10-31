@@ -14,9 +14,6 @@
             <asp:LinkButton ID="editAEDCLinkButton" runat="server" Text="Add Edit Default Card" PostBackUrl="~/AddEditDefaultCard.aspx"> </asp:LinkButton>
         </p>
         <p>
-            <asp:LinkButton ID="purchaseProductsLB" runat="server" PostBackUrl="~/PurchaseProducts.aspx">Purchase Products</asp:LinkButton>
-        </p>
-        <p>
             <asp:LinkButton ID="productsPurchaseLinkButton" runat="server" PostBackUrl="~/ProductsPurchase.aspx">Products Purchase</asp:LinkButton>
         </p>
         <p>
