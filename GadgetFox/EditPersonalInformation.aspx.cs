@@ -55,7 +55,7 @@ namespace GadgetFox
             try
             {
                 myConnection.Open();
-                SqlCommand cmd = new SqlCommand("Update Users set FirstName=@FirstName, LastName=@LastName, PhoneNum=@PhoneNum,DOB=@DOB where " +
+                SqlCommand cmd = new SqlCommand("UPDATE Users SET FirstName=@FirstName,LastName=@LastName,PhoneNum=@PhoneNum,DOB=@DOB where " +
                     "EmailID=@EmailID", myConnection);
                 cmd.Parameters.AddWithValue("@FirstName", firstNameTB.Text);
                 cmd.Parameters.AddWithValue("@LastName", lastNameTB.Text);

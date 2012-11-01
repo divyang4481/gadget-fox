@@ -4,14 +4,13 @@
     <asp:Panel ID="pnlCustomerHome" runat="server">
 
         <p>
-            &nbsp;<br />
             <asp:LinkButton ID="editPILinkButton" runat="server" Text="Edit Personal Information" PostBackUrl="~/EditPersonalInformation.aspx"> </asp:LinkButton>
         </p>
         <p>
             <asp:LinkButton ID="editSALinkButton" runat="server" Text="Edit Shipping Address" PostBackUrl="~/EditShippingAddress.aspx"> </asp:LinkButton>
         </p>
         <p>
-            <asp:LinkButton ID="editAEDCLinkButton" runat="server" Text="Add Edit Default Card" PostBackUrl="~/AddEditDefaultCard.aspx"> </asp:LinkButton>
+            <asp:LinkButton ID="editAEDCLinkButton" runat="server" Text="Edit Default Card" PostBackUrl="~/AddEditDefaultCard.aspx"> </asp:LinkButton>
         </p>
         <p>
             <asp:LinkButton ID="productsPurchaseLinkButton" runat="server" PostBackUrl="~/ProductsPurchase.aspx">Products Purchase</asp:LinkButton>

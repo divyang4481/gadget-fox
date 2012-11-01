@@ -14,10 +14,10 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:TextBox ID="txtEmailID" runat="server" Text="Email Address"></asp:TextBox>
+                <asp:TextBox ID="txtEmailID" runat="server"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="txtPassword" runat="server" Text="Password" TextMode="Password"></asp:TextBox>
+                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
@@ -32,10 +32,10 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:TextBox ID="txtFirstName" runat="server" Text="First Name"></asp:TextBox>
+                <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
             </asp:TableCell>
             <asp:TableCell>
-                <asp:TextBox ID="txtLastName" runat="server" Text="Last Name"></asp:TextBox>
+                <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
