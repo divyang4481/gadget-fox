@@ -22,33 +22,6 @@ namespace GadgetFox {
         protected global::System.Web.UI.WebControls.Panel pnlCustomerHome;
         
         /// <summary>
-        /// editPILinkButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton editPILinkButton;
-        
-        /// <summary>
-        /// editSALinkButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton editSALinkButton;
-        
-        /// <summary>
-        /// editAEDCLinkButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton editAEDCLinkButton;
-        
-        /// <summary>
         /// productsPurchaseLinkButton control.
         /// </summary>
         /// <remarks>

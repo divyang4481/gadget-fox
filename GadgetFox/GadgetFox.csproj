@@ -71,6 +71,16 @@
   <ItemGroup>
     <Content Include="AddEditDefaultCard.aspx" />
     <Content Include="AddToCart.aspx" />
+    <Content Include="images\categories\accessories.png" />
+    <Content Include="images\categories\cameras.png" />
+    <Content Include="images\categories\computers.png" />
+    <Content Include="images\categories\games.png" />
+    <Content Include="images\categories\hardware.png" />
+    <Content Include="images\categories\media.png" />
+    <Content Include="images\categories\software.png" />
+    <Content Include="images\sale_tag.png" />
+    <Content Include="images\under-construction.png" />
+    <Content Include="UnderConstruction.aspx" />
     <Content Include="css\gadgetfox.css" />
     <Content Include="MyAccount.aspx" />
     <Content Include="ProductsPurchase.aspx" />
@@ -152,6 +162,13 @@
       <DependentUpon>AddToCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Data\Products.cs" />
+    <Compile Include="UnderConstruction.aspx.cs">
+      <DependentUpon>UnderConstruction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UnderConstruction.aspx.designer.cs">
+      <DependentUpon>UnderConstruction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MyAccount.aspx.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

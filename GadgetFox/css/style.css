@@ -2,11 +2,11 @@ body
 {
 	margin: 0;
 	padding: 0;
-	color: #6e6e6e;
+	/*color: #6e6e6e;*/
 	font-family: Tahoma, Geneva, sans-serif;
-	font-size: 13px;
+	font-size: 14px;
 	line-height: 1.4em;
-	background-color: #707070;
+	/*background-color: #707070;*/
 	background-position: top;
 }
 
@@ -25,7 +25,8 @@ a, a:link, a:visited
 #search_bar
 {
 	float: right;
-	font-size: 16px;
+    font-weight: bold;
+	/*font-size: 16px;*/
 }
 
 	#search_bar a
@@ -106,7 +107,7 @@ h6
 	margin-right: 10%;
 	margin-left: 10%;
 	padding: 40px 10px 20px;
-	background: #f6f3f3;
+	/*background: #f6f3f3;*/
 	border: 1px solid #fff;
 	margin-bottom: 40px;
 }
@@ -127,6 +128,11 @@ h6
 #menu_bar
 {
 	width: 100%;
+}
+
+#menu_bar a
+{
+    font-weight: bold;
 }
 
 #site_title
