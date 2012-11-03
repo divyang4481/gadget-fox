@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="EditShippingAddress.aspx.cs" Inherits="GadgetFox.EditShippingAddress" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p style="height: 0px; margin-top: 0px; font-style: normal; font-size: xx-large; top: auto;">
+    <p style="height: 0px; margin-top: 0px; font-style: normal; font-size: large; top: auto;">
         Edit Shipping Address 
     </p>
     <asp:Label ID="returnLabel" runat="server" ForeColor="#CC0000"></asp:Label>

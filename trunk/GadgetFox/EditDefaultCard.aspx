@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="EditDefaultCard.aspx.cs" Inherits="GadgetFox.EditDefaultCard" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p style="height: 0px; margin-top: 0px; font-style: normal; font-size: x-large; top: auto;">
+    <p style="height: 0px; margin-top: 0px; font-style: normal; font-size: large; top: auto;">
         Edit Default Card
     </p>
 

@@ -1,11 +1,19 @@
      <div id="menu_bar" class="ddsmoothmenu">
         <ul>
             <li><a href="../Home.aspx">Home</a></li>
-            <li><a href="~/MyAccount.aspx">My Account</a></li>
+            <li><a href="~/MyAccount.aspx">My Account</a>
+                <ul>
+                    <li><span class="top"></span><span class="bottom"></span></li>
+                    <li><a href="EditPersonalInformation.aspx">Edit personal info</a></li>
+                    <li><a href="EditShippingAddress.aspx">Edit default address</a></li>
+                    <li><a href="AddEditDefaultCard.aspx">Edit default credit card</a></li>
+                    <li><a href="UnderConstruction.aspx">Edit wish list</a></li>
+                </ul>
+            </li>
             <li><a href="">Categories</a>
 				<ul>
 					<li><span class="top"></span><span class="bottom"></span></li>
-					<li><a href=" ">Accesories</a>
+					<li><a href="">Accesories</a>
 						<ul>
 							<li><span class="top"></span><span class="bottom"></span></li>
 							<li><a href="">Computer Mice</a></li>
@@ -42,7 +50,7 @@
 						<ul>
 							<li><span class="top"></span><span class="bottom"></span></li>
 							<li><a href="">RAM</a></li>
-							<li><a href="">HardDrives</a></li>
+							<li><a href="">Hard Drives</a></li>
 							<li><a href="">Motherboards</a></li>
 							<li><a href="">Processors</a></li>
 							<li><a href="">Heat Sinks</a></li>
@@ -84,10 +92,10 @@
 			</li>
         </ul>
 		<div id="search_bar">
-			<form action="">
-				<input value="Search Keywords" type="text" name="search" />
+			<form action="SearchResults.aspx">
+				<input value="" type="text" name="subcategory" />
 				<input type="submit" value="Search"/>
-				<a href="">Advanced Search</a>
+				<a href="UnderConstruction.aspx">Advanced Search</a>
 				<a href="">Checkout</a>
 			</form>
 		</div>

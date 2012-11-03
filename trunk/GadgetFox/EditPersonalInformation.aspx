@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="EditPersonalInformation.aspx.cs" Inherits="GadgetFox.EditPersonalInformation" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p style="height: 0px; margin-top: 0px; font-style: normal; font-size: xx-large; top: auto;">
+    <p style="height: 0px; margin-top: 0px; font-style: normal; font-size: large; top: auto;">
         Edit Personal Information&nbsp;</p>
     <asp:Panel ID="editPersonalInformationPanel" runat="server" BorderColor="#999999" Height="308px" style="margin-left: 197px" Width="589px">
         <br />

@@ -34,48 +34,44 @@
 
 <body>
     <form id="form1" runat="server">
- <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-    <Scripts>
-    </Scripts>
-</ajaxToolkit:ToolkitScriptManager>
-<div id="header_wrapper">
-	<div id="menu">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <br />
-&nbsp;&nbsp;<asp:Label ID="lblWelcome" runat="server" CssClass="welcomeLabel"></asp:Label>
-            <br/>
-	        <asp:Image ID="Image3" runat="server" AlternateText="Youtube Icon" ImageUrl="~/images/youtube.png" />
-            <asp:Image ID="Image2" runat="server" AlternateText="Twitter Icon" ImageUrl="~/images/twitter.png" />
-            <asp:Image ID="Image1" runat="server" AlternateText="Facebook Icon" ImageUrl="~/images/facebook.png" />
-    </div>
-	<div id="site_title"><h1><a href="Home.aspx"></a></h1></div>
-    <div class="cleaner"></div> 
-	<div id="smoothcontainer">
-		<noscript>
-			<a>No-Script, Menu-Bar is disabled</a>
-		</noscript>
-	</div>
-</div>
-<br/>
-<div id="main">
-	<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-    </asp:ContentPlaceHolder>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-</div>
+        <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+            <Scripts>
+            </Scripts>
+        </ajaxToolkit:ToolkitScriptManager>
 
+        <div id="header_wrapper">
+	        <div id="menu">
+                <br />
+                <asp:Label ID="lblWelcome" runat="server" CssClass="welcomeLabel" Font-Size="Medium"></asp:Label>
+                <br/>
+	            <asp:Image ID="Image3" runat="server" AlternateText="Youtube Icon" ImageUrl="~/images/youtube.png" />
+                <asp:Image ID="Image2" runat="server" AlternateText="Twitter Icon" ImageUrl="~/images/twitter.png" />
+                <asp:Image ID="Image1" runat="server" AlternateText="Facebook Icon" ImageUrl="~/images/facebook.png" />
+            </div>
+	        <div id="site_title"><h1><a href="Home.aspx"></a></h1></div>
+            <div class="cleaner"></div> 
+	        <div id="smoothcontainer">
+		        <noscript>
+			        <a>No-Script, Menu-Bar is disabled</a>
+		        </noscript>
+	        </div>
+        </div>
+        <br/>
+
+        <div id="main">
+	        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+        </div>
     </form>
-
 </body>
 </html>
