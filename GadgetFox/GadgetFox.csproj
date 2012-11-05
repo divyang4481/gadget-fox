@@ -172,6 +172,7 @@
       <DependentUpon>AddToCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Data\Products.cs" />
+    <Compile Include="ShoppingCart.cs" />
     <Compile Include="UnderConstruction.aspx.cs">
       <DependentUpon>UnderConstruction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
