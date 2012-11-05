@@ -90,6 +90,7 @@
     <Content Include="images\transcend-harddrive.jpg" />
     <Content Include="images\ubuntu-linux.png" />
     <Content Include="images\under-construction.png" />
+    <Content Include="ProductDetails.aspx" />
     <Content Include="Products.aspx" />
     <Content Include="UnderConstruction.aspx" />
     <Content Include="css\gadgetfox.css" />
@@ -173,6 +174,13 @@
       <DependentUpon>AddToCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Data\Products.cs" />
+    <Compile Include="ProductDetails.aspx.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.designer.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Products.aspx.cs">
       <DependentUpon>Products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
