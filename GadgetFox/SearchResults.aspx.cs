@@ -20,15 +20,29 @@ namespace GadgetFox
 
                     //read the url parameter
                     string subcategory = "";
-                    String qs = Request.QueryString["subcategory"];
+                    String qsubcat = Request.QueryString["subcategory"];
 
+                    string category = "";
+                    String qcat = Request.QueryString["subcategory"];
+
+                    string search_criteria = "";
                     //set subquery information
-                    if (qs != null)
+                    if (qsubcat != null || qcat !=null )
                     {
-                        subcategory = Request.QueryString["subcategory"].ToString(); //read the url parameter
-                        search_string.Text = subcategory;
 
+                        if (qsubcat != null)
+                        {
+                            subcategory = Request.QueryString["subcategory"].ToString(); //read the url parameter
+                            search_string.Text = subcategory;
+                            search_criteria = "subcategoryname = '" + subcategory + "'";
+                        }
 
+                        if (qsubcat != null)
+                        {
+                            subcategory = Request.QueryString["category"].ToString(); //read the url parameter
+                            search_string.Text = category;
+                            search_criteria = "categoryname = '" + category + "'";
+                        }
                         //declare a table to store rows
                         DataTable Table1 = new DataTable("SearchResults");
                         //setup a row
@@ -38,7 +52,7 @@ namespace GadgetFox
                         try
                         {
                             myConnection.Open(); //open connection
-                            SqlCommand cmd = new SqlCommand("select * from vw_ProductDetails where subcategoryname = '" + subcategory + "'", myConnection); //define SQL query
+                            SqlCommand cmd = new SqlCommand("select * from vw_ProductDetails where " + search_criteria, myConnection); //define SQL query
                             SqlDataReader dr = cmd.ExecuteReader(); //perform SQL query and store it
 
                             //add colums for each field into the table
