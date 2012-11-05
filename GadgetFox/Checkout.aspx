@@ -23,7 +23,7 @@
       </asp:TemplateField>
       <asp:TemplateField HeaderText="Price" SortExpression="UnitPrice">
         <ItemTemplate>
-          <asp:Label ID="UnitPrice" runat="server" Text='<%# Eval("UnitPrice", "{0:c}") %>' />
+          <asp:Label ID="Price" runat="server" Text='<%# Eval("Price", "{0:c}") %>' />
         </ItemTemplate>
         <FooterTemplate>
           <strong>
