@@ -44,7 +44,7 @@ namespace GadgetFox
 
                     DataView view = (DataView)BasketData.Select(DataSourceSelectArguments.Empty);
 
-                    var costQuery = view.Cast<DataRowView>().Select(drv => drv.Row.Field<decimal>("UnitPrice"));
+                    var costQuery = view.Cast<DataRowView>().Select(drv => drv.Row.Field<decimal>(" Price"));
                     cost = costQuery.Sum();
                     Basket.DataSource = view;
                     Basket.DataBind();
