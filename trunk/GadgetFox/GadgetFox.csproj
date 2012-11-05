@@ -71,6 +71,10 @@
   <ItemGroup>
     <Content Include="AddEditDefaultCard.aspx" />
     <Content Include="AddToCart.aspx" />
+    <Content Include="images\Belkin_Keyboard.jpg" />
+    <Content Include="images\belkin_mousepad.jpg" />
+    <Content Include="images\boss-earphones.jpg" />
+    <Content Include="images\Canon-EOS-Rebel-T3.jpg" />
     <Content Include="images\categories\accessories.png" />
     <Content Include="images\categories\cameras.png" />
     <Content Include="images\categories\computers.png" />
@@ -78,7 +82,13 @@
     <Content Include="images\categories\hardware.png" />
     <Content Include="images\categories\media.png" />
     <Content Include="images\categories\software.png" />
+    <Content Include="images\Dell-Inspiron-I15R.jpg" />
+    <Content Include="images\logitech-keyboard.jpg" />
+    <Content Include="images\logitech_joystick.jpg" />
+    <Content Include="images\logitech_mouse.jpg" />
     <Content Include="images\sale_tag.png" />
+    <Content Include="images\transcend-harddrive.jpg" />
+    <Content Include="images\ubuntu-linux.png" />
     <Content Include="images\under-construction.png" />
     <Content Include="UnderConstruction.aspx" />
     <Content Include="css\gadgetfox.css" />
