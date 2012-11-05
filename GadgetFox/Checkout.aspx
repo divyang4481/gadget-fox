@@ -34,7 +34,7 @@
     </Columns>
   </asp:GridView>
   <asp:Button ID="RemoveProduct" runat="server" 
-    Text="Remove" OnClick="RemoveProduct_Click" />
+    Text="Remove Products" OnClick="RemoveProduct_Click" />
   &nbsp;&nbsp;&nbsp;&nbsp;
   <asp:Button ID="ConfirmPurchase" runat="server" Text="Confirm Purchase" />
   <asp:SqlDataSource ID="BasketData" runat="server" 
