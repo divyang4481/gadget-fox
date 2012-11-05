@@ -72,6 +72,7 @@
     <Content Include="AddEditDefaultCard.aspx" />
     <Content Include="AddToCart.aspx" />
     <Content Include="CartControl.ascx" />
+    <Content Include="Global.asax" />
     <Content Include="images\Belkin_Keyboard.jpg" />
     <Content Include="images\belkin_mousepad.jpg" />
     <Content Include="images\boss-earphones.jpg" />
@@ -181,6 +182,9 @@
     </Compile>
     <Compile Include="CartControl.ascx.designer.cs">
       <DependentUpon>CartControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ProductDetails.aspx.cs">
       <DependentUpon>ProductDetails.aspx</DependentUpon>
