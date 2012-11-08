@@ -98,6 +98,7 @@
     <Content Include="UnderConstruction.aspx" />
     <Content Include="css\gadgetfox.css" />
     <Content Include="MyAccount.aspx" />
+    <Content Include="OrderStatus.aspx" />
     <Content Include="ProductsPurchase.aspx" />
     <Content Include="ReportIssue.aspx" />
     <Content Include="SearchResults.aspx" />
@@ -222,6 +223,13 @@
     </Compile>
     <Compile Include="MyAccount.aspx.designer.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderStatus.aspx.cs">
+      <DependentUpon>OrderStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderStatus.aspx.designer.cs">
+      <DependentUpon>OrderStatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductsPurchase.aspx.cs">
       <DependentUpon>ProductsPurchase.aspx</DependentUpon>
