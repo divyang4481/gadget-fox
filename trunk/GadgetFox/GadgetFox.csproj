@@ -74,6 +74,7 @@
     <Content Include="CartControl.ascx" />
     <Content Include="Checkout.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="images\asc.gif" />
     <Content Include="images\Belkin_Keyboard.jpg" />
     <Content Include="images\belkin_mousepad.jpg" />
     <Content Include="images\boss-earphones.jpg" />
@@ -86,10 +87,12 @@
     <Content Include="images\categories\media.png" />
     <Content Include="images\categories\software.png" />
     <Content Include="images\Dell-Inspiron-I15R.jpg" />
+    <Content Include="images\desc.gif" />
     <Content Include="images\logitech-keyboard.jpg" />
     <Content Include="images\logitech_joystick.jpg" />
     <Content Include="images\logitech_mouse.jpg" />
     <Content Include="images\sale_tag.png" />
+    <Content Include="images\sort.gif" />
     <Content Include="images\transcend-harddrive.jpg" />
     <Content Include="images\ubuntu-linux.png" />
     <Content Include="images\under-construction.png" />
@@ -154,7 +157,6 @@
     <Content Include="navs\menu_bar.htm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="PurchaseProducts.aspx" />
     <Content Include="SalesDashboard.aspx" />
     <Content Include="UpdateProductInformation.aspx" />
     <Content Include="ViewInventory.aspx" />
@@ -323,13 +325,6 @@
       <DependentUpon>MonitorInventory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PurchaseProducts.aspx.cs">
-      <DependentUpon>PurchaseProducts.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PurchaseProducts.aspx.designer.cs">
-      <DependentUpon>PurchaseProducts.aspx</DependentUpon>
-    </Compile>
     <Compile Include="SalesDashboard.aspx.cs">
       <DependentUpon>SalesDashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
