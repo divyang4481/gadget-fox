@@ -1,0 +1,77 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="GadgetSite2.master.cs" Inherits="GadgetFox.GadgetSite2" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:ContentPlaceHolder ID="headContent" runat="server">
+    </asp:ContentPlaceHolder>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GadgetFox, a Tech Store</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+
+<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/ddsmoothmenu.js">
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+</script>
+
+<script type="text/javascript">
+    ddsmoothmenu.init({
+        mainmenuid: "menu_bar", //menu DIV id
+        orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+        classname: 'ddsmoothmenu', //class added to menu's outer DIV
+        customtheme: ["#383838", "#18374a"],
+        contentsource: ["smoothcontainer", "navs/menu_bar.htm"]//"markup" //"markup" or ["container_id", "path_to_menu_file"]
+    })
+</script> 
+
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+            <Scripts>
+            </Scripts>
+        </ajaxToolkit:ToolkitScriptManager>
+
+        <div id="header_wrapper">
+	        <div id="menu">
+                <br />
+                <asp:Label ID="lblWelcome" runat="server" CssClass="welcomeLabel" Font-Size="Medium"></asp:Label>
+                <br/>
+	            <asp:Image ID="Image3" runat="server" AlternateText="Youtube Icon" ImageUrl="~/images/youtube.png" />
+                <asp:Image ID="Image2" runat="server" AlternateText="Twitter Icon" ImageUrl="~/images/twitter.png" />
+                <asp:Image ID="Image1" runat="server" AlternateText="Facebook Icon" ImageUrl="~/images/facebook.png" />
+            </div>
+	        <div id="site_title"><h1><a href="Home.aspx"></a></h1></div>
+            <div class="cleaner"></div> 
+	        <div id="smoothcontainer">
+		        <noscript>
+			        <a>No-Script, Menu-Bar is disabled</a>
+		        </noscript>
+	        </div>
+        </div>
+        <br/>
+
+        <div id="main">
+	        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+        </div>
+    </form>
+</body>
+</html>
