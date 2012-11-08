@@ -71,9 +71,7 @@
   <ItemGroup>
     <Content Include="AddEditDefaultCard.aspx" />
     <Content Include="AddToCart.aspx" />
-    <Content Include="CartControl.ascx" />
-    <Content Include="Checkout.aspx" />
-    <Content Include="Global.asax" />
+    <Content Include="images\asc.gif" />
     <Content Include="images\asc.gif" />
     <Content Include="images\Belkin_Keyboard.jpg" />
     <Content Include="images\belkin_mousepad.jpg" />
@@ -96,8 +94,6 @@
     <Content Include="images\transcend-harddrive.jpg" />
     <Content Include="images\ubuntu-linux.png" />
     <Content Include="images\under-construction.png" />
-    <Content Include="ProductDetails.aspx" />
-    <Content Include="Products.aspx" />
     <Content Include="UnderConstruction.aspx" />
     <Content Include="css\gadgetfox.css" />
     <Content Include="MyAccount.aspx" />
@@ -160,7 +156,9 @@
     <Content Include="SalesDashboard.aspx" />
     <Content Include="UpdateProductInformation.aspx" />
     <Content Include="ViewInventory.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Test Page.aspx" />
     <Content Include="CreateAccount.aspx" />
   </ItemGroup>
@@ -180,38 +178,6 @@
       <DependentUpon>AddToCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Data\Products.cs" />
-    <Compile Include="CartControl.ascx.cs">
-      <DependentUpon>CartControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CartControl.ascx.designer.cs">
-      <DependentUpon>CartControl.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Checkout.aspx.cs">
-      <DependentUpon>Checkout.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Checkout.aspx.designer.cs">
-      <DependentUpon>Checkout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="ProductDetails.aspx.cs">
-      <DependentUpon>ProductDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProductDetails.aspx.designer.cs">
-      <DependentUpon>ProductDetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Products.aspx.cs">
-      <DependentUpon>Products.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Products.aspx.designer.cs">
-      <DependentUpon>Products.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ShoppingCart.cs" />
     <Compile Include="UnderConstruction.aspx.cs">
       <DependentUpon>UnderConstruction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
