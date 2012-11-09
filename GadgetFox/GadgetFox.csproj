@@ -70,7 +70,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddEditDefaultCard.aspx" />
-    <Content Include="AddToCart.aspx" />
+    <Content Include="Cart.aspx" />
+    <Content Include="Image.aspx" />
     <Content Include="images\asc.gif" />
     <Content Include="images\asc.gif" />
     <Content Include="images\Belkin_Keyboard.jpg" />
@@ -170,14 +171,21 @@
     <Compile Include="AddEditDefaultCard.aspx.designer.cs">
       <DependentUpon>AddEditDefaultCard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddToCart.aspx.cs">
-      <DependentUpon>AddToCart.aspx</DependentUpon>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddToCart.aspx.designer.cs">
-      <DependentUpon>AddToCart.aspx</DependentUpon>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Data\Products.cs" />
+    <Compile Include="Image.aspx.cs">
+      <DependentUpon>Image.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Image.aspx.designer.cs">
+      <DependentUpon>Image.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UnderConstruction.aspx.cs">
       <DependentUpon>UnderConstruction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
