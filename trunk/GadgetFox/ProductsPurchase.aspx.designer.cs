@@ -31,84 +31,30 @@ namespace GadgetFox {
         protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// facebookI control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image facebookI;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// twitterI control.
+        /// ddlQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image twitterI;
+        protected global::System.Web.UI.WebControls.DropDownList ddlQuantity;
         
         /// <summary>
-        /// youtubeI control.
+        /// btnAddToCart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image youtubeI;
-        
-        /// <summary>
-        /// quantity1DL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList quantity1DL;
-        
-        /// <summary>
-        /// quantity2DL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList quantity2DL;
-        
-        /// <summary>
-        /// quantity3DL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList quantity3DL;
-        
-        /// <summary>
-        /// addToCart1B control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addToCart1B;
-        
-        /// <summary>
-        /// addToCart2B control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addToCart2B;
-        
-        /// <summary>
-        /// addToCart3B control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addToCart3B;
+        protected global::System.Web.UI.WebControls.Button btnAddToCart;
     }
 }

@@ -10,7 +10,7 @@
 namespace GadgetFox {
     
     
-    public partial class AddToCart {
+    public partial class Cart {
         
         /// <summary>
         /// gdvInventory control.
