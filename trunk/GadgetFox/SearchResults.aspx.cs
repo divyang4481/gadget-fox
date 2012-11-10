@@ -23,7 +23,7 @@ namespace GadgetFox
                     String qsubcat = Request.QueryString["subcategory"];
 
                     string category = "";
-                    String qcat = Request.QueryString["subcategory"];
+                    String qcat = Request.QueryString["category"];
 
                     string search_criteria = "";
                     //set subquery information
@@ -37,9 +37,9 @@ namespace GadgetFox
                             search_criteria = "subcategoryname = '" + subcategory + "'";
                         }
 
-                        if (qsubcat != null)
+                        if (qcat != null)
                         {
-                            subcategory = Request.QueryString["category"].ToString(); //read the url parameter
+                            category = Request.QueryString["category"].ToString(); //read the url parameter
                             search_string.Text = category;
                             search_criteria = "categoryname = '" + category + "'";
                         }

@@ -8,7 +8,7 @@ using System.Web.SessionState;
 
 namespace GadgetFox
 {
-    public partial class Home : System.Web.UI.Page
+    public partial class EmployeeHome : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
