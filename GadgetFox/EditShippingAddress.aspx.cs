@@ -90,13 +90,13 @@ namespace GadgetFox
                     int rc = cmd4.ExecuteNonQuery();
                     if (rc > 0)
                     {
-                        returnLabel.Text = "Your credit card was successfully saved";
+                        returnLabel.Text = "Your default address was successfully saved";
                         saveButton.Visible = false;
                         cancelButton.Text = "Close";
                     }
                     else
                     {
-                        returnLabel.Text = "Failed to save your credit card. Please try again later!";
+                        returnLabel.Text = "Failed to save your default address. Please try again later!";
                     }
                 }
                 else

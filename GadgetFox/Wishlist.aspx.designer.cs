@@ -10,7 +10,7 @@
 namespace GadgetFox {
     
     
-    public partial class SearchResults {
+    public partial class Wishlist {
         
         /// <summary>
         /// returnLabel control.
@@ -22,15 +22,6 @@ namespace GadgetFox {
         protected global::System.Web.UI.WebControls.Label returnLabel;
         
         /// <summary>
-        /// search_string control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label search_string;
-        
-        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>
@@ -38,5 +29,14 @@ namespace GadgetFox {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1;
+        
+        /// <summary>
+        /// shopBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button shopBtn;
     }
 }

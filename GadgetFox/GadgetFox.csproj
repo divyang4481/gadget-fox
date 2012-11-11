@@ -69,8 +69,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AddEditDefaultCard.aspx" />
     <Content Include="Cart.aspx" />
+    <Content Include="Wishlist.aspx" />
     <Content Include="Image.aspx" />
     <Content Include="images\asc.gif" />
     <Content Include="images\asc.gif" />
@@ -95,11 +95,11 @@
     <Content Include="images\transcend-harddrive.jpg" />
     <Content Include="images\ubuntu-linux.png" />
     <Content Include="images\under-construction.png" />
+    <Content Include="ShoppingCart.aspx" />
     <Content Include="UnderConstruction.aspx" />
     <Content Include="css\gadgetfox.css" />
     <Content Include="MyAccount.aspx" />
     <Content Include="OrderStatus.aspx" />
-    <Content Include="ProductsPurchase.aspx" />
     <Content Include="ReportIssue.aspx" />
     <Content Include="SearchResults.aspx" />
     <Content Include="ViewCustomerIssues.aspx" />
@@ -164,13 +164,6 @@
     <Content Include="CreateAccount.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddEditDefaultCard.aspx.cs">
-      <DependentUpon>AddEditDefaultCard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AddEditDefaultCard.aspx.designer.cs">
-      <DependentUpon>AddEditDefaultCard.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -179,12 +172,26 @@
       <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Data\Products.cs" />
+    <Compile Include="Wishlist.aspx.cs">
+      <DependentUpon>Wishlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Wishlist.aspx.designer.cs">
+      <DependentUpon>Wishlist.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Image.aspx.cs">
       <DependentUpon>Image.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Image.aspx.designer.cs">
       <DependentUpon>Image.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.designer.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="UnderConstruction.aspx.cs">
       <DependentUpon>UnderConstruction.aspx</DependentUpon>
@@ -206,13 +213,6 @@
     </Compile>
     <Compile Include="OrderStatus.aspx.designer.cs">
       <DependentUpon>OrderStatus.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProductsPurchase.aspx.cs">
-      <DependentUpon>ProductsPurchase.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProductsPurchase.aspx.designer.cs">
-      <DependentUpon>ProductsPurchase.aspx</DependentUpon>
     </Compile>
     <Compile Include="ReportIssue.aspx.cs">
       <DependentUpon>ReportIssue.aspx</DependentUpon>

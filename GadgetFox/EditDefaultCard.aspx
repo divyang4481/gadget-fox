@@ -11,7 +11,7 @@
                 <tr>
                     <td>Type of Card<asp:Label ID="Label6" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
                     <td>
-                        <asp:DropDownList ID="typeOfcardDL" runat="server" style="margin-left: 0px">
+                        <asp:DropDownList ID="cardTypeDL" runat="server" style="margin-left: 0px">
                             <asp:ListItem>--Select--</asp:ListItem>
                             <asp:ListItem>American Express</asp:ListItem>
                             <asp:ListItem>Discover</asp:ListItem>
@@ -21,16 +21,20 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Address 1<asp:Label ID="Label1" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
-                    <td><asp:TextBox ID="address1TB" runat="server"  ></asp:TextBox></td>
+                    <td>First Name<asp:Label ID="Label9" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
+                    <td><asp:TextBox ID="firstNameTB" runat="server"></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>Last Name<asp:Label ID="Label10" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
+                    <td><asp:TextBox ID="lastNameTB" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>Card Number<asp:Label ID="Label7" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
                     <td><asp:TextBox ID="cardNumberTB" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td>Address 2</td>
-                    <td><asp:TextBox ID="address2TB" runat="server"></asp:TextBox></td>
+                    <td>CVV<asp:Label ID="Label11" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
+                    <td><asp:TextBox ID="cvvTB" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>Expiration Date<asp:Label ID="Label8" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
@@ -38,6 +42,14 @@
                         <asp:TextBox ID="expMonthTB" runat="server" style="margin-left: 0px" Width="30px"></asp:TextBox>
                         <asp:TextBox ID="expYearTB" runat="server" Width="60px"></asp:TextBox>
                     </td>
+                </tr>
+                <tr>
+                    <td>Address 1<asp:Label ID="Label1" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
+                    <td><asp:TextBox ID="address1TB" runat="server"  ></asp:TextBox></td>
+                </tr>
+                <tr>
+                    <td>Address 2</td>
+                    <td><asp:TextBox ID="address2TB" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>City<asp:Label ID="Label2" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
