@@ -34,7 +34,15 @@ namespace GadgetFox
                     Session["user"] = dr["FirstName"] + " " + dr["LastName"];
                     Session["userID"] = txtEmailID.Text;
                     Session["userRole"] = dr["RoleID"];
-                    Response.Redirect("~/Home.aspx");
+                    if (Session["userRole"] != null && !Session["userRole"].Equals("1"))
+                    {
+                        // Re-direct to employee home page if not customer
+                        Response.Redirect("~/EmployeeHome.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("~/Home.aspx");
+                    }
                 }
                 else
                     lblLoginError.Text = "Invalid username password combination";

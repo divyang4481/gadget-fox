@@ -7,11 +7,13 @@
             <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:CommandField ButtonType="Button" ShowEditButton="True" />
+                <asp:CommandField ButtonType="Button" ShowDeleteButton="True" />
                 <asp:BoundField DataField="EmailID" HeaderText="Email ID" ReadOnly="True" SortExpression="EmailID" />
                 <asp:BoundField DataField="IssueID" HeaderText="Issue ID" ReadOnly="True" SortExpression="IssueID" />
+                <asp:BoundField DataField="OrderID" HeaderText="Order ID" ReadOnly="True" SortExpression="OrderID" />
                 <asp:BoundField DataField="IssueType" HeaderText="Type" ReadOnly="True" SortExpression="Type" />
                 <asp:BoundField DataField="IssueDescription" HeaderText="Description" />
-                <asp:BoundField DataField="AssignedTo" HeaderText="Assigned To" SortExpression="AssignedTo" />
+                <asp:BoundField DataField="AssignedTo" HeaderText="AssignedTo" />
                 <asp:TemplateField HeaderText="Status" SortExpression="Status">
                     <ItemTemplate>
                         <asp:DropDownList ID="statusDropDown" AutoPostBack="true" DataTextField="Status" DataValueField="Status" runat="server" SelectedValue='<%# Bind("Status") %>'>
@@ -21,7 +23,6 @@
                         </asp:DropDownList>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:BoundField DataField="OrderID" HeaderText="Order ID" ReadOnly="True" SortExpression="OrderID" />
             </Columns>
             <EmptyDataTemplate>
                 <asp:Label ID="lblNoData" runat="server" Text="No customer issues"></asp:Label>
@@ -38,7 +39,8 @@
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString='<%$ ConnectionStrings:myConnectionString %>' 
             SelectCommand="SELECT * FROM [Issues]" 
-            UpdateCommand="UPDATE [GadgetFox].[dbo].[Issues] SET [IssueDescription]=@IssueDescription, [AssignedTo]=@AssignedTo, [Status]=@Status WHERE IssueID=@IssueID">
+            UpdateCommand="UPDATE [GadgetFox].[dbo].[Issues] SET [IssueDescription]=@IssueDescription, [AssignedTo]=@AssignedTo, [Status]=@Status WHERE IssueID=@IssueID"
+            DeleteCommand="DELETE FROM [GadgetFox].[dbo].[Issues] WHERE IssueID=@IssueID">
             <UpdateParameters>
                 <asp:Parameter Type="String" name="IssueDescription"/>
                 <asp:Parameter Type="String" name="AssignedTo"/>

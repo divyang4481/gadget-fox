@@ -15,8 +15,14 @@ namespace GadgetFox
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
+            if (Session != null && Session["userID"] != null)
+            {
+                SqlDataSource1.SelectParameters.Add("@EmailID", Session["userID"].ToString());
+            }
+            else
+            {
+                SqlDataSource1.SelectParameters.Add("@EmailID", "");
+            }
         }
 
 
