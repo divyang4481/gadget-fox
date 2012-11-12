@@ -25,9 +25,13 @@ namespace GadgetFox
             string category = "";
             String qcat = Request.QueryString["category"];
 
+            //read the url parameter
+            string searchcriteria = "";
+            String qsearchcriteria = Request.QueryString["searchcriteria"];
+
             string search_criteria = "";
             //set subquery information
-            if (qsubcat != null || qcat !=null )
+            if (qsubcat != null || qcat != null || qsearchcriteria != null)
             {
 
                 if (qsubcat != null)
@@ -43,6 +47,8 @@ namespace GadgetFox
                     search_string.Text = category;
                     search_criteria = "categoryname = '" + category + "'";
                 }
+
+
                 //declare a table to store rows
                 DataTable Table1 = new DataTable("SearchResults");
                 //setup a row
@@ -51,13 +57,35 @@ namespace GadgetFox
                 //try to connect
                 try
                 {
-                    myConnection.Open(); //open connection
-                    SqlCommand cmd = new SqlCommand("select * from vw_ProductDetails where " + search_criteria, myConnection); //define SQL query
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = myConnection;
+                    if (qsearchcriteria != null)
+                    {
+                        searchcriteria = Request.QueryString["searchcriteria"].ToString(); //read the url parameter
+
+                        cmd.CommandText = "sp_SearchProduct";
+                        cmd.CommandType = CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("@SearchString", searchcriteria);
+
+                    }
+                    else
+                    {
+                        //try to connect
+
+                        //myConnection.Open(); //open connection
+                        cmd = new SqlCommand("select * from vw_ProductDetails where " + search_criteria, myConnection); //define SQL query
+
+
+                    }
+
+                    //SqlCommand cmd = new SqlCommand("select * from vw_ProductDetails where " + search_criteria, myConnection); //define SQL query
+                    myConnection.Open();
                     SqlDataReader dr = cmd.ExecuteReader(); //perform SQL query and store it
 
                     //add colums for each field into the table
                     DataColumn pid = new DataColumn("Product ID");
-                    DataColumn image = new DataColumn("Image");                    
+                    DataColumn image = new DataColumn("Image");
                     DataColumn name = new DataColumn("Name");
                     DataColumn description = new DataColumn("Description");
                     DataColumn price = new DataColumn("Price");
@@ -74,7 +102,7 @@ namespace GadgetFox
 
                     qty.DataType = System.Type.GetType("System.String");
                     actions.DataType = System.Type.GetType("System.String");
-                    
+
                     Table1.Columns.Add(pid);
                     Table1.Columns.Add(image);
                     Table1.Columns.Add(name);
@@ -146,7 +174,7 @@ namespace GadgetFox
 
 
             if (e.Row.RowIndex > -1)
-            {                
+            {
 
                 //add buttons to column
                 String pid = e.Row.Cells[0].Text;
@@ -169,7 +197,7 @@ namespace GadgetFox
 
                 add2WishlistBtn.Click += new EventHandler(this.addProduct2WishlistBtn_Click);
                 add2WishlistBtn.CommandArgument = e.Row.RowIndex + "-" + pid;
-            }        
+            }
         }
 
         /**
@@ -177,7 +205,7 @@ namespace GadgetFox
          */
         protected void addProduct2CartBtn_Click(object sender, EventArgs e)
         {
-            Button btn = (Button) sender;
+            Button btn = (Button)sender;
             String[] args = btn.CommandArgument.ToString().Split('-');
             int row = int.Parse(args[0]);
             String pid = args[1];
@@ -228,7 +256,7 @@ namespace GadgetFox
                     {
                         returnLabel.Text = "Your items were updated in the cart";
                     }
-                }                
+                }
             }
             catch (SqlException ex)
             {
@@ -245,11 +273,11 @@ namespace GadgetFox
          */
         protected void addProduct2WishlistBtn_Click(object sender, EventArgs e)
         {
-            Button btn = (Button) sender;
+            Button btn = (Button)sender;
             String[] args = btn.CommandArgument.ToString().Split('-');
             int row = int.Parse(args[0]);
             String pid = args[1];
-            
+
             //write to wishlist
             String myConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
             SqlConnection myConnection = new SqlConnection(myConnectionString);
