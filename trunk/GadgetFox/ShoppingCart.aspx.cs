@@ -40,7 +40,7 @@ namespace GadgetFox
                 //add colums for each field into the table
                 //EmailID, ProductID, Name, Price, SalePrice, InSale, ImageID, ImageData, Quantity 
                 DataColumn pid = new DataColumn("Product ID");
-                //DataColumn image = new DataColumn("ID");                    
+                DataColumn image = new DataColumn("Image");                    
                 DataColumn name = new DataColumn("Name");
                 DataColumn price = new DataColumn("Price");
                 DataColumn sale_price = new DataColumn("Sale Price");
@@ -48,7 +48,7 @@ namespace GadgetFox
                 DataColumn actions = new DataColumn("#");
 
                 pid.DataType = System.Type.GetType("System.String");
-                //image.DataType = System.Type.GetType("System.Byte[]");
+                image.DataType = System.Type.GetType("System.String");
                 name.DataType = System.Type.GetType("System.String");
                 price.DataType = System.Type.GetType("System.Double");
                 sale_price.DataType = System.Type.GetType("System.Double");
@@ -57,7 +57,7 @@ namespace GadgetFox
                 actions.DataType = System.Type.GetType("System.String");
 
                 Table1.Columns.Add(pid);
-                //Table1.Columns.Add(image);
+                Table1.Columns.Add(image);
                 Table1.Columns.Add(name);
                 Table1.Columns.Add(price);
                 Table1.Columns.Add(sale_price);
@@ -71,6 +71,7 @@ namespace GadgetFox
 
                     //insert values into the row from the query
                     Row1["Product ID"] = dr["ProductID"];
+                    Row1["Image"] = dr["ImageID"];
                     Row1["Name"] = dr["Name"];
                     Row1["Price"] = dr["Price"];
                     Row1["Sale Price"] = dr["SalePrice"];
@@ -136,12 +137,18 @@ namespace GadgetFox
                 updateBtn.Click += new EventHandler(this.updateBtn_Click);
                 updateBtn.CommandArgument = e.Row.RowIndex + "-" + pid;
 
-                String price = e.Row.Cells[2].Text;
+                String price = e.Row.Cells[3].Text;
+
+                //insert product image
+                String imgId = e.Row.Cells[1].Text;
+                Literal img = new Literal();
+                img.Text = "<img height='80px' width='80px' src='Image.aspx?ImageID=" + imgId + "'/>";
+                e.Row.Cells[1].Controls.Add(img);
 
                 //calculate purchase total
-                if (e.Row.Cells[3].Text.Length > 0 && e.Row.Cells[3].Text != "&nbsp;")
+                if (e.Row.Cells[4].Text.Length > 0 && e.Row.Cells[4].Text != "&nbsp;")
                 {
-                    String salePrice = e.Row.Cells[3].Text;
+                    String salePrice = e.Row.Cells[4].Text;
                     purchaseTotal = purchaseTotal + Double.Parse(salePrice) * Double.Parse(qty);
                 }
                 else
