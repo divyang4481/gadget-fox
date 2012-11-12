@@ -70,6 +70,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Cart.aspx" />
+    <Content Include="Checkout.aspx" />
+    <Content Include="MyAccount.aspx" />
     <Content Include="Wishlist.aspx" />
     <Content Include="Image.aspx" />
     <Content Include="images\asc.gif" />
@@ -98,7 +100,6 @@
     <Content Include="ShoppingCart.aspx" />
     <Content Include="UnderConstruction.aspx" />
     <Content Include="css\gadgetfox.css" />
-    <Content Include="MyAccount.aspx" />
     <Content Include="OrderStatus.aspx" />
     <Content Include="ReportIssue.aspx" />
     <Content Include="SearchResults.aspx" />
@@ -172,6 +173,20 @@
       <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Data\Products.cs" />
+    <Compile Include="Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyAccount.aspx.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyAccount.aspx.designer.cs">
+      <DependentUpon>MyAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -199,13 +214,6 @@
     </Compile>
     <Compile Include="UnderConstruction.aspx.designer.cs">
       <DependentUpon>UnderConstruction.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="MyAccount.aspx.cs">
-      <DependentUpon>MyAccount.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MyAccount.aspx.designer.cs">
-      <DependentUpon>MyAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="OrderStatus.aspx.cs">
       <DependentUpon>OrderStatus.aspx</DependentUpon>

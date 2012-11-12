@@ -274,8 +274,6 @@ namespace GadgetFox
                         returnLabel.Text = "Your items were deleted from the cart";
                     }
                 }
-
-
             }
             catch (SqlException ex)
             {
@@ -292,7 +290,7 @@ namespace GadgetFox
          */
         protected void checkoutBtn_Clicked(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Checkout.aspx");
         }
 
     }
