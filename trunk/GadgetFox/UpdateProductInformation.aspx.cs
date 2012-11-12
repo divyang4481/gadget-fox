@@ -146,7 +146,7 @@ namespace GadgetFox
 
             Products prodObj = new Products();
 
-            prodObj.fn_UpdateProductDetails(Session["ProductID"].ToString(), Session["ProductName"].ToString(), Session["ProductDescription"].ToString(), Convert.ToDecimal(Session["ProductPrice"]), Convert.ToDecimal(Session["ProductSalePrice"]), Convert.ToInt16(Session["ProductOnSale"]), Convert.ToInt32(Session["ProductQuantity"]), Session["ProductCategory"].ToString(), Session["ProductSubCategory"].ToString(), Session["ProductColor"].ToString(), Session["ProductWeight"].ToString(), out status, out PID);
+            prodObj.fn_UpdateProductDetails(Session["ProductID"].ToString(), Session["ProductName"].ToString(), Session["ProductDescription"].ToString(), Convert.ToDecimal(Session["ProductPrice"]), Convert.ToDecimal(Session["ProductSalePrice"]), Convert.ToInt16(Session["ProductOnSale"]), Convert.ToInt32(Session["ProductQuantity"]), Session["ProductCategory"].ToString(), Session["ProductSubCategory"].ToString(), Session["ProductColor"].ToString(), Session["ProductWeight"].ToString(), fileUploadProductImage, out status, out PID);
 
             Session["ProductID"] = PID;
 
