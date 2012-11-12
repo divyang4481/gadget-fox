@@ -105,11 +105,10 @@ namespace GadgetFox
         * Output : Category Name                                                                            *
         ****************************************************************************************************/
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void fn_InsertProducts(string Name, string Description, decimal Price, decimal SalePrice, int InSale, int Quantity, string CategoryName, string SubCategoryName, string Color, string Weight, out int ProductStatus, out string ProductID)
+        public void fn_InsertProducts(string Name, string Description, decimal Price, decimal SalePrice, int InSale, int Quantity, string CategoryName, string SubCategoryName, string Color, string Weight, FileUpload imageFile, out int ProductStatus, out string ProductID)
         {
             
             SqlCommand cmd = new SqlCommand();
-
 
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "sp_InsertProducts";
@@ -141,6 +140,8 @@ namespace GadgetFox
             ProductStatus = Convert.ToInt32(Status.Value);
             ProductID = ProdID.Value.ToString();
 
+            //upload product image file
+            uploadProductImage(ProductID, imageFile);
         }
 
 
@@ -230,7 +231,7 @@ namespace GadgetFox
 
 
         public void fn_UpdateProductDetails(string ProductID, string Name, string Description, decimal Price, decimal SalePrice, int InSale,
-                               int Quantity, string CategoryName, string SubCategoryName, string Color, string Weight, out int ProductStatus, out string PID)
+                               int Quantity, string CategoryName, string SubCategoryName, string Color, string Weight, FileUpload imageFile, out int ProductStatus, out string PID)
   
         {
             SqlCommand cmd = new SqlCommand();
@@ -267,7 +268,101 @@ namespace GadgetFox
             ProductStatus = Convert.ToInt32(Status.Value);
             PID = ProdID.Value.ToString();
 
+            //upload product image file
+            uploadProductImage(PID, imageFile);
         }
 
+
+
+        public void uploadProductImage(String productId, FileUpload fu)
+        {
+            // Base image ID on product ID
+            int imgId = -1;
+
+            SqlConnection myConnection = null;
+            if (fu.HasFile)
+            {
+                try
+                {
+                    int fileLen = fu.PostedFile.ContentLength;
+                    
+                    // Create a byte array to hold the contents of the file.byte[] input = newbyte[fileLen - 1];
+                    byte[] m_barrImg = fu.FileBytes;
+
+                    String myConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+                    myConnection = new SqlConnection(myConnectionString);
+
+                    myConnection.Open();
+
+                    System.Diagnostics.Trace.Write("Checking if image is in dbo.Images\n");
+                    SqlCommand cmd1 = new SqlCommand("Select ImageID from Products where ProductID=@ProductID", myConnection);
+                    cmd1.Parameters.AddWithValue("@ProductID", productId);
+                    SqlDataReader dr = cmd1.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        System.Diagnostics.Trace.Write("ImageID found = {" + dr["ImageID"].ToString()  + "}\n");
+                        if (dr["ImageID"].ToString().Length > 0)
+                        {
+                            System.Diagnostics.Trace.Write("ImageID being parsed\n");
+                            imgId = int.Parse(dr["ImageID"].ToString());
+                        }
+                    }
+                    dr.Close();
+
+                    int rc = 0;
+                    if (imgId == -1)
+                    {
+                        // Insert if image does not exist
+                        System.Diagnostics.Trace.Write("Inserting image in dbo.Images\n");
+                        SqlCommand cmd = new SqlCommand("INSERT INTO [GadgetFox].[dbo].[Images] VALUES(@ImageData,@UploadedDate)", myConnection);
+                        cmd.Parameters.AddWithValue("@ImageData", m_barrImg);
+                        cmd.Parameters.AddWithValue("@UploadedDate", DateTime.Today);
+                        rc = cmd.ExecuteNonQuery();
+
+                        cmd.CommandText = "SELECT @@Identity";
+                        imgId = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        System.Diagnostics.Trace.Write("New imgId = " + imgId + "\n");
+                    }
+                    else
+                    {
+                        // Update if image it does exist
+                        System.Diagnostics.Trace.Write("Updating image in dbo.Images\n");
+                        SqlCommand cmd3 = new SqlCommand("UPDATE [GadgetFox].[dbo].[Images] SET ImageData=@ImageData, UploadedDate=@UploadedDate where ImageID=@ImageID", myConnection);
+                        cmd3.Parameters.AddWithValue("@ImageData", m_barrImg);
+                        cmd3.Parameters.AddWithValue("@UploadedDate", DateTime.Today);
+                        cmd3.Parameters.AddWithValue("@ImageID", imgId);                        
+                        rc = cmd3.ExecuteNonQuery();
+
+                        cmd3.CommandText = "SELECT @@Identity";
+                        imgId = (int)cmd3.ExecuteScalar();
+                    }
+
+                    // Update image ID for product
+                    if (imgId > -1)
+                    {
+                        System.Diagnostics.Trace.Write("Updating image ID for product in dbo.Products\n");
+                        SqlCommand cmd2 = new SqlCommand("UPDATE [GadgetFox].[dbo].[Products] SET ImageID=@ImageID where ProductID=@ProductID", myConnection);
+                        cmd2.Parameters.AddWithValue("@ImageID", imgId);
+                        cmd2.Parameters.AddWithValue("@ProductID", productId);
+
+                        rc = cmd2.ExecuteNonQuery();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    System.Diagnostics.Trace.Write("Exception: " + ex.Message + "\n");
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Trace.Write("Exception: " + ex.Message + "\n");
+                }
+                finally
+                {
+                    if (myConnection != null)
+                        myConnection.Close();
+                }
+            }
+        }
     }
 }
