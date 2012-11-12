@@ -57,7 +57,7 @@ namespace GadgetFox
 
                     //add colums for each field into the table
                     DataColumn pid = new DataColumn("Product ID");
-                    //DataColumn image = new DataColumn("ID");                    
+                    DataColumn image = new DataColumn("Image");                    
                     DataColumn name = new DataColumn("Name");
                     DataColumn description = new DataColumn("Description");
                     DataColumn price = new DataColumn("Price");
@@ -66,7 +66,7 @@ namespace GadgetFox
                     DataColumn actions = new DataColumn("#");
 
                     pid.DataType = System.Type.GetType("System.String");
-                    //image.DataType = System.Type.GetType("System.Byte[]");
+                    image.DataType = System.Type.GetType("System.String");
                     name.DataType = System.Type.GetType("System.String");
                     description.DataType = System.Type.GetType("System.String");
                     price.DataType = System.Type.GetType("System.Double");
@@ -76,7 +76,7 @@ namespace GadgetFox
                     actions.DataType = System.Type.GetType("System.String");
                     
                     Table1.Columns.Add(pid);
-                    //Table1.Columns.Add(image);
+                    Table1.Columns.Add(image);
                     Table1.Columns.Add(name);
                     Table1.Columns.Add(description);
                     Table1.Columns.Add(price);
@@ -91,6 +91,7 @@ namespace GadgetFox
 
                         //insert values into the row from the query
                         Row1["Product ID"] = dr["ProductID"];
+                        Row1["Image"] = dr["ImageID"];
                         Row1["Name"] = dr["Name"];
                         Row1["Description"] = dr["Description"];
                         Row1["Price"] = dr["Price"];
@@ -143,8 +144,10 @@ namespace GadgetFox
             add2WishlistBtn.Style.Add("margin", "5px");
             add2WishlistBtn.Text = "Add to wishlist";
 
+
             if (e.Row.RowIndex > -1)
             {                
+
                 //add buttons to column
                 String pid = e.Row.Cells[0].Text;
                 e.Row.Cells[e.Row.Cells.Count - 1].Controls.Add(add2CartBtn);
@@ -153,6 +156,12 @@ namespace GadgetFox
 
                 //add to quantity drop down list to column
                 e.Row.Cells[e.Row.Cells.Count - 2].Controls.Add(qtyDL);
+
+                //insert product image
+                String imgId = e.Row.Cells[1].Text;
+                Literal img = new Literal();
+                img.Text = "<img height='80px' width='80px' src='Image.aspx?ImageID=" + imgId + "'/>";
+                e.Row.Cells[1].Controls.Add(img);
 
                 //pass product id & row to on-click event
                 add2CartBtn.Click += new EventHandler(this.addProduct2CartBtn_Click);
