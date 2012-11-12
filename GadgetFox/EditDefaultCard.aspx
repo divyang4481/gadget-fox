@@ -227,7 +227,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Zipcode<asp:Label ID="Label5" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
+                    <td>Zip code<asp:Label ID="Label5" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
                     <td><asp:TextBox ID="zipcodeTB" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>

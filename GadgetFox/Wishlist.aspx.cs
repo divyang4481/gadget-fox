@@ -78,7 +78,6 @@ namespace GadgetFox
                 }
 
                 dr.Close();
-
             }
             catch (SqlException ex)
             {

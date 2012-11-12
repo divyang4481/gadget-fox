@@ -21,9 +21,9 @@
             </table>
 
             <div style="margin: auto;"><asp:Label runat="server" ID="lblLoginError" ForeColor="Red" Width="200px"></asp:Label></div>
-            <div style="margin: auto;"><asp:LinkButton ID="Button2" runat="server" Text="Create an account" PostBackUrl="~/CreateAccount.aspx"/></div>
-            <div style="margin: auto;"><asp:LinkButton ID="Button3" runat="server" Text="Recover password" PostBackUrl="~/UnderConstruction.aspx"/></div>
-            <div style="margin: auto;"><asp:LinkButton ID="Button4" runat="server" Text="Contact support" PostBackUrl="~/UnderConstruction.aspx"/></div>
+            <div style="margin: auto;"><asp:LinkButton ID="Button2" runat="server" ForeColor="Blue" Text="Create an account" PostBackUrl="~/CreateAccount.aspx"/></div>
+            <div style="margin: auto;"><asp:LinkButton ID="Button3" runat="server" ForeColor="Blue" Text="Recover password" PostBackUrl="~/UnderConstruction.aspx"/></div>
+            <div style="margin: auto;"><asp:LinkButton ID="Button4" runat="server" ForeColor="Blue" Text="Contact support" PostBackUrl="~/UnderConstruction.aspx"/></div>
       	</div>
     </asp:Panel>      
 </asp:Content>
