@@ -1,182 +1,178 @@
-body
-{
+body {
 	margin: 0;
 	padding: 0;
 	/*color: #6e6e6e;*/
 	font-family: Tahoma, Geneva, sans-serif;
-	font-size: 14px;
-	line-height: 1.4em;
-	/*background-color: #707070;*/
+	font-size: 13px;
+	line-height: 1.4em; 
+	/*background-color: #C0C0C0;*/
 	background-position: top;
 }
 
-a, a:link, a:visited
-{
+a, a:link, a:visited { 
 	color: #000000;
 	font-weight: normal;
-	text-decoration: none;
+	text-decoration: none; 
 }
 
-	a:hover
-	{
-		text-decoration: underline;
-	}
+a:hover { 
+	text-decoration: underline;
+}
 
-#search_bar
-{
+#search_bar {
 	float: right;
-    font-weight: bold;
 	/*font-size: 16px;*/
 }
 
-	#search_bar a
-	{
-		padding-right: 20px;
-		padding-left: 20px;
-		color: #a9a2a2;
-	}
-
-.welcomeLabel
-{
-	color: black;
-	font-size: 24px;
+#search_bar a {
+	padding-right: 20px;
+	padding-left: 20px;
+	color: #FFFFFF;
 }
 
-h1, h2, h3, h4, h5, h6
-{
-	color: #2c2c2c;
-	font-weight: normal;
+h1, h2, h3, h4, h5, h6 { color: #2c2c2c; font-weight: normal; }
+h1 { font-size: 48px; margin: 0 0 30px; padding: 5px 0 }
+h2 { font-size: 30px; margin: 0 0 25px; padding: 5px 0 }
+h3 { font-size: 24px; margin: 0 0 20px; padding: 0; }
+h4 { font-size: 18px; margin: 0 0 15px; padding: 0; }
+h5 { font-size: 16px; margin: 0 0 10px; padding: 0;  }
+h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
+
+.cleaner { clear: both }
+
+#main {
+	float: right;
+	width: 80%;
+	margin-right: 2%;
+	/*background: #C0C0C0;*/
+	/*border: 1px solid #383838;*/
+	margin-bottom: 40px;
+	padding-bottom:60px;
+    /*text-align: center;*/
 }
 
-h1
-{
-	font-size: 48px;
-	margin: 0 0 30px;
-	padding: 5px 0;
+#footer {
+   width: 96%;
+   margin-left: 2%;
+   margin-right: 2%;
+   height:60px;   /* Height of the footer */
+   bottom: 0;
+   clear: both;
+   position: relative;
+   z-index: 10;
+   margin-top: 60px;
+   background: #383838;
 }
 
-h2
-{
-	font-size: 30px;
-	margin: 0 0 25px;
-	padding: 5px 0;
+#footer a {
+	color: #FFFFFF;
+	padding-right: 30px;
 }
 
-h3
-{
-	font-size: 24px;
-	margin: 0 0 20px;
-	padding: 0;
-}
-
-h4
-{
-	font-size: 18px;
-	margin: 0 0 15px;
-	padding: 0;
-}
-
-h5
-{
-	font-size: 16px;
-	margin: 0 0 10px;
-	padding: 0;
-}
-
-h6
-{
-	font-size: 12px;
-	margin: 0 0 5px;
-	padding: 0;
-}
-
-.cleaner
-{
-	clear: both;
-}
-
-
-.center
-{
+#footer p {
+	padding-top: 3px;
 	text-align: center;
 }
 
-#main
-{
-	float: center;
-	margin-right: 10%;
-	margin-left: 10%;
-	padding: 40px 10px 20px;
-	/*background: #f6f3f3;*/
-	border: 1px solid #fff;
-	margin-bottom: 40px;
-}
-
-
-#header_wrapper
-{
+#header_wrapper {
 	width: 100%;
-	background-color: #A0A0A0;
+	background-color: #C0C0C0;
 }
 
-	#header_wrapper img
-	{
-		float: right;
-		margin-right: 20px;
-	}
+#header_wrapper  img{
+	float: right;
+	margin-right: 20px;
+}
 
-#menu_bar
-{
+#menu_bar {
 	width: 100%;
 }
 
-#menu_bar a
-{
-    font-weight: bold;
+#site_title { 
+	float: left; 
+	padding-right: 50px; 
 }
 
-#site_title
-{
-	float: left;
-	padding-right: 50px;
-	width: 410px;
-    height: 107px;
+#site_title h1 { 
+	margin: 0; 
+	padding: 0; 
 }
 
-	#site_title h1
-	{
-		margin: 0;
-		padding: 0;
-	}
+#site_title h1 a {  
+	display: block; 
+	font-size: 12px; 
+	width: 526px; 
+	height: 98px; 
+	color: #D8D8D8;
+	margin-top: 20px;
+	background: url(../images/logo.png) no-repeat center left; 
+}
 
-		#site_title h1 a
-		{
-			display: block;
-			font-size: 12px;
-			width: 534px;
-			height: 98px;
-			color: #accac;
-			margin-top: 20px;
-			background: url('../images/logo.png') no-repeat left 50%;
-		}
-
-#menu
-{
+#menu {
 	margin-top: 60px;
 	margin-right: 20px;
 	font-size: 12px;
 	float: right;
-	margin-left: 58px;
 }
 
-	#menu img
-	{
-		margin-top: 10px;
-		margin-right: 5px;
-	}
-
-.inventoryGrid
-{
-	width: 90%;
-	margin: 0 auto;
+#menu img {
+	margin-top: 10px;
+	margin-right: 5px;
 }
+
+/*CSS styling for accoridan menu*/
+/*Start ->*/
+.arrowlistmenu{
+	float: left;
+	width: 13%;
+	margin-left: 2%;
+	border: 1px solid #fff;
+	margin-bottom: 40px;
+}
+
+.arrowlistmenu .menuheader{ /*CSS class for menu headers in general (expanding or not!)*/
+	font: bold 12px Arial;
+	color: #FFFFFF;
+	background: black url(../images/titlebar.png) repeat-x center left;
+	margin-bottom: 3px; /*bottom spacing between header and rest of content*/
+	text-transform: uppercase;
+	padding: 4px 0 4px 10px; /*header text is indented 10px*/
+	cursor: hand;
+	cursor: pointer;
+}
+
+.arrowlistmenu .openheader{ /*CSS class to apply to expandable header when it's expanded*/
+	background-image: url(../images/titlebar-active.png);
+}
+
+.arrowlistmenu ul{ /*CSS for UL of each sub menu*/
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.arrowlistmenu ul li{
+	padding-bottom: 2px; /*bottom spacing between menu items*/
+}
+
+.arrowlistmenu ul li a{
+	color: #000000;
+	background: url(../images/arrowbullet.png) no-repeat center left; /*custom bullet list image*/
+	display: block;
+	padding: 2px 0;
+	padding-left: 19px; /*link text is indented 19px*/
+	text-decoration: none;
+	font-weight: bold;
+	border-bottom: 1px solid #dadada;
+	font-size: 90%;
+}
+
+.arrowlistmenu ul li a:visited{
+	color: #000000;
+}
+
+.arrowlistmenu ul li a:hover{ /*hover state CSS*/
+	color: #A70303;
+	background-color: #F3F3F3;
+}
+/*->End*/

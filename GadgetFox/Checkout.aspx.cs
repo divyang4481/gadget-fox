@@ -163,8 +163,8 @@ namespace GadgetFox
 
                 // OrderID, EmailID, Status, PurchaseDate, OrderTotal, TaxAmount, ShipAmount, ShipType, ShipAddress1, ShipAddress2, ShipCity, ShipState, ShipCountry, TrackingID, CCID, PaymentType 
                 SqlCommand cmd3 = new SqlCommand("INSERT INTO [GadgetFox].[dbo].[Orders] " + 
-                        "(OrderID, EmailID, Status, PurchaseDate, OrderTotal, TaxAmount, ShipAmount, ShipType, FirstName, LastName, ShipAddress1, ShipAddress2, ShipCity, ShipState, ShipCountry, TrackingID, CCID, PaymentType)" +
-                        " VALUES(@OrderID, @EmailID, @Status, @PurchaseDate, @OrderTotal, @TaxAmount, @ShipAmount, @ShipType, @FirstName, @LastName, @ShipAddress1, @ShipAddress2, @ShipCity, @ShipState, @ShipCountry, @TrackingID, @CCID, @PaymentType)", myConnection);
+                        "(OrderID, EmailID, Status, PurchaseDate, OrderTotal, TaxAmount, ShipAmount, ShipType, FirstName, LastName, ShipAddress1, ShipAddress2, ShipCity, ShipState, ShipCountry, ShipZip, TrackingID, CCID, PaymentType)" +
+                        " VALUES(@OrderID, @EmailID, @Status, @PurchaseDate, @OrderTotal, @TaxAmount, @ShipAmount, @ShipType, @FirstName, @LastName, @ShipAddress1, @ShipAddress2, @ShipCity, @ShipState, @ShipCountry, @ShipZip, @TrackingID, @CCID, @PaymentType)", myConnection);
                 cmd3.Parameters.AddWithValue("@OrderID", orderId);
                 cmd3.Parameters.AddWithValue("@EmailID", Session["userID"].ToString());
                 cmd3.Parameters.AddWithValue("@Status", "Processing");
@@ -180,6 +180,7 @@ namespace GadgetFox
                 cmd3.Parameters.AddWithValue("@ShipCity", cityTB.Text.Trim());
                 cmd3.Parameters.AddWithValue("@ShipState", stateDL.Text.Trim());
                 cmd3.Parameters.AddWithValue("@ShipCountry", countryDL.Text);
+                cmd3.Parameters.AddWithValue("@ShipZip", zipcodeTB.Text);
                 cmd3.Parameters.AddWithValue("@TrackingID", "");
                 cmd3.Parameters.AddWithValue("@CCID", ccId);
                 cmd3.Parameters.AddWithValue("@PaymentType", cardType);

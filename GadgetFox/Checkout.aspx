@@ -6,7 +6,7 @@
 
     <div style="display: block; margin-bottom: 10px;"><asp:Label ID="returnLabel" runat="server" ForeColor="#CC0000"></asp:Label></div>
     <div style="display: block;">
-        <asp:Panel ID="Panel1" runat="server" BorderColor="#999999" Height="390px" style="margin-left: 250px" Width="479px" Direction="LeftToRight" HorizontalAlign="Left">
+        <asp:Panel ID="Panel1" runat="server" BorderColor="#999999" style="margin-left: 250px" Width="479px" Direction="LeftToRight" HorizontalAlign="Left">
             <fieldset>
                 <legend style="font-weight: bold;">Payment</legend>
                 <table>
