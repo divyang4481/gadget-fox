@@ -71,6 +71,11 @@
   <ItemGroup>
     <Content Include="Cart.aspx" />
     <Content Include="Checkout.aspx" />
+    <Content Include="images\arrowbullet.png" />
+    <Content Include="images\loading2.gif" />
+    <Content Include="images\titlebar-active.png" />
+    <Content Include="images\titlebar.png" />
+    <Content Include="js\ddaccordion.js" />
     <Content Include="MyAccount.aspx" />
     <Content Include="Wishlist.aspx" />
     <Content Include="Image.aspx" />

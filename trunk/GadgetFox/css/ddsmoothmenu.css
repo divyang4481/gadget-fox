@@ -23,9 +23,8 @@
 	width: 100px;
 	margin-left: 5px;
 	line-height: 25px;
-	/*font-size: 16px;*/
-	/*font-family: Georgia, "Times New Roman", Times, serif;*/
-	color: #a9a2a2;	
+	font-size: 14px;
+	color: #FFFFFF;	
 	text-align: center;
 	text-decoration: none;
 	font-weight: 400;
@@ -38,7 +37,7 @@ display: inline-block;
 }
 
 .ddsmoothmenu ul li a.selected, .ddsmoothmenu ul li a:hover { /*CSS class that's dynamically added to the currently active menu items' LI A element*/
-	color: #f00;
+	color: #FFFFFF;
 }
 
 /*1st sub level menu*/
@@ -72,10 +71,10 @@ top: 0;
 	height: 28px;
 	line-height: 28px;
 	margin: 0 10px;
-	/*font-size: 16px;*/
+	font-size: 14px;
 	text-align: left;
 	background: none;
-	color: #a9a2a2;
+	color: #FFFFFF;
 	border-bottom: 1px solid #151515
 }
 
@@ -84,7 +83,7 @@ top: 0;
 }
 
 .ddsmoothmenu ul li ul li a.selected, .ddsmoothmenu ul li ul li a:hover {
-	color: #f00;
+	color: #FFFFFF;
 	width: 129px;
 	margin-left: 11px;
 	background: none;
