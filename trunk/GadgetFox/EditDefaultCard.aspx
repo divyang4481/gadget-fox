@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="EditDefaultCard.aspx.cs" Inherits="GadgetFox.EditDefaultCard" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p style="height: 0px; margin-top: 0px; font-style: normal; font-size: large; top: auto;">
+    <p style="height: 0px; margin-bottom: 50px; font-style: normal; font-size: large; top: auto;">
         Edit Default Card
     </p>
 
     <div style="display: block; margin-bottom: 10px;"><asp:Label ID="returnLabel" runat="server" ForeColor="#CC0000"></asp:Label></div>
     <div style="display: block;">
-        <asp:Panel ID="Panel1" runat="server" runat="server" BorderColor="#999999" Height="390px" style="margin-left: 250px" Width="479px" Direction="LeftToRight" HorizontalAlign="Left">
+        <asp:Panel ID="Panel1" runat="server" runat="server" BorderColor="#999999" Width="479px" Direction="LeftToRight" HorizontalAlign="Left">
             <table>
                 <tr>
                     <td>Type of Card<asp:Label ID="Label6" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
@@ -116,7 +116,7 @@
                 <tr>
                     <td>Country<asp:Label ID="Label4" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
                     <td>
-                        <asp:DropDownList ID="countryDL" runat="server" Width="135px">
+                        <asp:DropDownList ID="countryDL" runat="server" Width="135px" Enabled="false">
                             <asp:ListItem>United States</asp:ListItem>
                             <asp:ListItem>Argentina</asp:ListItem>
                             <asp:ListItem>Australia</asp:ListItem>
@@ -235,7 +235,7 @@
                         <asp:Button ID="saveButton" runat="server" Text="Submit" Width="75px" OnClick="saveButton_Clicked" style="margin-top: 20px"/>
                     </td>
                     <td>
-                        <asp:Button ID="cancelButton" runat="server" Text="Cancel" Width="75px" PostBackUrl="~/Home.aspx" style="margin-top: 20px"/>
+                        <asp:Button ID="cancelButton" runat="server" Text="Cancel" Width="75px" PostBackUrl="~/MyAccount.aspx" style="margin-top: 20px"/>
                     </td>
                 </tr>
             </table>

@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" Inherits="GadgetFox.Checkout" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p style="height: 0px; margin-top: 0px; font-style: normal; font-size: large; top: auto;">
+    <p style="height: 0px; margin-bottom: 50px; font-style: normal; font-size: large; top: auto;">
         Checkout
     </p>
 
     <div style="display: block; margin-bottom: 10px;"><asp:Label ID="returnLabel" runat="server" ForeColor="#CC0000"></asp:Label></div>
     <div style="display: block;">
-        <asp:Panel ID="Panel1" runat="server" BorderColor="#999999" style="margin-left: 250px" Width="479px" Direction="LeftToRight" HorizontalAlign="Left">
+        <asp:Panel ID="Panel1" runat="server" BorderColor="#999999" Width="479px" Direction="LeftToRight" HorizontalAlign="Left">
             <fieldset>
                 <legend style="font-weight: bold;">Payment</legend>
                 <table>

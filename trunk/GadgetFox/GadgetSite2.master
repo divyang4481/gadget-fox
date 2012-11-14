@@ -71,6 +71,8 @@
 	        <div id="menu">
                 <br />
                 <asp:Label ID="lblWelcome" runat="server" CssClass="welcomeLabel" Font-Size="Medium"></asp:Label>
+                <br />
+                <asp:LinkButton ID="logoutLK" runat="server" Visible="false" Font-Size="Small" PostBackUrl="~/Logout.aspx" Text="Logout" ForeColor="Blue" style="float: right;"></asp:LinkButton>
                 <br/>
 	            <asp:Image ID="Image3" runat="server" AlternateText="Youtube Icon" ImageUrl="~/images/youtube.png" />
                 <asp:Image ID="Image2" runat="server" AlternateText="Twitter Icon" ImageUrl="~/images/twitter.png" />

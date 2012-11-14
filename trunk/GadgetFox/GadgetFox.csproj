@@ -69,13 +69,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Cart.aspx" />
     <Content Include="Checkout.aspx" />
+    <Content Include="EmployeeHome.aspx" />
     <Content Include="images\arrowbullet.png" />
     <Content Include="images\loading2.gif" />
     <Content Include="images\titlebar-active.png" />
     <Content Include="images\titlebar.png" />
     <Content Include="js\ddaccordion.js" />
+    <Content Include="Logout.aspx" />
     <Content Include="MyAccount.aspx" />
     <Content Include="Wishlist.aspx" />
     <Content Include="Image.aspx" />
@@ -170,13 +171,6 @@
     <Content Include="CreateAccount.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cart.aspx.cs">
-      <DependentUpon>Cart.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cart.aspx.designer.cs">
-      <DependentUpon>Cart.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Data\Products.cs" />
     <Compile Include="Checkout.aspx.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
@@ -184,6 +178,20 @@
     </Compile>
     <Compile Include="Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeHome.aspx.cs">
+      <DependentUpon>EmployeeHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeHome.aspx.designer.cs">
+      <DependentUpon>EmployeeHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="MyAccount.aspx.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>

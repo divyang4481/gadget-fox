@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="inventoryGrid">
-         <asp:GridView ID="gdvInventory" runat="server" CellPadding="4" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px" AutoGenerateColumns="False" 
+         <asp:GridView ID="gdvInventory" runat="server" SkinID="Professional" CellPadding="4" HeaderStyle-BackColor="#444444" HeaderStyle-ForeColor="White" AlternatingRowStyle-BackColor="#dddddd" AutoGenerateColumns="False" 
             AllowSorting="True" AllowPaging="True" DataKeyNames="ProductID" DataSourceID="SqlDataSource1">
             <AlternatingRowStyle BackColor="White" />
             <Columns>

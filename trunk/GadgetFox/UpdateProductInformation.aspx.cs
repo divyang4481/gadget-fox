@@ -11,7 +11,23 @@ namespace GadgetFox
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userID"] == null)
+            {
+                // Redirect user to login before doing anything else
+                Response.Redirect("~/Login.aspx?redirect=UpdateProductInformation.aspx");
+            }
+            else if (Session["userID"] != null && Session["userRole"].Equals("1"))
+            {
+                // Redirect user to login before doing anything else
+                Response.Redirect("~/Home.aspx");
+            }
 
+            // Retreive product info
+            String pid = Request.QueryString["pid"];
+            if (pid != null && pid.Length > 0) {
+                textBoxProductID.Text = pid;
+                textBoxProductID_TextChanged(this.textBoxProductID, EventArgs.Empty);
+            }
         }
 
         protected void textBoxProductID_TextChanged(object sender, EventArgs e)
@@ -150,15 +166,18 @@ namespace GadgetFox
 
             Session["ProductID"] = PID;
 
-            Response.Write("<script>alert('Product updated successfully" + PID + "')</script>");
+            Response.Write("<script>alert('Product " + PID + " was updated successfully!')</script>");
             Server.Transfer("SalesDashboard.aspx");
 
         }
 
         protected void buttonReset_Click(object sender, EventArgs e)
         {
-             textBoxProductID.Text = Session["ProductID"].ToString() ;
-             textBoxProductID_TextChanged(this.textBoxProductID, EventArgs.Empty);
+            if (Session["ProductID"] != null && Session["ProductID"].ToString().Length > 0)
+            {
+                textBoxProductID.Text = Session["ProductID"].ToString();
+                textBoxProductID_TextChanged(this.textBoxProductID, EventArgs.Empty);
+            }
         }
     }
 }

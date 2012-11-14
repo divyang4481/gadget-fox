@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="EditShippingAddress.aspx.cs" Inherits="GadgetFox.EditShippingAddress" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p style="height: 0px; margin-top: 0px; font-style: normal; font-size: large; top: auto;">
+    <p style="height: 0px; margin-bottom: 50px; font-style: normal; font-size: large; top: auto;">
         Edit Shipping Address 
     </p>
     <asp:Label ID="returnLabel" runat="server" ForeColor="#CC0000"></asp:Label>
-    <asp:Panel ID="Panel1" runat="server" BorderColor="#999999" Height="390px" style="margin-left: 254px" Width="479px">
+    <asp:Panel ID="Panel1" runat="server" BorderColor="#999999" Height="390px" Width="479px">
         <table>
             <tr>
                 <td>Address 1<asp:Label ID="Label1" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
@@ -79,7 +79,7 @@
             <tr>
                 <td>Country<asp:Label ID="Label4" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
                 <td>
-                    <asp:DropDownList ID="countryDL" runat="server" Width="133px" style="margin-left: 3px">
+                    <asp:DropDownList ID="countryDL" runat="server" Width="133px" style="margin-left: 3px" Enabled="false">
                         <asp:ListItem>United States</asp:ListItem>
                         <asp:ListItem>Argentina</asp:ListItem>
                         <asp:ListItem>Australia</asp:ListItem>
@@ -198,7 +198,7 @@
                     <asp:Button ID="saveButton" runat="server" Text="Save" Width="75px" OnClick="saveButton_Clicked" style="margin-top: 20px"/>
                 </td>
                 <td>
-                    <asp:Button ID="cancelButton" runat="server" Text="Cancel" Width="75px" PostBackUrl="~/Home.aspx" style="margin-top: 20px"/>
+                    <asp:Button ID="cancelButton" runat="server" Text="Cancel" Width="75px" PostBackUrl="~/MyAccount.aspx" style="margin-top: 20px"/>
                 </td>
             </tr>
         </table>                  

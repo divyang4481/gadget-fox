@@ -1,17 +1,17 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite1.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="GadgetFox.Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="GadgetFox.Login" %>
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
 
-	<p style="height: 0px; margin-top: 0px; font-style: normal; font-size: large; top: auto; text-align:center; margin-bottom: 20px;">Account Login</p>
+	<p style="height: 0px; margin-top: 0px; font-style: normal; font-size: large; top: auto; text-align:center; margin-bottom: 50px;">Account Login</p>
 	<asp:Panel ID="loginPanel" runat="server" BorderColor="#999999" style="margin: 0px auto;" Width="600px" HorizontalAlign="Center">
 		<div style="width: 250px; margin: 0px auto;">
             <table>
                 <tr>
-                    <td><asp:Label ID="Label1" runat="server" Text="Login ID"></asp:Label></td>
+                    <td><asp:Label ID="Label1" runat="server" Text="Login ID" style="margin-right: 10px;"></asp:Label></td>
                     <td><asp:TextBox ID="txtEmailID" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td><asp:Label ID="Label2" runat="server" Text="Password"></asp:Label></td>
+                    <td><asp:Label ID="Label2" runat="server" Text="Password" style="margin-right: 10px;"></asp:Label></td>
                     <td><asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox></td>
                 </tr>
                 <tr>

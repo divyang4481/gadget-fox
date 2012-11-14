@@ -20,6 +20,9 @@ namespace GadgetFox
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            // Get site to redirect to after authentication
+            String redirect = Request.QueryString["redirect"];
+
             String myConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
             SqlConnection myConnection = new SqlConnection(myConnectionString);
             try
@@ -36,12 +39,28 @@ namespace GadgetFox
                     Session["userRole"] = dr["RoleID"];
                     if (Session["userRole"] != null && !Session["userRole"].Equals("1"))
                     {
-                        // Re-direct to employee home page if not customer
-                        Response.Redirect("~/EmployeeHome.aspx");
+                        // Re-direct to original page
+                        if (redirect != null && redirect.Length > 0)
+                        {
+                            Response.Redirect(redirect);
+                        }
+                        else
+                        {
+                            Response.Redirect("~/EmployeeHome.aspx");
+                        }
+                        
                     }
                     else
                     {
-                        Response.Redirect("~/Home.aspx");
+                        // Re-direct to original page
+                        if (redirect != null && redirect.Length > 0)
+                        {
+                            Response.Redirect(redirect);
+                        }
+                        else
+                        {
+                            Response.Redirect("~/Home.aspx");
+                        }
                     }
                 }
                 else

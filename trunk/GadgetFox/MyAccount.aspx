@@ -1,13 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="MyAccount.aspx.cs" Inherits="GadgetFox.MyAccount" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p style="height: 0px; margin-top: 0px; font-style: normal; font-size: large; top: auto;">
+    <p style="height: 0px; margin-bottom: 50px; font-style: normal; font-size: large; top: auto;">
         My Account
     </p>
 
     <div style="display: block; margin-bottom: 10px;"><asp:Label ID="returnLabel" runat="server" ForeColor="#CC0000"></asp:Label></div>
     <div style="display: block;">
-        <asp:Panel ID="Panel1" runat="server" BorderColor="#999999" Height="390px" Width="800px" Direction="LeftToRight" HorizontalAlign="Left">
-            <fieldset>
+        <asp:Panel ID="Panel1" runat="server" BorderColor="#999999" Width="800px" Direction="LeftToRight" HorizontalAlign="Left">
+            <fieldset style="margin-bottom: 20px;">
                 <legend style="font-weight: bold;">Personal info</legend>
                 <table>
                     <tr>
@@ -22,7 +22,7 @@
                     </tr>
                 </table>
             </fieldset>
-            <fieldset>
+            <fieldset style="margin-bottom: 20px;">
                 <legend style="font-weight: bold;">Default credit card</legend>
                 <table>
                     <tr>
@@ -37,7 +37,7 @@
                     </tr>
                 </table>
             </fieldset>
-            <fieldset>
+            <fieldset style="margin-bottom: 20px;">
                 <legend style="font-weight: bold;">Default address</legend>
                 <table>
                     <tr>
@@ -50,7 +50,7 @@
                     </tr>
                 </table>
             </fieldset>
-            <fieldset>
+            <fieldset style="margin-bottom: 20px;">
                 <legend style="font-weight: bold;">Orders</legend>
                 <asp:GridView ID="GridView1" runat="server" Width="800px" SkinID="Professional" CellPadding="4" HeaderStyle-BackColor="#444444" HeaderStyle-ForeColor="White" AlternatingRowStyle-BackColor="#dddddd" OnRowDataBound="GridView1_RowDataBound"/>      
             </fieldset>
