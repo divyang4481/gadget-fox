@@ -15,7 +15,11 @@ namespace GadgetFox
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["userID"] == null)
+            {
+                // Redirect user to login before doing anything else
+                Response.Redirect("~/Login.aspx?redirect=Wishlist.aspx");
                 return;
+            }
 
             //connection setup
             String myConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
@@ -189,6 +193,8 @@ namespace GadgetFox
             {
                 myConnection.Close();
             }
+
+            Response.Redirect("~/Wishlist.aspx");
         }
 
         /**
@@ -208,14 +214,14 @@ namespace GadgetFox
             {
                 myConnection.Open();
 
-                SqlCommand cmd1 = new SqlCommand("Select COUNT(*) from viewCart where EmailID=@EmailID and ProductID=@ProductID", myConnection);
+                SqlCommand cmd1 = new SqlCommand("Select COUNT(*) from Wishlists where EmailID=@EmailID and ProductID=@ProductID", myConnection);
                 cmd1.Parameters.AddWithValue("@EmailID", Session["userID"]);
                 cmd1.Parameters.AddWithValue("@ProductID", pid);
                 int idRows = (int)cmd1.ExecuteScalar();
                 if (idRows != 0)
                 {
-                    //update existing row
-                    SqlCommand cmd2 = new SqlCommand("Delete from [GadgetFox].[dbo].[Carts] where " +
+                    //delete product from wishlist
+                    SqlCommand cmd2 = new SqlCommand("Delete from [GadgetFox].[dbo].[Wishlists] where " +
                        "EmailID=@EmailID and ProductID=@ProductID", myConnection);
                     cmd2.Parameters.AddWithValue("@EmailID", Session["userID"]);
                     cmd2.Parameters.AddWithValue("@ProductID", pid);
@@ -225,8 +231,6 @@ namespace GadgetFox
                         returnLabel.Text = "Your items were deleted from the cart";
                     }
                 }
-
-
             }
             catch (SqlException ex)
             {
@@ -236,6 +240,8 @@ namespace GadgetFox
             {
                 myConnection.Close();
             }
+
+            Response.Redirect("~/Wishlist.aspx");
         }
 
         /**

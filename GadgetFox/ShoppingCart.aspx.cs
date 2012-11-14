@@ -17,7 +17,10 @@ namespace GadgetFox
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["userID"] == null)
-                return;
+            {
+                // Redirect user to login before doing anything else
+                Response.Redirect("~/Login.aspx?redirect=ShoppingCart.aspx");
+            }
 
             //connection setup
             String myConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
@@ -146,7 +149,7 @@ namespace GadgetFox
                 e.Row.Cells[1].Controls.Add(img);
 
                 //calculate purchase total
-                if (e.Row.Cells[4].Text.Length > 0 && e.Row.Cells[4].Text != "&nbsp;")
+                if (e.Row.Cells[4].Text.Length > 0 && !e.Row.Cells[4].Text.Equals("0") && e.Row.Cells[4].Text != "&nbsp;")
                 {
                     String salePrice = e.Row.Cells[4].Text;
                     purchaseTotal = purchaseTotal + Double.Parse(salePrice) * Double.Parse(qty);
@@ -237,6 +240,8 @@ namespace GadgetFox
                     myConnection.Close();
                 }
             }
+
+            Response.Redirect("~/ShoppingCart.aspx");
         }
 
         /**
@@ -290,6 +295,8 @@ namespace GadgetFox
             {
                 myConnection.Close();
             }
+
+            Response.Redirect("~/ShoppingCart.aspx");
         }
 
         /**
@@ -297,7 +304,14 @@ namespace GadgetFox
          */
         protected void checkoutBtn_Clicked(object sender, EventArgs e)
         {
-            Response.Redirect("~/Checkout.aspx");
+            if (!(purchaseTotal > 0))
+            {
+                returnLabel.Text = "You have no items to checkout";
+            }
+            else
+            {
+                Response.Redirect("~/Checkout.aspx");
+            }
         }
 
     }

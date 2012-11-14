@@ -14,14 +14,22 @@ namespace GadgetFox
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userID"] == null)
+            {
+                // Redirect user to login before doing anything else
+                Response.Redirect("~/Login.aspx?redirect=ReportIssue.aspx");
+            }
+            else if (Session["userID"] != null && Session["userRole"].Equals("1"))
+            {
+                // Redirect user to login before doing anything else
+                Response.Redirect("~/Home.aspx");
+            }
+
             if (!IsPostBack)
             {
-                if (Session["userID"] != null)
-                {
-                    // Set customer Id and issue Id
-                    emailId.Text = Session["userID"].ToString();
-                    issueId.Text = getNextIssueId().ToString();
-                }
+                // Set customer Id and issue Id
+                emailId.Text = Session["userID"].ToString();
+                issueId.Text = getNextIssueId().ToString();
             }
         }
 

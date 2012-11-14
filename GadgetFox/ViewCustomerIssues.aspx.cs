@@ -15,14 +15,21 @@ namespace GadgetFox
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Session["userID"] == null)
+            {
+                // Redirect user to login before doing anything else
+                Response.Redirect("~/Login.aspx?redirect=ViewCustomerIssues.aspx");
+            }
+            else if (Session["userID"] != null && Session["userRole"].Equals("1"))
+            {
+                // Redirect user to login before doing anything else
+                Response.Redirect("~/Home.aspx");
+            }
         }
 
         protected void buttonReportIssue_Click(object sender, EventArgs e)
         {
 
         }
-      
-
     }
 }

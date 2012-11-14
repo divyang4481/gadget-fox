@@ -123,7 +123,15 @@ namespace GadgetFox
                         Row1["Name"] = dr["Name"];
                         Row1["Description"] = dr["Description"];
                         Row1["Price"] = dr["Price"];
-                        Row1["Sale Price"] = dr["SalePrice"];
+
+                        if (Double.Parse(dr["SalePrice"].ToString()) > 0)
+                        {
+                            Row1["Sale Price"] = dr["SalePrice"];
+                        }
+                        else
+                        {
+                            Row1["Sale Price"] = dr["Price"];
+                        }
 
                         //columns to purchase item
                         Row1["Quantity"] = "";
@@ -172,14 +180,36 @@ namespace GadgetFox
             add2WishlistBtn.Style.Add("margin", "5px");
             add2WishlistBtn.Text = "Add to wishlist";
 
+            //add edit & remove product info if not customer
+            Button editProductInfoBtn = new Button();
+            editProductInfoBtn.Style.Add("padding", "5px");
+            editProductInfoBtn.Style.Add("margin", "5px");
+            editProductInfoBtn.Text = "Edit info";
 
+            Button deleteProductBtn = new Button();
+            deleteProductBtn.Style.Add("padding", "5px");
+            deleteProductBtn.Style.Add("margin", "5px");
+            deleteProductBtn.Text = "Delete product";
+            
             if (e.Row.RowIndex > -1)
             {
-
                 //add buttons to column
                 String pid = e.Row.Cells[0].Text;
-                e.Row.Cells[e.Row.Cells.Count - 1].Controls.Add(add2CartBtn);
-                e.Row.Cells[e.Row.Cells.Count - 1].Controls.Add(add2WishlistBtn);
+                if (Session["userID"] != null && !Session["userRole"].Equals("1"))
+                {
+                    e.Row.Cells[e.Row.Cells.Count - 1].Controls.Add(editProductInfoBtn);
+                    e.Row.Cells[e.Row.Cells.Count - 1].Controls.Add(deleteProductBtn);
+
+                    //add logic to delete product
+                    deleteProductBtn.Enabled = false;
+                }
+                else
+                {
+                    e.Row.Cells[e.Row.Cells.Count - 1].Controls.Add(add2CartBtn);
+                    e.Row.Cells[e.Row.Cells.Count - 1].Controls.Add(add2WishlistBtn);
+                }
+                
+                
                 qtyDL.ID = pid + "_qty";
 
                 //add to quantity drop down list to column
@@ -188,7 +218,7 @@ namespace GadgetFox
                 //insert product image
                 String imgId = e.Row.Cells[1].Text;
                 Literal img = new Literal();
-                img.Text = "<img height='80px' width='80px' src='Image.aspx?ImageID=" + imgId + "'/>";
+                img.Text = "<img height='100px' width='100px' src='Image.aspx?ImageID=" + imgId + "'/>";
                 e.Row.Cells[1].Controls.Add(img);
 
                 //pass product id & row to on-click event
@@ -197,7 +227,37 @@ namespace GadgetFox
 
                 add2WishlistBtn.Click += new EventHandler(this.addProduct2WishlistBtn_Click);
                 add2WishlistBtn.CommandArgument = e.Row.RowIndex + "-" + pid;
+
+                editProductInfoBtn.Click += new EventHandler(this.editProductInfoBtn_Click);
+                editProductInfoBtn.CommandArgument = e.Row.RowIndex + "-" + pid;
+
+                deleteProductBtn.Click += new EventHandler(thisdeleteProductBtn_Click);
+                deleteProductBtn.CommandArgument = e.Row.RowIndex + "-" + pid;
             }
+        }
+
+        /**
+         * Delete product
+         */
+        protected void thisdeleteProductBtn_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            String[] args = btn.CommandArgument.ToString().Split('-');
+            int row = int.Parse(args[0]);
+            String pid = args[1];
+        }
+
+        /**
+         * Edit product info
+         */
+        protected void editProductInfoBtn_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            String[] args = btn.CommandArgument.ToString().Split('-');
+            int row = int.Parse(args[0]);
+            String pid = args[1];
+
+            Response.Redirect("~/UpdateProductInformation.aspx?pid=" + pid);
         }
 
         /**
@@ -218,53 +278,61 @@ namespace GadgetFox
 
             //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "<script>alert('pid = " + pid + "')</script>");
 
-            //write to orders
-            String myConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
-            SqlConnection myConnection = new SqlConnection(myConnectionString);
-            try
+            if (Session["userID"] == null)
             {
-                myConnection.Open();
-
-                SqlCommand cmd1 = new SqlCommand("Select COUNT(*) from Carts where EmailID=@EmailID and ProductID=@ProductID", myConnection);
-                cmd1.Parameters.AddWithValue("@EmailID", Session["userID"]);
-                cmd1.Parameters.AddWithValue("@ProductID", pid);
-                int idRows = (int)cmd1.ExecuteScalar();
-                if (idRows == 0)
+                // Redirect user to login before doing anything else
+                Response.Redirect("~/Login.aspx?redirect=" + HttpContext.Current.Request.Url.AbsoluteUri);
+            }
+            else
+            {
+                //write to orders
+                String myConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+                SqlConnection myConnection = new SqlConnection(myConnectionString);
+                try
                 {
-                    //insert new row
-                    SqlCommand cmd = new SqlCommand("INSERT INTO [GadgetFox].[dbo].[Carts] VALUES(@EmailID,@ProductID,@Quantity)", myConnection);
-                    cmd.Parameters.AddWithValue("@EmailID", Session["userID"]);
-                    cmd.Parameters.AddWithValue("@ProductID", pid);
-                    cmd.Parameters.AddWithValue("@Quantity", qty);
+                    myConnection.Open();
 
-                    int rc = cmd.ExecuteNonQuery();
-                    if (rc == 1)
+                    SqlCommand cmd1 = new SqlCommand("Select COUNT(*) from Carts where EmailID=@EmailID and ProductID=@ProductID", myConnection);
+                    cmd1.Parameters.AddWithValue("@EmailID", Session["userID"]);
+                    cmd1.Parameters.AddWithValue("@ProductID", pid);
+                    int idRows = (int)cmd1.ExecuteScalar();
+                    if (idRows == 0)
                     {
-                        returnLabel.Text = "Your items were added to the cart";
+                        //insert new row
+                        SqlCommand cmd = new SqlCommand("INSERT INTO [GadgetFox].[dbo].[Carts] VALUES(@EmailID,@ProductID,@Quantity)", myConnection);
+                        cmd.Parameters.AddWithValue("@EmailID", Session["userID"]);
+                        cmd.Parameters.AddWithValue("@ProductID", pid);
+                        cmd.Parameters.AddWithValue("@Quantity", qty);
+
+                        int rc = cmd.ExecuteNonQuery();
+                        if (rc == 1)
+                        {
+                            returnLabel.Text = "Your items were added to the cart";
+                        }
+                    }
+                    else
+                    {
+                        //update existing row
+                        SqlCommand cmd2 = new SqlCommand("Update Carts set Quantity=@Quantity where " +
+                            "EmailID=@EmailID and ProductID=@ProductID", myConnection);
+                        cmd2.Parameters.AddWithValue("@Quantity", qty);
+                        cmd2.Parameters.AddWithValue("@EmailID", Session["userID"]);
+                        cmd2.Parameters.AddWithValue("@ProductID", pid);
+                        int rc = cmd2.ExecuteNonQuery();
+                        if (rc == 1)
+                        {
+                            returnLabel.Text = "Your items were updated in the cart";
+                        }
                     }
                 }
-                else
+                catch (SqlException ex)
                 {
-                    //update existing row
-                    SqlCommand cmd2 = new SqlCommand("Update Carts set Quantity=@Quantity where " +
-                        "EmailID=@EmailID and ProductID=@ProductID", myConnection);
-                    cmd2.Parameters.AddWithValue("@Quantity", qty);
-                    cmd2.Parameters.AddWithValue("@EmailID", Session["userID"]);
-                    cmd2.Parameters.AddWithValue("@ProductID", pid);
-                    int rc = cmd2.ExecuteNonQuery();
-                    if (rc == 1)
-                    {
-                        returnLabel.Text = "Your items were updated in the cart";
-                    }
+                    Response.Write("<script language='JavaScript'>alert('" + ex.Message + "')</script>");
                 }
-            }
-            catch (SqlException ex)
-            {
-                Response.Write("<script language='JavaScript'>alert('" + ex.Message + "')</script>");
-            }
-            finally
-            {
-                myConnection.Close();
+                finally
+                {
+                    myConnection.Close();
+                }
             }
         }
 
@@ -279,47 +347,55 @@ namespace GadgetFox
             String pid = args[1];
 
             //write to wishlist
-            String myConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
-            SqlConnection myConnection = new SqlConnection(myConnectionString);
-            try
+            if (Session["userID"] == null)
             {
-                myConnection.Open();
+                // Redirect user to login before doing anything else
+                Response.Redirect("~/Login.aspx?redirect=" + HttpContext.Current.Request.Url.AbsoluteUri);
+            }
+            else
+            {
 
-                SqlCommand cmd1 = new SqlCommand("Select COUNT(*) from WishLists where EmailID=@EmailID and ProductID=@ProductID", myConnection);
-                cmd1.Parameters.AddWithValue("@EmailID", Session["userID"]);
-                cmd1.Parameters.AddWithValue("@ProductID", pid);
-                int idRows = (int)cmd1.ExecuteScalar();
-                if (idRows == 0)
+                String myConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+                SqlConnection myConnection = new SqlConnection(myConnectionString);
+                try
                 {
-                    //insert new row
-                    SqlCommand cmd = new SqlCommand("INSERT INTO [GadgetFox].[dbo].[WishLists] VALUES(@EmailID,@ProductID,@WishListName,@UpdatedDate)", myConnection);
-                    cmd.Parameters.AddWithValue("@EmailID", Session["userID"]);
-                    cmd.Parameters.AddWithValue("@ProductID", pid);
-                    cmd.Parameters.AddWithValue("@WishListName", "");
-                    cmd.Parameters.AddWithValue("@UpdatedDate", DateTime.Today.Date);
+                    myConnection.Open();
 
-                    int rc = cmd.ExecuteNonQuery();
-                    if (rc == 1)
+                    SqlCommand cmd1 = new SqlCommand("Select COUNT(*) from WishLists where EmailID=@EmailID and ProductID=@ProductID", myConnection);
+                    cmd1.Parameters.AddWithValue("@EmailID", Session["userID"]);
+                    cmd1.Parameters.AddWithValue("@ProductID", pid);
+                    int idRows = (int)cmd1.ExecuteScalar();
+                    if (idRows == 0)
                     {
-                        returnLabel.Text = "Your items were added to the wishlist";
+                        //insert new row
+                        SqlCommand cmd = new SqlCommand("INSERT INTO [GadgetFox].[dbo].[WishLists] VALUES(@EmailID,@ProductID,@WishListName,@UpdatedDate)", myConnection);
+                        cmd.Parameters.AddWithValue("@EmailID", Session["userID"]);
+                        cmd.Parameters.AddWithValue("@ProductID", pid);
+                        cmd.Parameters.AddWithValue("@WishListName", "");
+                        cmd.Parameters.AddWithValue("@UpdatedDate", DateTime.Today.Date);
+
+                        int rc = cmd.ExecuteNonQuery();
+                        if (rc == 1)
+                        {
+                            returnLabel.Text = "Your items were added to the wishlist";
+                        }
                     }
+                    else
+                    {
+                        returnLabel.Text = "Your items are already in the wishlist";
+                    }
+
+
                 }
-                else
+                catch (SqlException ex)
                 {
-                    returnLabel.Text = "Your items are already in the wishlist";
+                    Response.Write("<script language='JavaScript'>alert('" + ex.Message + "')</script>");
                 }
-
-
-            }
-            catch (SqlException ex)
-            {
-                Response.Write("<script language='JavaScript'>alert('" + ex.Message + "')</script>");
-            }
-            finally
-            {
-                myConnection.Close();
+                finally
+                {
+                    myConnection.Close();
+                }
             }
         }
-
     }
 }

@@ -13,7 +13,14 @@ namespace GadgetFox
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["user"] != null)
+            {
                 lblWelcome.Text = "Hi " + Session["user"].ToString();
+                logoutLK.Visible = true;
+            }
+            else
+            {
+                logoutLK.Visible = false;
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)

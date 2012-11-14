@@ -18,7 +18,12 @@ namespace GadgetFox
         {
             if (!IsPostBack)
             {
-                if (Session["userID"] != null)
+                if (Session["userID"] == null)
+                {
+                    // Redirect user to login before doing anything else
+                    Response.Redirect("~/Login.aspx?redirect=EditDefaultCard.aspx");
+                } 
+                else
                 {
                    String myConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
                     SqlConnection myConnection = new SqlConnection(myConnectionString);

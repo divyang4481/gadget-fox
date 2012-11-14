@@ -17,6 +17,12 @@ namespace GadgetFox
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userID"] == null)
+            {
+                // Redirect user to login before doing anything else
+                Response.Redirect("~/Login.aspx?redirect=ShoppingCart.aspx");
+            }
+
             if (!IsPostBack)
             {
                 if (Session["userID"] != null)
@@ -83,7 +89,7 @@ namespace GadgetFox
 
                             // Calculate purchase total
                             Double salePrice = 0.00;
-                            if (dr4["SalePrice"].ToString().Length > 0 && dr4["SalePrice"].ToString() != "&nbsp;")
+                            if (dr4["SalePrice"].ToString().Length > 0 && Double.Parse(dr4["SalePrice"].ToString()) > 0 && dr4["SalePrice"].ToString() != "&nbsp;")
                             {
                                 salePrice = Double.Parse(dr4["SalePrice"].ToString());
                                 purchaseTotal = purchaseTotal + salePrice * qty;
@@ -137,7 +143,7 @@ namespace GadgetFox
 
                     // Calculate purchase total
                     Double salePrice = 0.00;
-                    if (dr["SalePrice"].ToString().Length > 0 && dr["SalePrice"].ToString() != "&nbsp;")
+                    if (dr["SalePrice"].ToString().Length > 0 && Double.Parse(dr["SalePrice"].ToString()) > 0 && dr["SalePrice"].ToString() != "&nbsp;")
                     {
                         salePrice = Double.Parse(dr["SalePrice"].ToString());
                         purchaseTotal = purchaseTotal + salePrice * qty;
@@ -148,6 +154,12 @@ namespace GadgetFox
                     }
                 }  // End of dr.Read
                 dr.Close();
+
+                if (!(purchaseTotal > 0))
+                {
+                    returnLabel.Text = "You have no items to checkout";
+                    return;
+                }
                 
                 /**************************************************************
                  * Create purchase order

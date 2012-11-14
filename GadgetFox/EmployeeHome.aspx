@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite1.Master" AutoEventWireup="true" CodeBehind="EmployeeHome.aspx.cs" Inherits="GadgetFox.Home" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="EmployeeHome.aspx.cs" Inherits="GadgetFox.Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- CSS style should be in stylesheet (eventually) -->
