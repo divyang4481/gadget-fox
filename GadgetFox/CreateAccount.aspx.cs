@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,7 +13,6 @@ namespace GadgetFox
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnCreate_Click(object sender, EventArgs e)
@@ -23,17 +22,17 @@ namespace GadgetFox
             try
             {
                 myConnection.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO [GadgetFox].[dbo].[Users] ([EmailID],[FirstName],[LastName],[DOB],[Password],[PhoneNum],[RoleId])" + 
+                SqlCommand cmd = new SqlCommand("INSERT INTO [GadgetFox].[dbo].[Users] ([EmailID],[FirstName],[LastName],[DOB],[Password],[PhoneNum],[RoleId])" +
                 "VALUES(@EmailID,@FirstName,@LastName,@DOB,@Password,@PhoneNum,@RoleId)", myConnection);
                 cmd.Parameters.AddWithValue("@EmailID", txtEmailID.Text);
                 cmd.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
                 cmd.Parameters.AddWithValue("@LastName", txtLastName.Text);
-                if (!String.IsNullOrEmpty(txtDOB.Text) || !txtDOB.Text.Equals("MM/DD/YYYY"))
+                if (!String.IsNullOrEmpty(txtDOB.Text) && !txtDOB.Text.Equals("MM/DD/YYYY"))
                     cmd.Parameters.AddWithValue("@DOB", Convert.ToDateTime(txtDOB.Text));
                 else
                     cmd.Parameters.AddWithValue("@DOB", null);
                 cmd.Parameters.AddWithValue("@Password", txtPassword.Text);
-                cmd.Parameters.AddWithValue("@PhoneNum", txtPhoneNum.Text);
+                cmd.Parameters.AddWithValue("@PhoneNum", String.Format("{0,10:N}",txtPhoneNum.Text));
                 cmd.Parameters.AddWithValue("@RoleID", 1);
                 int rows = cmd.ExecuteNonQuery();
                 if (rows == 1)
@@ -44,7 +43,7 @@ namespace GadgetFox
             }
             catch (SqlException ex)
             {
-                Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('"+ ex.Message +"')</SCRIPT>");
+                Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('" + ex.Message + "')</SCRIPT>");
             }
             finally
             {
