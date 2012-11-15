@@ -82,7 +82,7 @@ namespace GadgetFox
                 checkBoxInSale.Checked = false;
             }
 
-            dropDownAddCategory.SelectedValue = Session["ProductCategory"].ToString();
+            dropDownAddCategory.Text = Session["ProductCategory"].ToString();
             dropDownAddCategory_SelectedIndexChanged(this.dropDownAddCategory, EventArgs.Empty);
             
         }
