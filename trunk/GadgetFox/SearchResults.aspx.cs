@@ -14,23 +14,23 @@ namespace GadgetFox
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //connection setup
+            // Connection setup
             String myConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
             SqlConnection myConnection = new SqlConnection(myConnectionString);
 
-            //read the url parameter
+            // Read the URL parameter
             string subcategory = "";
             String qsubcat = Request.QueryString["subcategory"];
 
             string category = "";
             String qcat = Request.QueryString["category"];
 
-            //read the url parameter
+            // Read the URL parameter
             string searchcriteria = "";
             String qsearchcriteria = Request.QueryString["searchcriteria"];
 
             string search_criteria = "";
-            //set subquery information
+            // Set subquery information
             if (qsubcat != null || qcat != null || qsearchcriteria != null)
             {
 
@@ -49,19 +49,19 @@ namespace GadgetFox
                 }
 
 
-                //declare a table to store rows
+                // Declare a table to store rows
                 DataTable Table1 = new DataTable("SearchResults");
                 //setup a row
                 DataRow Row1;
 
-                //try to connect
+                // Try to connect
                 try
                 {
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = myConnection;
                     if (qsearchcriteria != null)
                     {
-                        searchcriteria = Request.QueryString["searchcriteria"].ToString(); //read the url parameter
+                        searchcriteria = Request.QueryString["searchcriteria"].ToString(); // Read the url parameter
 
                         cmd.CommandText = "sp_SearchProduct";
                         cmd.CommandType = CommandType.StoredProcedure;
@@ -71,25 +71,19 @@ namespace GadgetFox
                     }
                     else
                     {
-                        //try to connect
-
-                        //myConnection.Open(); //open connection
-                        cmd = new SqlCommand("select * from vw_ProductDetails where " + search_criteria, myConnection); //define SQL query
-
-
+                        cmd = new SqlCommand("select * from vw_ProductDetails where " + search_criteria, myConnection); // Define SQL query
                     }
 
-                    //SqlCommand cmd = new SqlCommand("select * from vw_ProductDetails where " + search_criteria, myConnection); //define SQL query
                     myConnection.Open();
-                    SqlDataReader dr = cmd.ExecuteReader(); //perform SQL query and store it
+                    SqlDataReader dr = cmd.ExecuteReader(); // Perform SQL query and store it
 
-                    //add colums for each field into the table
+                    // Add colums for each field into the table
                     DataColumn pid = new DataColumn("Product ID");
                     DataColumn image = new DataColumn("Image");
                     DataColumn name = new DataColumn("Name");
                     DataColumn description = new DataColumn("Description");
                     DataColumn price = new DataColumn("Price");
-                    DataColumn sale_price = new DataColumn("Sale Price");
+                    // DataColumn sale_price = new DataColumn("Sale Price");
                     DataColumn qty = new DataColumn("Quantity");
                     DataColumn actions = new DataColumn("#");
 
@@ -97,8 +91,8 @@ namespace GadgetFox
                     image.DataType = System.Type.GetType("System.String");
                     name.DataType = System.Type.GetType("System.String");
                     description.DataType = System.Type.GetType("System.String");
-                    price.DataType = System.Type.GetType("System.Double");
-                    sale_price.DataType = System.Type.GetType("System.Double");
+                    price.DataType = System.Type.GetType("System.String");
+                    // sale_price.DataType = System.Type.GetType("System.Double");
 
                     qty.DataType = System.Type.GetType("System.String");
                     actions.DataType = System.Type.GetType("System.String");
@@ -108,7 +102,7 @@ namespace GadgetFox
                     Table1.Columns.Add(name);
                     Table1.Columns.Add(description);
                     Table1.Columns.Add(price);
-                    Table1.Columns.Add(sale_price);
+                    // Table1.Columns.Add(sale_price);
 
                     Table1.Columns.Add(qty);
                     Table1.Columns.Add(actions);
@@ -117,27 +111,23 @@ namespace GadgetFox
                     {
                         Row1 = Table1.NewRow();
 
-                        //insert values into the row from the query
+                        // Insert values into the row from the query
                         Row1["Product ID"] = dr["ProductID"];
                         Row1["Image"] = dr["ImageID"];
                         Row1["Name"] = dr["Name"];
                         Row1["Description"] = dr["Description"];
-                        Row1["Price"] = dr["Price"];
+                        Row1["Price"] = "$" + dr["Price"].ToString();
 
-                        if (Double.Parse(dr["SalePrice"].ToString()) > 0)
+                        // Change price if product is on sale
+                        if (Boolean.Parse(dr["InSale"].ToString()) && Double.Parse(dr["SalePrice"].ToString()) > 0)
                         {
-                            Row1["Sale Price"] = dr["SalePrice"];
-                        }
-                        else
-                        {
-                            Row1["Sale Price"] = dr["Price"];
+                            Row1["Price"] = dr["SalePrice"].ToString() + "/" + dr["Price"].ToString();
                         }
 
-                        //columns to purchase item
+                        // Columns to purchase item
                         Row1["Quantity"] = "";
-                        Row1["#"] = "";  //for add to cart and wishlist buttons 
+                        Row1["#"] = "";  // For add to cart and wishlist buttons 
 
-                        //add row
                         Table1.Rows.Add(Row1);
                     }
 
@@ -160,7 +150,7 @@ namespace GadgetFox
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            //create drop down list for product quantity
+            // Create drop down list for product quantity
             DropDownList qtyDL = new DropDownList();
             qtyDL.Items.Add("1");
             qtyDL.Items.Add("2");
@@ -168,7 +158,7 @@ namespace GadgetFox
             qtyDL.Items.Add("4");
             qtyDL.Items.Add("5");
 
-            //create add to cart and add to wishlist buttons
+            // Create add to cart and add to wishlist buttons
             Button add2CartBtn = new Button();
             add2CartBtn.Style.Add("width", "105px");
             add2CartBtn.Style.Add("padding", "5px");
@@ -180,7 +170,7 @@ namespace GadgetFox
             add2WishlistBtn.Style.Add("margin", "5px");
             add2WishlistBtn.Text = "Add to wishlist";
 
-            //add edit & remove product info if not customer
+            // Add edit & remove product info if not customer
             Button editProductInfoBtn = new Button();
             editProductInfoBtn.Style.Add("padding", "5px");
             editProductInfoBtn.Style.Add("margin", "5px");
@@ -193,14 +183,14 @@ namespace GadgetFox
             
             if (e.Row.RowIndex > -1)
             {
-                //add buttons to column
+                // Add buttons to column
                 String pid = e.Row.Cells[0].Text;
                 if (Session["userID"] != null && !Session["userRole"].Equals("1"))
                 {
                     e.Row.Cells[e.Row.Cells.Count - 1].Controls.Add(editProductInfoBtn);
                     e.Row.Cells[e.Row.Cells.Count - 1].Controls.Add(deleteProductBtn);
 
-                    //add logic to delete product
+                    // Add logic to delete product
                     deleteProductBtn.Enabled = false;
                 }
                 else
@@ -212,16 +202,27 @@ namespace GadgetFox
                 
                 qtyDL.ID = pid + "_qty";
 
-                //add to quantity drop down list to column
+                // Add to quantity drop down list to column
                 e.Row.Cells[e.Row.Cells.Count - 2].Controls.Add(qtyDL);
 
-                //insert product image
+                // Insert product image
                 String imgId = e.Row.Cells[1].Text;
                 Literal img = new Literal();
                 img.Text = "<img height='100px' width='100px' src='Image.aspx?ImageID=" + imgId + "'/>";
                 e.Row.Cells[1].Controls.Add(img);
 
-                //pass product id & row to on-click event
+                // If product is on sale, stike out price and use sale price
+                String priceStr = e.Row.Cells[4].Text;
+                if (priceStr.Contains('/'))
+                {
+                    // Sale price/regular price
+                    String[] prices = priceStr.Split('/');
+                    Literal p = new Literal();
+                    p.Text = "<strike>$" + prices[1] + "</strike><br/>$" + prices[0];
+                    e.Row.Cells[4].Controls.Add(p);
+                }
+
+                // Pass product id & row to on-click event
                 add2CartBtn.Click += new EventHandler(this.addProduct2CartBtn_Click);
                 add2CartBtn.CommandArgument = e.Row.RowIndex + "-" + pid;
 
@@ -270,13 +271,11 @@ namespace GadgetFox
             int row = int.Parse(args[0]);
             String pid = args[1];
 
-            //find quantity drop down list
+            // Find quantity drop down list
             DropDownList qtyDL = (DropDownList)GridView1.Rows[row].Cells[5].FindControl(pid + "_qty");
             int qty = int.Parse(qtyDL.SelectedValue);
             if (qty < 1)
                 return;
-
-            //Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "Alert", "<script>alert('pid = " + pid + "')</script>");
 
             if (Session["userID"] == null)
             {
@@ -285,7 +284,7 @@ namespace GadgetFox
             }
             else
             {
-                //write to orders
+                // Write to orders
                 String myConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
                 SqlConnection myConnection = new SqlConnection(myConnectionString);
                 try
@@ -298,7 +297,7 @@ namespace GadgetFox
                     int idRows = (int)cmd1.ExecuteScalar();
                     if (idRows == 0)
                     {
-                        //insert new row
+                        // Insert new row
                         SqlCommand cmd = new SqlCommand("INSERT INTO [GadgetFox].[dbo].[Carts] VALUES(@EmailID,@ProductID,@Quantity)", myConnection);
                         cmd.Parameters.AddWithValue("@EmailID", Session["userID"]);
                         cmd.Parameters.AddWithValue("@ProductID", pid);
@@ -312,7 +311,7 @@ namespace GadgetFox
                     }
                     else
                     {
-                        //update existing row
+                        // Update existing row
                         SqlCommand cmd2 = new SqlCommand("Update Carts set Quantity=@Quantity where " +
                             "EmailID=@EmailID and ProductID=@ProductID", myConnection);
                         cmd2.Parameters.AddWithValue("@Quantity", qty);
@@ -346,7 +345,7 @@ namespace GadgetFox
             int row = int.Parse(args[0]);
             String pid = args[1];
 
-            //write to wishlist
+            // Write to wishlist
             if (Session["userID"] == null)
             {
                 // Redirect user to login before doing anything else
@@ -367,7 +366,7 @@ namespace GadgetFox
                     int idRows = (int)cmd1.ExecuteScalar();
                     if (idRows == 0)
                     {
-                        //insert new row
+                        // Insert new row
                         SqlCommand cmd = new SqlCommand("INSERT INTO [GadgetFox].[dbo].[WishLists] VALUES(@EmailID,@ProductID,@WishListName,@UpdatedDate)", myConnection);
                         cmd.Parameters.AddWithValue("@EmailID", Session["userID"]);
                         cmd.Parameters.AddWithValue("@ProductID", pid);

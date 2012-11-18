@@ -8,11 +8,11 @@
             <table>
                 <tr>
                     <td><asp:Label ID="Label1" runat="server" Text="Login ID" style="margin-right: 10px;"></asp:Label></td>
-                    <td><asp:TextBox ID="txtEmailID" runat="server"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtEmailID" runat="server" style="padding: 5px;"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td><asp:Label ID="Label2" runat="server" Text="Password" style="margin-right: 10px;"></asp:Label></td>
-                    <td><asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox></td>
+                    <td><asp:TextBox ID="txtPassword" runat="server" TextMode="Password" style="padding: 5px;"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td></td>

@@ -264,6 +264,9 @@ namespace GadgetFox
                 int rc = cmd6.ExecuteNonQuery();
 
                 totalLB.Text = string.Format("{0:$#,###.##}", purchaseTotal + Double.Parse(shipAmount));
+
+                // Send to invoice page based on order
+                Response.Redirect("~/Invoice.aspx?oid=" + orderId);
             }
             catch (SqlException ex)
             {

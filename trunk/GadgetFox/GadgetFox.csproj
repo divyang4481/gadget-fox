@@ -75,6 +75,7 @@
     <Content Include="images\loading2.gif" />
     <Content Include="images\titlebar-active.png" />
     <Content Include="images\titlebar.png" />
+    <Content Include="Invoice.aspx" />
     <Content Include="js\ddaccordion.js" />
     <Content Include="Logout.aspx" />
     <Content Include="MyAccount.aspx" />
@@ -185,6 +186,13 @@
     </Compile>
     <Compile Include="EmployeeHome.aspx.designer.cs">
       <DependentUpon>EmployeeHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Invoice.aspx.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Invoice.aspx.designer.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
     </Compile>
     <Compile Include="Logout.aspx.cs">
       <DependentUpon>Logout.aspx</DependentUpon>

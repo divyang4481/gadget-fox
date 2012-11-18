@@ -23,7 +23,7 @@ namespace GadgetFox
                 }
                 else
                 {
-                   String myConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+                    String myConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
                     SqlConnection myConnection = new SqlConnection(myConnectionString);
          
                     try
@@ -133,7 +133,7 @@ namespace GadgetFox
                                 Row1["Status"] = dr4["Status"];
                                 Row1["Purchase Date"] = DateTime.Parse(dr4["PurchaseDate"].ToString()).ToShortDateString();
                                 Row1["Products"] = orders[orderId];
-                                Row1["Total"] = string.Format("{0:$#,###.##}", dr4["OrderTotal"].ToString());
+                                Row1["Total"] = "$" + string.Format("{0:$#,###.##}", dr4["OrderTotal"].ToString());
 
                                 // Columns to purchase item
                                 Row1["#"] = "";  // For cancel order        
@@ -145,7 +145,7 @@ namespace GadgetFox
                             }
                         }
                         // Add last order
-                        dr.Close();
+                        dr4.Close();
 
                         GridView1.DataSource = Table1;
                         GridView1.DataBind();
