@@ -7,8 +7,8 @@
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="Label1" runat="server" Text="Login ID"></asp:Label>
-                <asp:RequiredFieldValidator ID="rfvEmailID" runat="server" ErrorMessage="Login ID" Text="*" ControlToValidate="txtEmailID" ForeColor="Red"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="rgvEmailID" runat="server" ErrorMessage="Valid email" Text="*" ControlToValidate="txtEmailID" ForeColor="Red" ValidationExpression="\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b"></asp:RegularExpressionValidator>
+                <asp:RequiredFieldValidator ID="rfvEmailID" runat="server" ErrorMessage="Enter Login ID" Text="*" ControlToValidate="txtEmailID" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="rgvEmailID" runat="server" ErrorMessage="Invalid Login ID" Text="*" ControlToValidate="txtEmailID" ForeColor="Red" ValidationExpression="\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}\b"></asp:RegularExpressionValidator>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox ID="txtEmailID" runat="server"></asp:TextBox>
@@ -17,7 +17,7 @@
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
-                <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ErrorMessage="Password" Text="*" ControlToValidate="txtPassword" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ErrorMessage="Enter password" Text="*" ControlToValidate="txtPassword" ForeColor="Red"></asp:RequiredFieldValidator>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
@@ -26,7 +26,7 @@
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="Label3" runat="server" Text="First name"></asp:Label>
-                <asp:RequiredFieldValidator ID="rfvFirstName" runat="server" ErrorMessage="First name" Text="*" ControlToValidate="txtFirstName" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="rfvFirstName" runat="server" ErrorMessage="Enter first name" Text="*" ControlToValidate="txtFirstName" ForeColor="Red"></asp:RequiredFieldValidator>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
@@ -35,7 +35,7 @@
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="Label4" runat="server" Text="Last name"></asp:Label>
-               <asp:RequiredFieldValidator ID="rfvLastName" runat="server" ErrorMessage="Last name" Text="*" ControlToValidate="txtLastName" ForeColor="Red"></asp:RequiredFieldValidator>
+               <asp:RequiredFieldValidator ID="rfvLastName" runat="server" ErrorMessage="Enter last name" Text="*" ControlToValidate="txtLastName" ForeColor="Red"></asp:RequiredFieldValidator>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
@@ -67,7 +67,7 @@
         </asp:TableRow>
                 <asp:TableRow>
             <asp:TableCell ColumnSpan="2">
-               <asp:ValidationSummary ID="validationSummary" runat="server" HeaderText="Please provide the following fields" />
+               <asp:ValidationSummary ID="validationSummary" runat="server" HeaderText="Could not create account. Please correct the following errors and try again." />
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
