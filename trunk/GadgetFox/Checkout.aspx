@@ -1,10 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="Checkout.aspx.cs" Inherits="GadgetFox.Checkout" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <p style="height: 0px; margin-bottom: 50px; font-style: normal; font-size: large; top: auto;">
         Checkout
     </p>
 
-    <div style="display: block; margin-bottom: 10px;"><asp:Label ID="returnLabel" runat="server" ForeColor="#CC0000"></asp:Label></div>
+    <div style="display: block; margin-bottom: 10px;">
+        <asp:Label ID="returnLabel" runat="server" ForeColor="#CC0000"></asp:Label>
+    </div>
     <div style="display: block;">
         <asp:Panel ID="Panel1" runat="server" BorderColor="#999999" Width="479px" Direction="LeftToRight" HorizontalAlign="Left">
             <fieldset>
@@ -13,13 +16,15 @@
                     <tr>
                         <td>Type of Card<asp:Label ID="Label12" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
                         <td>
-                            <asp:DropDownList ID="cardDL" runat="server" style="margin-left: 0px">
+                            <asp:DropDownList ID="cardDL" runat="server" Style="margin-left: 0px">
                                 <asp:ListItem></asp:ListItem>
                             </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="rFVCardType" runat="server" ErrorMessage="Select card type" Text="*" ForeColor="Red" ControlToValidate="cardDL"></asp:RequiredFieldValidator>
                         </td>
                     </tr>
                     <tr>
-                        <td><asp:LinkButton ID="addCard" runat="server" ForeColor="Blue" Text="Add card" Width="75px" PostBackUrl="~/EditDefaultCard.aspx" style="margin-top: 20px"/></td>
+                        <td>
+                            <asp:LinkButton ID="addCard" runat="server" ForeColor="Blue" Text="Add card" Width="75px" PostBackUrl="~/EditDefaultCard.aspx" Style="margin-top: 20px" /></td>
                         <td></td>
                     </tr>
                 </table>
@@ -29,23 +34,34 @@
                 <table>
                     <tr>
                         <td>First Name<asp:Label ID="Label9" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
-                        <td><asp:TextBox ID="firstNameTB" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:TextBox ID="firstNameTB" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rFVFirstName" runat="server" ErrorMessage="Enter first name" Text="*" ForeColor="Red" ControlToValidate="firstNameTB"></asp:RequiredFieldValidator>
+                        </td>
                     </tr>
                     <tr>
                         <td>Last Name<asp:Label ID="Label10" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
-                        <td><asp:TextBox ID="lastNameTB" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:TextBox ID="lastNameTB" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rFVLastName" runat="server" ErrorMessage="Enter last name" Text="*" ForeColor="Red" ControlToValidate="lastNameTB"></asp:RequiredFieldValidator>
+                        </td>
                     </tr>
                     <tr>
                         <td>Address 1<asp:Label ID="Label1" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
-                        <td><asp:TextBox ID="address1TB" runat="server"  ></asp:TextBox></td>
+                        <td>
+                            <asp:TextBox ID="address1TB" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rFVAddress" runat="server" ErrorMessage="Enter address" Text="*" ForeColor="Red" ControlToValidate="address1TB"></asp:RequiredFieldValidator>
+                        </td>
                     </tr>
                     <tr>
                         <td>Address 2</td>
-                        <td><asp:TextBox ID="address2TB" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:TextBox ID="address2TB" runat="server"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td>City<asp:Label ID="Label2" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
-                        <td><asp:TextBox ID="cityTB" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:TextBox ID="cityTB" runat="server"></asp:TextBox></td>
                     </tr>
                     <tr>
                         <td>State<asp:Label ID="Label3" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
@@ -103,6 +119,7 @@
                                 <asp:ListItem>Wisconsin</asp:ListItem>
                                 <asp:ListItem>Wyoming</asp:ListItem>
                             </asp:DropDownList>
+                            <asp:CompareValidator ID="cVState" runat="server" ErrorMessage="Select state" Text="*" ForeColor="Red" ControlToValidate="stateDL" ValueToCompare="--Select--" Operator="NotEqual"></asp:CompareValidator>
                         </td>
                     </tr>
                     <tr>
@@ -220,48 +237,65 @@
                     </tr>
                     <tr>
                         <td>Zip code<asp:Label ID="Label5" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
-                        <td><asp:TextBox ID="zipcodeTB" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:TextBox ID="zipcodeTB" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="rFVZip" runat="server" ErrorMessage="Enter zip code" Text="*" ForeColor="Red" ControlToValidate="zipcodeTB"></asp:RequiredFieldValidator>
+                        </td>
                     </tr>
                 </table>
             </fieldset>
             <fieldset>
                 <legend style="font-weight: bold;">Order Total</legend>
                 <table>
-                <tr>
-                    <td></td>
-                    <td style="padding-right: 20px;"><asp:Label ID="Label6" runat="server">Sub-Total: </asp:Label></td>
-                    <td><asp:Label ID="subTotalLB" runat="server"></asp:Label></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td style="padding-right: 20px;"><asp:Label ID="Label7" runat="server">Tax: </asp:Label></td>
-                    <td><asp:Label ID="taxLB" runat="server"></asp:Label></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td style="padding-right: 20px;"><asp:Label ID="Label13" runat="server">Shipping: </asp:Label></td>
-                    <td>
-                        <asp:DropDownList ID="shippingDL" runat="server" AutoPostBack="true" OnSelectedIndexChanged="shippingDL_SelectedIndexChanged">
-                            <asp:ListItem Value="">--Select--</asp:ListItem>
-                            <asp:ListItem>UPS Ground: $15.00</asp:ListItem>
-                            <asp:ListItem>UPS Next Day: $45.00</asp:ListItem>
-                            <asp:ListItem>FedEx Ground: $18.00</asp:ListItem>
-                            <asp:ListItem>FedEx Express: $54.00</asp:ListItem>
-                            <asp:ListItem>USPS: $5.00</asp:ListItem>
-                        </asp:DropDownList>
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td style="padding-right: 20px;"><asp:Label ID="Label8" runat="server" Font-Bold="true">Total: </asp:Label></td>
-                    <td><asp:Label ID="totalLB" runat="server" Font-Bold="true"></asp:Label></td>
-                </tr>
-            </table>        
+                    <tr>
+                        <td></td>
+                        <td style="padding-right: 20px;">
+                            <asp:Label ID="Label6" runat="server">Sub-Total: </asp:Label></td>
+                        <td>
+                            <asp:Label ID="subTotalLB" runat="server"></asp:Label></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="padding-right: 20px;">
+                            <asp:Label ID="Label7" runat="server">Tax: </asp:Label></td>
+                        <td>
+                            <asp:Label ID="taxLB" runat="server"></asp:Label></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="padding-right: 20px;">
+                            <asp:Label ID="Label13" runat="server">Shipping: </asp:Label>
+                            <asp:Label ID="Label11" runat="server" ForeColor="#CC0000" Text="*"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:DropDownList ID="shippingDL" runat="server" AutoPostBack="true" OnSelectedIndexChanged="shippingDL_SelectedIndexChanged">
+                                <asp:ListItem Value="">--Select--</asp:ListItem>
+                                <asp:ListItem>UPS Ground: $15.00</asp:ListItem>
+                                <asp:ListItem>UPS Next Day: $45.00</asp:ListItem>
+                                <asp:ListItem>FedEx Ground: $18.00</asp:ListItem>
+                                <asp:ListItem>FedEx Express: $54.00</asp:ListItem>
+                                <asp:ListItem>USPS: $5.00</asp:ListItem>
+                            </asp:DropDownList>
+                            <asp:RequiredFieldValidator ID="rFVShippingType" runat="server" ErrorMessage="Select shipping type" Text="*" ForeColor="Red" ControlToValidate="shippingDL"></asp:RequiredFieldValidator>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td style="padding-right: 20px;">
+                            <asp:Label ID="Label8" runat="server" Font-Bold="true">Total: </asp:Label></td>
+                        <td>
+                            <asp:Label ID="totalLB" runat="server" Font-Bold="true"></asp:Label></td>
+                    </tr>
+                </table>
             </fieldset>
 
-            <asp:Button ID="checkoutBtn" runat="server" Text="Pay" Width="75px" OnClick="checkoutBtn_Clicked" style="margin-top: 20px"/>
-            <asp:Button ID="cancelBtn" runat="server" Text="Cancel" Width="75px" PostBackUrl="~/Home.aspx" style="margin-top: 20px"/>
+            <asp:Button ID="checkoutBtn" runat="server" Text="Pay" Width="75px" OnClick="checkoutBtn_Clicked" Style="margin-top: 20px" />
+            <asp:Button ID="cancelBtn" runat="server" Text="Cancel" Width="75px" PostBackUrl="~/Home.aspx" Style="margin-top: 20px" />
+            <br />
+            <br />
+            <asp:ValidationSummary ID="validationSummary" runat="server" HeaderText="Not able to checkout. Please correct the following errors and try again." />
+
         </asp:Panel>
-        </div>
-    </asp:Content>
+    </div>
+</asp:Content>
 

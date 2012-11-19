@@ -49,6 +49,15 @@ namespace GadgetFox {
         protected global::System.Web.UI.WebControls.DropDownList cardDL;
         
         /// <summary>
+        /// rFVCardType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rFVCardType;
+        
+        /// <summary>
         /// addCard control.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace GadgetFox {
         protected global::System.Web.UI.WebControls.TextBox firstNameTB;
         
         /// <summary>
+        /// rFVFirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rFVFirstName;
+        
+        /// <summary>
         /// Label10 control.
         /// </summary>
         /// <remarks>
@@ -94,6 +112,15 @@ namespace GadgetFox {
         protected global::System.Web.UI.WebControls.TextBox lastNameTB;
         
         /// <summary>
+        /// rFVLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rFVLastName;
+        
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -110,6 +137,15 @@ namespace GadgetFox {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox address1TB;
+        
+        /// <summary>
+        /// rFVAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rFVAddress;
         
         /// <summary>
         /// address2TB control.
@@ -157,6 +193,15 @@ namespace GadgetFox {
         protected global::System.Web.UI.WebControls.DropDownList stateDL;
         
         /// <summary>
+        /// cVState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator cVState;
+        
+        /// <summary>
         /// Label4 control.
         /// </summary>
         /// <remarks>
@@ -191,6 +236,15 @@ namespace GadgetFox {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox zipcodeTB;
+        
+        /// <summary>
+        /// rFVZip control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rFVZip;
         
         /// <summary>
         /// Label6 control.
@@ -238,6 +292,15 @@ namespace GadgetFox {
         protected global::System.Web.UI.WebControls.Label Label13;
         
         /// <summary>
+        /// Label11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label11;
+        
+        /// <summary>
         /// shippingDL control.
         /// </summary>
         /// <remarks>
@@ -245,6 +308,15 @@ namespace GadgetFox {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList shippingDL;
+        
+        /// <summary>
+        /// rFVShippingType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rFVShippingType;
         
         /// <summary>
         /// Label8 control.
@@ -281,5 +353,14 @@ namespace GadgetFox {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button cancelBtn;
+        
+        /// <summary>
+        /// validationSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary validationSummary;
     }
 }
