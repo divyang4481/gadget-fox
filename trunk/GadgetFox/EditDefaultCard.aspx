@@ -273,7 +273,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <asp:ValidationSummary ID="validationSummary" runat="server" HeaderText="Could not save card details. Please correct the following errors and try again." />
+                        <asp:ValidationSummary ID="validationSummary" runat="server" HeaderText="Not able to save default card. Please correct the following errors and try again." />
                     </td>
                 </tr>
             </table>
