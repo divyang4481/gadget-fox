@@ -13,6 +13,9 @@
             <td style="display: inline-block; height: 250px; width: 250px;">
                 <a href="ViewInventory.aspx"><label style="display: block; font-size: 18px; font-weight: bold; text-align: center; color: #383838;">Warehouse</label><image src="images/warehouse.png" style="display: block; height: 60%; margin: auto;"/></a>
             </td>
+            <td style="display: inline-block; height: 250px; width: 250px;">
+                <a href="Orders.aspx"><label style="display: block; font-size: 18px; font-weight: bold; text-align: center; color: #383838;">Orders</label><image src="images/package.png" style="display: block; height: 60%; margin: auto;"/></a>
+            </td>
         </tr>
     </table>
 </asp:Content>

@@ -10,7 +10,7 @@ using System.Data;
 
 namespace GadgetFox
 {
-    public partial class SearchResults : System.Web.UI.Page
+    public partial class Sales : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,134 +18,86 @@ namespace GadgetFox
             String myConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
             SqlConnection myConnection = new SqlConnection(myConnectionString);
 
-            // Read the URL parameter
-            string subcategory = "";
-            String qsubcat = Request.QueryString["subcategory"];
+            // Declare a table to store rows
+            DataTable Table1 = new DataTable("SearchResults");
+            //setup a row
+            DataRow Row1;
 
-            string category = "";
-            String qcat = Request.QueryString["category"];
-
-            // Read the URL parameter
-            string searchcriteria = "";
-            String qsearchcriteria = Request.QueryString["searchcriteria"];
-
-            string search_criteria = "";
-            // Set subquery information
-            if (qsubcat != null || qcat != null || qsearchcriteria != null)
+            // Try to connect
+            try
             {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = myConnection;
+                cmd = new SqlCommand("select * from vw_ProductDetails where InSale='True'", myConnection); // Define SQL query
 
-                if (qsubcat != null)
+                myConnection.Open();
+                SqlDataReader dr = cmd.ExecuteReader(); // Perform SQL query and store it
+
+                // Add colums for each field into the table
+                DataColumn pid = new DataColumn("Product ID");
+                DataColumn image = new DataColumn("Image");
+                DataColumn name = new DataColumn("Name");
+                DataColumn description = new DataColumn("Description");
+                DataColumn price = new DataColumn("Price");
+                DataColumn qty = new DataColumn("Quantity");
+                DataColumn actions = new DataColumn("#");
+
+                pid.DataType = System.Type.GetType("System.String");
+                image.DataType = System.Type.GetType("System.String");
+                name.DataType = System.Type.GetType("System.String");
+                description.DataType = System.Type.GetType("System.String");
+                price.DataType = System.Type.GetType("System.String");
+
+                qty.DataType = System.Type.GetType("System.String");
+                actions.DataType = System.Type.GetType("System.String");
+
+                Table1.Columns.Add(pid);
+                Table1.Columns.Add(image);
+                Table1.Columns.Add(name);
+                Table1.Columns.Add(description);
+                Table1.Columns.Add(price);
+
+                Table1.Columns.Add(qty);
+                Table1.Columns.Add(actions);
+
+                while (dr.Read())
                 {
-                    subcategory = Request.QueryString["subcategory"].ToString(); //read the url parameter
-                    search_string.Text = subcategory;
-                    search_criteria = "subcategoryname = '" + subcategory + "'";
-                }
+                    Row1 = Table1.NewRow();
 
-                if (qcat != null)
-                {
-                    category = Request.QueryString["category"].ToString(); //read the url parameter
-                    search_string.Text = category;
-                    search_criteria = "categoryname = '" + category + "'";
-                }
+                    // Insert values into the row from the query
+                    Row1["Product ID"] = dr["ProductID"];
+                    Row1["Image"] = dr["ImageID"];
+                    Row1["Name"] = dr["Name"];
+                    Row1["Description"] = dr["Description"];
+                    Row1["Price"] = "$" + dr["Price"].ToString();
 
-
-                // Declare a table to store rows
-                DataTable Table1 = new DataTable("SearchResults");
-                //setup a row
-                DataRow Row1;
-
-                // Try to connect
-                try
-                {
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = myConnection;
-                    if (qsearchcriteria != null)
+                    // Change price if product is on sale
+                    if (Boolean.Parse(dr["InSale"].ToString()) && Double.Parse(dr["SalePrice"].ToString()) > 0)
                     {
-                        searchcriteria = Request.QueryString["searchcriteria"].ToString(); // Read the url parameter
-
-                        cmd.CommandText = "sp_SearchProduct";
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        cmd.Parameters.AddWithValue("@SearchString", searchcriteria);
-
-                    }
-                    else
-                    {
-                        cmd = new SqlCommand("select * from vw_ProductDetails where " + search_criteria, myConnection); // Define SQL query
-                    }
-
-                    myConnection.Open();
-                    SqlDataReader dr = cmd.ExecuteReader(); // Perform SQL query and store it
-
-                    // Add colums for each field into the table
-                    DataColumn pid = new DataColumn("Product ID");
-                    DataColumn image = new DataColumn("Image");
-                    DataColumn name = new DataColumn("Name");
-                    DataColumn description = new DataColumn("Description");
-                    DataColumn price = new DataColumn("Price");
-                    // DataColumn sale_price = new DataColumn("Sale Price");
-                    DataColumn qty = new DataColumn("Quantity");
-                    DataColumn actions = new DataColumn("#");
-
-                    pid.DataType = System.Type.GetType("System.String");
-                    image.DataType = System.Type.GetType("System.String");
-                    name.DataType = System.Type.GetType("System.String");
-                    description.DataType = System.Type.GetType("System.String");
-                    price.DataType = System.Type.GetType("System.String");
-                    // sale_price.DataType = System.Type.GetType("System.Double");
-
-                    qty.DataType = System.Type.GetType("System.String");
-                    actions.DataType = System.Type.GetType("System.String");
-
-                    Table1.Columns.Add(pid);
-                    Table1.Columns.Add(image);
-                    Table1.Columns.Add(name);
-                    Table1.Columns.Add(description);
-                    Table1.Columns.Add(price);
-                    // Table1.Columns.Add(sale_price);
-
-                    Table1.Columns.Add(qty);
-                    Table1.Columns.Add(actions);
-
-                    while (dr.Read())
-                    {
-                        Row1 = Table1.NewRow();
-
-                        // Insert values into the row from the query
-                        Row1["Product ID"] = dr["ProductID"];
-                        Row1["Image"] = dr["ImageID"];
-                        Row1["Name"] = dr["Name"];
-                        Row1["Description"] = dr["Description"];
-                        Row1["Price"] = "$" + dr["Price"].ToString();
-
-                        // Change price if product is on sale
-                        if (Boolean.Parse(dr["InSale"].ToString()) && Double.Parse(dr["SalePrice"].ToString()) > 0)
-                        {
-                            Row1["Price"] = dr["SalePrice"].ToString() + "/" + dr["Price"].ToString();
-                        }
-
-                        // Columns to purchase item
-                        Row1["Quantity"] = "";
-                        Row1["#"] = "";  // For add to cart and wishlist buttons 
-
-                        Table1.Rows.Add(Row1);
+                        Row1["Price"] = dr["SalePrice"].ToString() + "/" + dr["Price"].ToString();
                     }
 
-                    dr.Close();
+                    // Columns to purchase item
+                    Row1["Quantity"] = "";
+                    Row1["#"] = "";  // For add to cart and wishlist buttons 
 
-                }
-                catch (SqlException ex)
-                {
-                    Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('" + ex.Message + "')</SCRIPT>");
-                }
-                finally
-                {
-                    myConnection.Close();
+                    Table1.Rows.Add(Row1);
                 }
 
-                GridView1.DataSource = Table1;
-                GridView1.DataBind();
+                dr.Close();
+
             }
+            catch (SqlException ex)
+            {
+                Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('" + ex.Message + "')</SCRIPT>");
+            }
+            finally
+            {
+                myConnection.Close();
+            }
+
+            GridView1.DataSource = Table1;
+            GridView1.DataBind();
         }
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -180,7 +132,7 @@ namespace GadgetFox
             deleteProductBtn.Style.Add("padding", "5px");
             deleteProductBtn.Style.Add("margin", "5px");
             deleteProductBtn.Text = "Delete product";
-            
+
             if (e.Row.RowIndex > -1)
             {
                 // Add buttons to column
@@ -198,8 +150,8 @@ namespace GadgetFox
                     e.Row.Cells[e.Row.Cells.Count - 1].Controls.Add(add2CartBtn);
                     e.Row.Cells[e.Row.Cells.Count - 1].Controls.Add(add2WishlistBtn);
                 }
-                
-                
+
+
                 qtyDL.ID = pid + "_qty";
 
                 // Add to quantity drop down list to column
@@ -383,6 +335,8 @@ namespace GadgetFox
                     {
                         returnLabel.Text = "Your items are already in the wishlist";
                     }
+
+
                 }
                 catch (SqlException ex)
                 {

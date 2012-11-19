@@ -1,15 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/GadgetSite2.Master" CodeBehind="SalesDashboard.aspx.cs" Inherits="GadgetFox.SalesDashboard" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <p>
-&nbsp;<br />
-        <asp:LinkButton ID="addProductLinkButton" runat="server" Text="Add Product Information" PostBackUrl="~/ManageProductInformation.aspx"> </asp:LinkButton>
+    <p style="height: 0px; margin-bottom: 50px; font-style: normal; font-size: large; top: auto;">
+        Sales & Marketing
     </p>
-    <p>
-        <asp:LinkButton ID="editProductLinkButton" runat="server" Text="Edit Product Information" PostBackUrl="~/UpdateProductInformation.aspx"> </asp:LinkButton>
-    </p>
-    <p>
-        <asp:LinkButton ID="removeProductLinkButton" runat="server" Text="Remove Product" PostBackUrl="~/UpdateProductInformation.aspx"> </asp:LinkButton>
-    </p>
-    <p>
-    </p>
-    </asp:Content>
+    <asp:LinkButton style="display: block; color: blue;" ID="addProductLinkButton" runat="server" Text="Add Product Information" PostBackUrl="~/ManageProductInformation.aspx"> </asp:LinkButton>
+    <asp:LinkButton style="display: block; color: blue;" ID="editProductLinkButton" runat="server" Text="Edit Product Information" PostBackUrl="~/UpdateProductInformation.aspx"> </asp:LinkButton>
+</asp:Content>
