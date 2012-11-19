@@ -71,14 +71,18 @@
   <ItemGroup>
     <Content Include="Checkout.aspx" />
     <Content Include="EmployeeHome.aspx" />
+    <Content Include="Forbidden.aspx" />
     <Content Include="images\arrowbullet.png" />
     <Content Include="images\loading2.gif" />
+    <Content Include="images\package.png" />
     <Content Include="images\titlebar-active.png" />
     <Content Include="images\titlebar.png" />
     <Content Include="Invoice.aspx" />
     <Content Include="js\ddaccordion.js" />
     <Content Include="Logout.aspx" />
     <Content Include="MyAccount.aspx" />
+    <Content Include="Orders.aspx" />
+    <Content Include="Sales.aspx" />
     <Content Include="Wishlist.aspx" />
     <Content Include="Image.aspx" />
     <Content Include="images\asc.gif" />
@@ -187,6 +191,13 @@
     <Compile Include="EmployeeHome.aspx.designer.cs">
       <DependentUpon>EmployeeHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forbidden.aspx.cs">
+      <DependentUpon>Forbidden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forbidden.aspx.designer.cs">
+      <DependentUpon>Forbidden.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Invoice.aspx.cs">
       <DependentUpon>Invoice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -207,6 +218,20 @@
     </Compile>
     <Compile Include="MyAccount.aspx.designer.cs">
       <DependentUpon>MyAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Orders.aspx.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Orders.aspx.designer.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Sales.aspx.cs">
+      <DependentUpon>Sales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sales.aspx.designer.cs">
+      <DependentUpon>Sales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Wishlist.aspx.cs">
       <DependentUpon>Wishlist.aspx</DependentUpon>
