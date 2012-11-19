@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="EditShippingAddress.aspx.cs" Inherits="GadgetFox.EditShippingAddress" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <p style="height: 0px; margin-bottom: 50px; font-style: normal; font-size: large; top: auto;">
         Edit Shipping Address 
@@ -8,20 +9,27 @@
         <table>
             <tr>
                 <td>Address 1<asp:Label ID="Label1" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
-                <td><asp:TextBox ID="address1TB" runat="server"></asp:TextBox></td>
+                <td>
+                    <asp:TextBox ID="address1TB" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rfvAddress" runat="server" ControlToValidate="address1TB" ForeColor="Red" ErrorMessage="Enter address line" Text="*"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td>Address 2</td>
-                <td><asp:TextBox ID="address2TB" runat="server"></asp:TextBox></td>
+                <td>
+                    <asp:TextBox ID="address2TB" runat="server"></asp:TextBox></td>
             </tr>
             <tr>
                 <td>City<asp:Label ID="Label2" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
-                <td><asp:TextBox ID="cityTB" runat="server"></asp:TextBox></td>
+                <td>
+                    <asp:TextBox ID="cityTB" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rFVCity" runat="server" ControlToValidate="cityTB" ForeColor="Red" ErrorMessage="Enter city" Text="*"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td>State<asp:Label ID="Label3" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
                 <td>
-                    <asp:DropDownList ID="stateDL" runat="server" Width="131px" style="margin-left: 2px">
+                    <asp:DropDownList ID="stateDL" runat="server" Width="131px" Style="margin-left: 2px">
                         <asp:ListItem>-- Select --</asp:ListItem>
                         <asp:ListItem>Alabama</asp:ListItem>
                         <asp:ListItem>Alaska</asp:ListItem>
@@ -74,12 +82,13 @@
                         <asp:ListItem>Wisconsin</asp:ListItem>
                         <asp:ListItem>Wyoming</asp:ListItem>
                     </asp:DropDownList>
+                    <asp:CompareValidator ID="cVState" runat="server" ErrorMessage="Select state" Text="*" ForeColor="Red" ControlToValidate="stateDL" ValueToCompare="-- Select --" Operator="NotEqual"></asp:CompareValidator>
                 </td>
             </tr>
             <tr>
                 <td>Country<asp:Label ID="Label4" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
                 <td>
-                    <asp:DropDownList ID="countryDL" runat="server" Width="133px" style="margin-left: 3px" Enabled="false">
+                    <asp:DropDownList ID="countryDL" runat="server" Width="133px" Style="margin-left: 3px" Enabled="false">
                         <asp:ListItem>United States</asp:ListItem>
                         <asp:ListItem>Argentina</asp:ListItem>
                         <asp:ListItem>Australia</asp:ListItem>
@@ -191,16 +200,27 @@
             </tr>
             <tr>
                 <td>Zip code<asp:Label ID="Label5" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
-                <td><asp:TextBox ID="zipcodeTB" runat="server" style="margin-left: 2px"></asp:TextBox></td>
+                <td>
+                    <asp:TextBox ID="zipcodeTB" runat="server" Style="margin-left: 2px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="rFVZip" runat="server" ErrorMessage="Enter zip code" Text="*" ForeColor="Red" ControlToValidate="zipcodeTB"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td>
-                    <asp:Button ID="saveButton" runat="server" Text="Save" Width="75px" OnClick="saveButton_Clicked" style="margin-top: 20px"/>
+                    <asp:Button ID="saveButton" runat="server" Text="Save" Width="75px" OnClick="saveButton_Clicked" Style="margin-top: 20px" />
                 </td>
                 <td>
-                    <asp:Button ID="cancelButton" runat="server" Text="Cancel" Width="75px" PostBackUrl="~/MyAccount.aspx" style="margin-top: 20px"/>
+                    <asp:Button ID="cancelButton" runat="server" Text="Cancel" Width="75px" PostBackUrl="~/MyAccount.aspx" Style="margin-top: 20px" />
                 </td>
             </tr>
-        </table>                  
+                            <tr>
+                    <td colspan="2"> <br /></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <asp:ValidationSummary ID="validationSummary" runat="server" HeaderText="Not able to save shipping address. Please correct the following errors and try again." />
+                    </td>
+                </tr>
+        </table>
     </asp:Panel>
-    </asp:Content>
+</asp:Content>
