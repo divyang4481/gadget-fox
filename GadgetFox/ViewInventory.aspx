@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="ViewInventory.aspx.cs" Inherits="GadgetFox.ViewInventory" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="inventoryGrid">
+    <div class="gridViewWidth">
          <asp:GridView ID="gdvInventory" runat="server" SkinID="Professional" CellPadding="4" HeaderStyle-BackColor="#444444" HeaderStyle-ForeColor="White" AlternatingRowStyle-BackColor="#dddddd" AutoGenerateColumns="False" 
             AllowSorting="True" AllowPaging="True" DataKeyNames="ProductID" DataSourceID="SqlDataSource1">
             <AlternatingRowStyle BackColor="White" />
