@@ -14,7 +14,7 @@ namespace GadgetFox
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (Session["userID"] == null)
+           /* if (Session["userID"] == null)
             {
                 // Redirect user to login before doing anything else
                 Response.Redirect("~/Login.aspx?redirect=MonitorInventory.aspx");
