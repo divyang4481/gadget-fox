@@ -21,10 +21,8 @@ namespace GadgetFox
             }
             else if (Session["userID"] != null && Session["userRole"].Equals("1"))
             {
-                // Redirect user to login before doing anything else
-                Response.Redirect("~/Home.aspx");
+                Response.Redirect("~/Forbidden.aspx");
             }
-
             if (!IsPostBack)
             {
                 gdvMonitorInventory.DataSource = monitorProducts();

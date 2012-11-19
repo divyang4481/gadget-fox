@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="MonitorInventory.aspx.cs" Inherits="GadgetFox.MonitorInventory" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <div class="inventoryGrid">
+        <div class="gridViewWidth">
         <asp:GridView ID="gdvMonitorInventory" runat="server" CellPadding="4" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None"
             BorderWidth="1px" AutoGenerateColumns="False" AllowSorting="true" OnSorting="gdvMonitorInventory_Sorting">
             <AlternatingRowStyle BackColor="White" />
