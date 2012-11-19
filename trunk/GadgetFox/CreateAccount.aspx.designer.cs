@@ -13,6 +13,15 @@ namespace GadgetFox {
     public partial class CreateAccount {
         
         /// <summary>
+        /// returnLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label returnLabel;
+        
+        /// <summary>
         /// Table1 control.
         /// </summary>
         /// <remarks>
