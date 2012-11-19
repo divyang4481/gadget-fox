@@ -10,24 +10,24 @@
 namespace GadgetFox {
     
     
-    public partial class SalesDashboard {
+    public partial class Sales {
         
         /// <summary>
-        /// addProductLinkButton control.
+        /// returnLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton addProductLinkButton;
+        protected global::System.Web.UI.WebControls.Label returnLabel;
         
         /// <summary>
-        /// editProductLinkButton control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton editProductLinkButton;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

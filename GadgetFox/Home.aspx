@@ -6,7 +6,7 @@
         <table>
             <tr>
                 <td style="padding: 30px 0px;">
-                    <a href="SearchResults.aspx?"><label style="display: inline-block; font-size: 18px; font-weight: bold; text-align: center; color: #383838; column-span: 3; vertical-align: middle;">Promotions & Deals</label><image src="images/sale_tag.png" style="display: inline-block; width: 20%; vertical-align: middle;"/></a>
+                    <a href="Sales.aspx"><label style="display: inline-block; font-size: 18px; font-weight: bold; text-align: center; color: #383838; column-span: 3; vertical-align: middle;">Promotions & Deals</label><image src="images/sale_tag.png" style="display: inline-block; width: 20%; vertical-align: middle;"/></a>
                 </td>
             </tr>
             <tr>

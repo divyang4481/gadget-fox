@@ -92,9 +92,7 @@ namespace GadgetFox
                         DataColumn status = new DataColumn("Status");
                         DataColumn purchaseDate = new DataColumn("Purchase Date");
                         DataColumn products = new DataColumn("Products");
-                        // DataColumn shipType = new DataColumn("Shipping");
-                        // DataColumn productName = new DataColumn("Product Name");
-                        // DataColumn quantity = new DataColumn("Quantity");
+                        DataColumn tracking = new DataColumn("Tracking #");
                         DataColumn total = new DataColumn("Total");
 
                         DataColumn actions = new DataColumn("#");
@@ -103,6 +101,7 @@ namespace GadgetFox
                         status.DataType = System.Type.GetType("System.String");
                         purchaseDate.DataType = System.Type.GetType("System.String");
                         products.DataType = System.Type.GetType("System.String");
+                        tracking.DataType = System.Type.GetType("System.String");
                         total.DataType = System.Type.GetType("System.String");
 
                         actions.DataType = System.Type.GetType("System.String");
@@ -111,6 +110,7 @@ namespace GadgetFox
                         Table1.Columns.Add(status);
                         Table1.Columns.Add(purchaseDate);
                         Table1.Columns.Add(products);
+                        Table1.Columns.Add(tracking);
                         Table1.Columns.Add(total);
 
                         Table1.Columns.Add(actions);
@@ -133,6 +133,7 @@ namespace GadgetFox
                                 Row1["Status"] = dr4["Status"];
                                 Row1["Purchase Date"] = DateTime.Parse(dr4["PurchaseDate"].ToString()).ToShortDateString();
                                 Row1["Products"] = orders[orderId];
+                                Row1["Tracking #"] = dr4["TrackingID"];
                                 Row1["Total"] = "$" + string.Format("{0:$#,###.##}", dr4["OrderTotal"].ToString());
 
                                 // Columns to purchase item
@@ -173,13 +174,25 @@ namespace GadgetFox
             cancelBtn.Text = "Cancel order";
             if (e.Row.RowIndex > -1)
             {
+                // Change tracking ID to link
+                String track = e.Row.Cells[4].Text;
+                if (track != "&nbsp;" && track.Length > 0)
+                {
+                    Literal trackLink = new Literal();
+                    trackLink.Text = "<a style='color: blue;' href='" + track + "'/>Track</a>";
+                    e.Row.Cells[4].Controls.Add(trackLink);
+                }                
+
                 // Add buttons to column
-                String pid = e.Row.Cells[0].Text;
+                String oid = e.Row.Cells[0].Text;
+                Literal invoiceLink = new Literal();
+                invoiceLink.Text = "<a style='color: blue;' href='Invoice.aspx?oid=" + oid + "'/>" + oid + "</a>";
+                e.Row.Cells[0].Controls.Add(invoiceLink);
                 e.Row.Cells[e.Row.Cells.Count - 1].Controls.Add(cancelBtn);
 
                 // Pass order id & row to on-click event
                 //cancelBtn.Click += new EventHandler(this.cancelBtn_Click);
-                cancelBtn.CommandArgument = e.Row.RowIndex + "-" + pid;
+                cancelBtn.CommandArgument = e.Row.RowIndex + "-" + oid;
             }
         }
     }

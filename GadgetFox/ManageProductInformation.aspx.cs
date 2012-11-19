@@ -40,7 +40,6 @@ namespace GadgetFox
             {
                 textBoxAddProductSalePrice.Enabled = false;
                 textBoxAddProductSalePrice.Text = textBoxAddProductPrice.Text;
-
             }
 
         }
@@ -54,8 +53,7 @@ namespace GadgetFox
         {
             if (dropDownAddCategory.SelectedValue != "--Select--")
             {
-                dropDownAddSubCategory.Enabled = true;
-                
+                dropDownAddSubCategory.Enabled = true;                
             }
         }
 
@@ -87,10 +85,11 @@ namespace GadgetFox
             if ( checkBoxInSale.Checked)
             {
                 Session["ProductOnSale"] = 1;
-            }else{
+            } 
+            else
+            {
                 Session["ProductOnSale"] = 0;
             }
-
 
             if (checkBoxInSale.Checked = true && textBoxAddProductSalePrice.Text == "" || textBoxAddProductSalePrice.Text == " ")
             {
@@ -124,6 +123,5 @@ namespace GadgetFox
             textBoxAddProductColor.Text = "" ;
             textBoxAddProductWeight.Text = "";
         }
-
     }
 }

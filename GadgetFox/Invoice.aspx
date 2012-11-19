@@ -10,8 +10,8 @@
     <asp:Panel ID="invoicePanel" runat="server">
         <fieldset style="margin-bottom: 20px;">
             <legend style="font-weight: bold;">Order</legend>
-            <asp:Label ID="orderIdLB" runat="server" Text="No info available"></asp:Label>
-            <asp:Label ID="purchaseDateLB" runat="server" Text=""></asp:Label>
+            <asp:Label ID="orderIdLB" runat="server" Text="No info available" style="display:block;"></asp:Label>
+            <asp:Label ID="purchaseDateLB" runat="server" style="display:block;"></asp:Label>
         </fieldset>
         <fieldset style="margin-bottom: 20px;">
             <legend style="font-weight: bold;">Payment</legend>

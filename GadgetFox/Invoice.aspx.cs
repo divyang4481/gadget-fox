@@ -42,9 +42,19 @@ namespace GadgetFox
 
                 DataTable Table1 = new DataTable("MyOrders");
                 DataRow Row1 = Table1.NewRow();
-                SqlCommand cmd4 = new SqlCommand("select * from vw_CustomerOrders where EmailID=@EmailID and OrderID=@OrderID", myConnection); //define SQL query
-                cmd4.Parameters.AddWithValue("@EmailID", Session["userID"]);
-                cmd4.Parameters.AddWithValue("@OrderID", reqOid);
+                SqlCommand cmd4 = new SqlCommand();
+
+                if (Session["userRole"] != null && !Session["userRole"].Equals("1"))
+                {
+                    cmd4 = new SqlCommand("select * from vw_CustomerOrders where OrderID=@OrderID", myConnection); // Define SQL query
+                    cmd4.Parameters.AddWithValue("@OrderID", reqOid);
+                }
+                else
+                {
+                    cmd4 = new SqlCommand("select * from vw_CustomerOrders where EmailID=@EmailID and OrderID=@OrderID", myConnection); // Define SQL query
+                    cmd4.Parameters.AddWithValue("@EmailID", Session["userID"]);
+                    cmd4.Parameters.AddWithValue("@OrderID", reqOid);
+                }
 
                 SqlDataReader dr4 = cmd4.ExecuteReader();
 
@@ -72,6 +82,12 @@ namespace GadgetFox
                 String iShippingTotal = null;
                 String iTotal = null;
 
+                if (!dr4.HasRows)
+                {
+                    orderIdLB.Text = "Invalid order based on user and order ID!";
+                    return;
+                }
+
                 while (dr4.Read())
                 {
                     Row1 = Table1.NewRow();
@@ -81,8 +97,7 @@ namespace GadgetFox
                     Row1["Name"] = dr4["Name"].ToString();
                     Row1["Quantity"] = dr4["Quantity"].ToString();
                     Row1["Price"] = "$" + string.Format("{0:$#,###.##}", dr4["Price"].ToString());
-
-
+                    
                     if (Boolean.Parse(dr4["InSale"].ToString()) && Double.Parse(dr4["SalePrice"].ToString()) > 0)
                     {
                         Row1["Price"] = "$" + string.Format("{0:$#,###.##}", dr4["SalePrice"].ToString());
@@ -126,7 +141,7 @@ namespace GadgetFox
                 dr4.Close();
 
                 shipLB.Text = iShipAddress;
-                purchaseDateLB.Text = iPurchaseDate;
+                purchaseDateLB.Text = "Purchased on: " + DateTime.Parse(iPurchaseDate).ToShortDateString();
                 shipTypeLB.Text = "Shipped via " + iShipType;
                 paymentLB.Text = "Paid with " + iPaymentType;
 
