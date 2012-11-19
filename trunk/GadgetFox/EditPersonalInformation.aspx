@@ -10,14 +10,14 @@
                 <td>First Name<asp:Label ID="Label1" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
                 <td>
                     <asp:TextBox ID="firstNameTB" runat="server" style="margin-left: 0px"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvFirstName" runat="server" ControlToValidate="firstNameTB" ForeColor="Red" InitialValue="First Name"></asp:RequiredFieldValidator> 
+                    <asp:RequiredFieldValidator ID="rfvFirstName" runat="server" ControlToValidate="firstNameTB" ForeColor="Red" InitialValue=""></asp:RequiredFieldValidator> 
                 </td>
             </tr>
             <tr>
                 <td>Last Name<asp:Label ID="Label2" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
                 <td>
                     <asp:TextBox ID="lastNameTB" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfvLastName" runat="server" ControlToValidate="LastNameTB" ForeColor="Red" InitialValue="Last Name"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvLastName" runat="server" ControlToValidate="LastNameTB" ForeColor="Red" InitialValue=""></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -31,8 +31,8 @@
                 <td>Phone Number<asp:Label ID="Label4" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
                 <td>
                     <asp:TextBox ID="phoneNumberTB" runat="server"></asp:TextBox>
-                    <ajaxToolkit:MaskedEditExtender runat="server" ID="mEExtenderPhone" TargetControlID="phoneNumberTB" Mask="\(999\)999\-9999"></ajaxToolkit:MaskedEditExtender> 
-                    <ajaxToolkit:MaskedEditValidator runat="server" ID="mEValidatorPhone" ForeColor="Red" ControlToValidate="phoneNumberTB" ValidationExpression="\d{10}" ControlExtender="mEExtenderPhone"></ajaxToolkit:MaskedEditValidator>
+                    <ajaxToolkit:MaskedEditExtender runat="server" ID="mEExtenderPhone" TargetControlID="phoneNumberTB" Mask="\(999\)999\-9999" ClearMaskOnLostFocus="false"></ajaxToolkit:MaskedEditExtender> 
+                    <ajaxToolkit:MaskedEditValidator runat="server" ID="mEValidatorPhone" ForeColor="Red" ControlToValidate="phoneNumberTB" ValidationExpression="\(\d{3}\)\d{3}\-\d{4}" ControlExtender="mEExtenderPhone"></ajaxToolkit:MaskedEditValidator>
                 </td>
             </tr>
             <tr>
