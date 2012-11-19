@@ -67,7 +67,7 @@
         </asp:TableRow>
                 <asp:TableRow>
             <asp:TableCell ColumnSpan="2">
-               <asp:ValidationSummary ID="validationSummary" runat="server" HeaderText="Could not create account. Please correct the following errors and try again." />
+               <asp:ValidationSummary ID="validationSummary" runat="server" HeaderText="Not able to create account. Please correct the following errors and try again." />
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
