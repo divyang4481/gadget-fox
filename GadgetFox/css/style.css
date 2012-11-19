@@ -175,4 +175,29 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 	color: #A70303;
 	background-color: #F3F3F3;
 }
+
+.gridViewWidth
+{
+	width: 70%;
+	margin: 0 auto;
+}
+
+legend.forbidden
+{
+	/*font-weight:bold;
+	font-family:'Arial Rounded MT';*/
+	font: bold 3em 'Arial Rounded MT',arial; 
+}
+
+.forbiddenLabel
+{
+	font: normal 1em 'Arial Rounded MT',arial; 
+}
+
+#ScrollGrid
+{
+	height: 50%; 
+	overflow: auto;
+}
+
 /*->End*/
