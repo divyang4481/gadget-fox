@@ -1,59 +1,85 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="EditDefaultCard.aspx.cs" Inherits="GadgetFox.EditDefaultCard" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <p style="height: 0px; margin-bottom: 50px; font-style: normal; font-size: large; top: auto;">
         Edit Default Card
     </p>
 
-    <div style="display: block; margin-bottom: 10px;"><asp:Label ID="returnLabel" runat="server" ForeColor="#CC0000"></asp:Label></div>
+    <div style="display: block; margin-bottom: 10px;">
+        <asp:Label ID="returnLabel" runat="server" ForeColor="#CC0000"></asp:Label>
+    </div>
     <div style="display: block;">
         <asp:Panel ID="Panel1" runat="server" runat="server" BorderColor="#999999" Width="479px" Direction="LeftToRight" HorizontalAlign="Left">
             <table>
                 <tr>
                     <td>Type of Card<asp:Label ID="Label6" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
                     <td>
-                        <asp:DropDownList ID="cardTypeDL" runat="server" style="margin-left: 0px">
+                        <asp:DropDownList ID="cardTypeDL" runat="server" Style="margin-left: 0px">
                             <asp:ListItem>--Select--</asp:ListItem>
                             <asp:ListItem>American Express</asp:ListItem>
                             <asp:ListItem>Discover</asp:ListItem>
                             <asp:ListItem>Master Card</asp:ListItem>
                             <asp:ListItem>Visa</asp:ListItem>
                         </asp:DropDownList>
+                        <asp:CompareValidator ID="cVCardType" runat="server" ErrorMessage="Select card type" Text="*" ForeColor="Red" ControlToValidate="cardTypeDL" ValueToCompare="--Select--" Operator="NotEqual"></asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
                     <td>First Name<asp:Label ID="Label9" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
-                    <td><asp:TextBox ID="firstNameTB" runat="server"></asp:TextBox></td>
+                    <td>
+                        <asp:TextBox ID="firstNameTB" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rFVFirstName" runat="server" ErrorMessage="Enter first name" Text="*" ForeColor="Red" ControlToValidate="firstNameTB"></asp:RequiredFieldValidator>
+
+                    </td>
                 </tr>
                 <tr>
                     <td>Last Name<asp:Label ID="Label10" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
-                    <td><asp:TextBox ID="lastNameTB" runat="server"></asp:TextBox></td>
+                    <td>
+                        <asp:TextBox ID="lastNameTB" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rFVLastName" runat="server" ErrorMessage="Enter last name" Text="*" ForeColor="Red" ControlToValidate="lastNameTB"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>Card Number<asp:Label ID="Label7" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
-                    <td><asp:TextBox ID="cardNumberTB" runat="server"></asp:TextBox></td>
+                    <td>
+                        <asp:TextBox ID="cardNumberTB" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rFVCardNumber" runat="server" ErrorMessage="Enter card number" Text="*" ForeColor="Red" ControlToValidate="cardNumberTB"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>CVV<asp:Label ID="Label11" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
-                    <td><asp:TextBox ID="cvvTB" runat="server"></asp:TextBox></td>
+                    <td>
+                        <asp:TextBox ID="cvvTB" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rFVCVV" runat="server" ErrorMessage="Enter CVV" Text="*" ForeColor="Red" ControlToValidate="cvvTB"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>Expiration Date<asp:Label ID="Label8" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
                     <td>
-                        <asp:TextBox ID="expMonthTB" runat="server" style="margin-left: 0px" Width="30px"></asp:TextBox>
+                        <asp:TextBox ID="expMonthTB" runat="server" Style="margin-left: 0px" Width="30px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rFVExpMonth" runat="server" ErrorMessage="Enter expiration month" Text="*" ForeColor="Red" ControlToValidate="expMonthTB"></asp:RequiredFieldValidator>
                         <asp:TextBox ID="expYearTB" runat="server" Width="60px"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rFVExpYear" runat="server" ErrorMessage="Enter expiration year" Text="*" ForeColor="Red" ControlToValidate="expYearTB"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td>Address 1<asp:Label ID="Label1" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
-                    <td><asp:TextBox ID="address1TB" runat="server"  ></asp:TextBox></td>
+                    <td>
+                        <asp:TextBox ID="address1TB" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rFVAddress" runat="server" ErrorMessage="Enter address" Text="*" ForeColor="Red" ControlToValidate="expYearTB"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>Address 2</td>
-                    <td><asp:TextBox ID="address2TB" runat="server"></asp:TextBox></td>
+                    <td>
+                        <asp:TextBox ID="address2TB" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>City<asp:Label ID="Label2" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
-                    <td><asp:TextBox ID="cityTB" runat="server"></asp:TextBox></td>
+                    <td>
+                        <asp:TextBox ID="cityTB" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rVCity" runat="server" ErrorMessage="Enter city" Text="*" ForeColor="Red" ControlToValidate="cityTB"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>State<asp:Label ID="Label3" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
@@ -111,6 +137,7 @@
                             <asp:ListItem>Wisconsin</asp:ListItem>
                             <asp:ListItem>Wyoming</asp:ListItem>
                         </asp:DropDownList>
+                        <asp:CompareValidator ID="cVState" runat="server" ErrorMessage="Select state" Text="*" ForeColor="Red" ControlToValidate="stateDL" ValueToCompare="--Select--" Operator="NotEqual"></asp:CompareValidator>
                     </td>
                 </tr>
                 <tr>
@@ -228,18 +255,29 @@
                 </tr>
                 <tr>
                     <td>Zip code<asp:Label ID="Label5" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
-                    <td><asp:TextBox ID="zipcodeTB" runat="server"></asp:TextBox></td>
+                    <td>
+                        <asp:TextBox ID="zipcodeTB" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="rFVZip" runat="server" ErrorMessage="Enter zip code" Text="*" ForeColor="Red" ControlToValidate="zipcodeTB"></asp:RequiredFieldValidator>
+                    </td>
                 </tr>
                 <tr>
                     <td>
-                        <asp:Button ID="saveButton" runat="server" Text="Submit" Width="75px" OnClick="saveButton_Clicked" style="margin-top: 20px"/>
+                        <asp:Button ID="saveButton" runat="server" Text="Submit" Width="75px" OnClick="saveButton_Clicked" Style="margin-top: 20px" />
                     </td>
                     <td>
-                        <asp:Button ID="cancelButton" runat="server" Text="Cancel" Width="75px" PostBackUrl="~/MyAccount.aspx" style="margin-top: 20px"/>
+                        <asp:Button ID="cancelButton" runat="server" Text="Cancel" Width="75px" PostBackUrl="~/MyAccount.aspx" Style="margin-top: 20px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"> <br /></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <asp:ValidationSummary ID="validationSummary" runat="server" HeaderText="Could not save card details. Please correct the following errors and try again." />
                     </td>
                 </tr>
             </table>
         </asp:Panel>
-        </div>
-    </asp:Content>
+    </div>
+</asp:Content>
 
