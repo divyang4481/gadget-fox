@@ -14,7 +14,7 @@ namespace GadgetFox
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["userID"] == null)
+            /*if (Session["userID"] == null)
             {
                 // Redirect user to login before doing anything else
                 Response.Redirect("~/Login.aspx?redirect=MonitorInventory.aspx");
@@ -22,55 +22,17 @@ namespace GadgetFox
             else if (Session["userID"] != null && Session["userRole"].Equals("1"))
             {
                 Response.Redirect("~/Forbidden.aspx");
-            }
-            if (!IsPostBack)
-            {
-                gdvMonitorInventory.DataSource = monitorProducts();
-                gdvMonitorInventory.DataBind();
-            }
+            }*/
         }
 
-        private DataSet monitorProducts()
+        protected string getPrice(Decimal price, Decimal salePrice, bool onSale)
         {
-            String myConnectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
-            SqlConnection myConnection = new SqlConnection(myConnectionString);
-            DataSet ds = new DataSet();
-            try
-            {
-                myConnection.Open();
-                SqlCommand cmd = new SqlCommand("Select * from [GadgetFox].[dbo].[Products] where Quantity<=15", myConnection);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(ds);
-            }
-            catch (SqlException ex)
-            {
-                Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('" + ex.Message + "')</SCRIPT>");
-            }
-            finally
-            {
-                myConnection.Close();
-            }
-            return ds;
+            return String.Format("{0:c}", (onSale ? salePrice : price));
         }
 
-        protected void gdvMonitorInventory_Sorting(object sender, GridViewSortEventArgs e)
+        protected string getImage(string imageId)
         {
-            DataSet ds = monitorProducts();
-            if (ViewState[e.SortExpression] == null)
-                ViewState[e.SortExpression] = "DESC";
-
-            String strSortDirection, prevDirect = ViewState[e.SortExpression].ToString();
-
-            ViewState[e.SortExpression] = strSortDirection = (prevDirect == "ASC") ? "DESC" : "ASC";
-
-            if (ds != null)
-            {
-                DataView dataView = new DataView(ds.Tables[0]);
-                dataView.Sort = e.SortExpression + " " + strSortDirection;
-
-                gdvMonitorInventory.DataSource = dataView;
-                gdvMonitorInventory.DataBind();
-            }
+            return "Image.aspx?ImageID=" + imageId;
         }
     }
 }

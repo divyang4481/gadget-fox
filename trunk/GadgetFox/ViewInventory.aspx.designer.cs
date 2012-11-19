@@ -13,13 +13,13 @@ namespace GadgetFox {
     public partial class ViewInventory {
         
         /// <summary>
-        /// gdvInventory control.
+        /// gdvMonitorInventory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdvInventory;
+        protected global::System.Web.UI.WebControls.GridView gdvMonitorInventory;
         
         /// <summary>
         /// SqlDataSource1 control.
