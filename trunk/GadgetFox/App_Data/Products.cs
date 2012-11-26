@@ -209,12 +209,13 @@ namespace GadgetFox
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();
-
-
-            
+                        
             Name = PName.Value.ToString();
-            Description = PDesc.Value.ToString() ;
-            Price = Convert.ToDecimal(PPrice.Value);
+            Description = PDesc.Value.ToString();
+
+            Price = 0;
+            if (PPrice.Value != System.DBNull.Value)
+                Price = Convert.ToDecimal(PPrice.Value);
             if (PSalePrice.Value != System.DBNull.Value)
                 SalePrice = Convert.ToDecimal(PSalePrice.Value);
 

@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="MonitorInventory.aspx.cs" Inherits="GadgetFox.MonitorInventory" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <p style="height: 0px; margin-bottom: 50px; font-style: normal; font-size: large; top: auto;">
+        Low Inventory
+    </p>
+
     <!-- SkinID="Professional" CellPadding="4" HeaderStyle-BackColor="#444444" HeaderStyle-ForeColor="White" AlternatingRowStyle-BackColor="#dddddd"-->
         <asp:GridView ID="gdvMonitorInventory" runat="server" CellPadding="4" GridLines="Vertical" SkinID="Professional" HeaderStyle-BackColor="#444444" HeaderStyle-ForeColor="White" AlternatingRowStyle-BackColor="#dddddd" BorderStyle="None"
             BorderWidth="1px" AutoGenerateColumns="False" AllowSorting="True" DataKeyNames="ProductID" DataSourceID="SqlDataSource1" AllowPaging="True">

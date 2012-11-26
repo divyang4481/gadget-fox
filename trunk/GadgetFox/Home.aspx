@@ -11,10 +11,10 @@
             </tr>
             <tr>
                 <td style="display: inline-block; height: 250px; width: 250px;">
-                    <a href="SearchResults.aspx?category=Camcorders"><label style="display: block; font-size: 16px; font-weight: bold; text-align: center; color: #383838;">Cameras & Camcorders</label><image src="images/categories/cameras.png" style="display: block; height: 80%; margin: auto;"/></a>
+                    <a href="SearchResults.aspx?category=Camcorder"><label style="display: block; font-size: 16px; font-weight: bold; text-align: center; color: #383838;">Cameras & Camcorders</label><image src="images/categories/cameras.png" style="display: block; height: 80%; margin: auto;"/></a>
                 </td>
                 <td style="display: inline-block; height: 250px; width: 250px;">
-                    <a href="SearchResults.aspx?category=Computers"><label style="display: block; font-size: 16px; font-weight: bold; text-align: center; color: #383838;">Computers</label><image src="images/categories/computers.png" style="display: block; height: 80%; margin: auto;"/></a>
+                    <a href="SearchResults.aspx?category=Computer"><label style="display: block; font-size: 16px; font-weight: bold; text-align: center; color: #383838;">Computers</label><image src="images/categories/computers.png" style="display: block; height: 80%; margin: auto;"/></a>
                 </td>
                 <td style="display: inline-block; height: 250px; width: 250px;">
                     <a href="SearchResults.aspx?category=Hardware"><label style="display: block; font-size: 16px; font-weight: bold; text-align: center; color: #383838;">Hardware</label><image src="images/categories/hardware.png" style="display: block; height: 80%; margin: auto;"/></a>
