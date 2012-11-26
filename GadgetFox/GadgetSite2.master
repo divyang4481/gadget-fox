@@ -119,7 +119,7 @@
 		<li><a href="/SearchResults.aspx?subcategory=Netbooks">Netbooks</a></li>
 		<li><a href="/SearchResults.aspx?subcategory=Tabets">Tablets</a></li>
 		<li><a href="/SearchResults.aspx?subcategory=Bags/Cases">Bags/Cases</a></li>
-		<li><a href="/SearchResults.aspx?category=Computers">View All Computer Products</a></li>
+		<li><a href="/SearchResults.aspx?category=Computer">View All Computer Products</a></li>
 	</ul>
 	
 	<h3 class="menuheader expandable">Hardware</h3>
