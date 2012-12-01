@@ -69,7 +69,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AboutUs.aspx" />
     <Content Include="Checkout.aspx" />
+    <Content Include="Locations.aspx" />
     <Content Include="EmployeeHome.aspx" />
     <Content Include="Forbidden.aspx" />
     <Content Include="images\arrowbullet.png" />
@@ -176,6 +178,13 @@
     <Content Include="CreateAccount.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Data\Products.cs" />
     <Compile Include="Checkout.aspx.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
@@ -183,6 +192,13 @@
     </Compile>
     <Compile Include="Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Locations.aspx.cs">
+      <DependentUpon>Locations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Locations.aspx.designer.cs">
+      <DependentUpon>Locations.aspx</DependentUpon>
     </Compile>
     <Compile Include="EmployeeHome.aspx.cs">
       <DependentUpon>EmployeeHome.aspx</DependentUpon>

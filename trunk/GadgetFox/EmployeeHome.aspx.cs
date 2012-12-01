@@ -19,7 +19,7 @@ namespace GadgetFox
             }
             else if (Session["userID"] != null && Session["userRole"].Equals("1"))
             {
-                // Redirect user to login before doing anything else
+                // Redirect customers away from the employee home
                 Response.Redirect("~/Home.aspx");
             }            
         }
