@@ -216,6 +216,20 @@ namespace GadgetFox
                 {
                     foreach (String pid in products.Keys)
                     {
+                        /**************************************************************
+                         * Update product quantity
+                         **************************************************************/
+                        // Update if exists
+                        SqlCommand cmd7 = new SqlCommand("Update Products set Quantity=(Quantity - @Quantity) where " +
+                            "ProductID=@ProductID", myConnection);
+                        cmd7.Parameters.AddWithValue("@Quantity", products[pid]);
+                        cmd7.Parameters.AddWithValue("@ProductID", pid);
+                        int rc7 = cmd7.ExecuteNonQuery();
+                        if (rc7 != 1)  // One row should have been updated
+                        {
+                            // Handle error?
+                        }
+
                         SqlCommand cmd2 = new SqlCommand("Select COUNT(*) from [GadgetFox].[dbo].[OrderedProducts] where " +
                             "OrderID=@OrderID and ProductID=@ProductID", myConnection);
                         cmd2.Parameters.AddWithValue("@OrderID", orderId);
@@ -264,7 +278,7 @@ namespace GadgetFox
                 int rc = cmd6.ExecuteNonQuery();
 
                 totalLB.Text = string.Format("{0:$#,###.##}", purchaseTotal + Double.Parse(shipAmount));
-
+                
                 // Send to invoice page based on order
                 Response.Redirect("~/Invoice.aspx?oid=" + orderId);
             }

@@ -125,7 +125,7 @@ namespace GadgetFox
                         }
 
                         // Columns to purchase item
-                        Row1["Quantity"] = "";
+                        Row1["Quantity"] = dr["Quantity"];
                         Row1["#"] = "";  // For add to cart and wishlist buttons 
 
                         Table1.Rows.Add(Row1);
@@ -183,8 +183,23 @@ namespace GadgetFox
             
             if (e.Row.RowIndex > -1)
             {
-                // Add buttons to column
                 String pid = e.Row.Cells[0].Text;
+                qtyDL.ID = pid + "_qty";
+
+                // Add to quantity drop down list to column
+                int qty = int.Parse(e.Row.Cells[e.Row.Cells.Count - 2].Text);
+                if (qty < 1)
+                {
+                    Label outOfStock = new Label();
+                    outOfStock.Text = "Out of stock";
+                    e.Row.Cells[e.Row.Cells.Count - 2].Controls.Add(outOfStock);
+                }
+                else
+                {
+                    e.Row.Cells[e.Row.Cells.Count - 2].Controls.Add(qtyDL);
+                }
+
+                // Add buttons to column
                 if (Session["userID"] != null && !Session["userRole"].Equals("1"))
                 {
                     e.Row.Cells[e.Row.Cells.Count - 1].Controls.Add(editProductInfoBtn);
@@ -197,13 +212,14 @@ namespace GadgetFox
                 {
                     e.Row.Cells[e.Row.Cells.Count - 1].Controls.Add(add2CartBtn);
                     e.Row.Cells[e.Row.Cells.Count - 1].Controls.Add(add2WishlistBtn);
-                }
-                
-                
-                qtyDL.ID = pid + "_qty";
 
-                // Add to quantity drop down list to column
-                e.Row.Cells[e.Row.Cells.Count - 2].Controls.Add(qtyDL);
+                    // Disable buttons if product is out of stock
+                    if (qty < 1)
+                    {
+                        add2CartBtn.Enabled = false;
+                        add2WishlistBtn.Enabled = false;
+                    }
+                }
 
                 // Insert product image
                 String imgId = e.Row.Cells[1].Text;
