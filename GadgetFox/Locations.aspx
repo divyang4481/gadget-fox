@@ -4,6 +4,7 @@
     <p style="height: 0px; margin-bottom: 50px; font-style: normal; font-size: large; top: auto;">
         Locations
     </p>
+    <p>GadgetFox Inc. has been serving the communities in and around the Poughkeepsie, NY area since 2007. Below are our locations.</p>
     <fieldset>
         <legend>Poughkeepsie</legend>
         <p>
