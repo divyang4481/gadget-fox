@@ -171,8 +171,11 @@
 </div>
 
 <div id="footer">
-    <p style="text-align: center;"><a href="/UnderConstruction.aspx">Legal</a><a href="/UnderConstruction.aspx">FAQ</a><a href="/UnderConstruction.aspx">Help</a></p>
-    <p><a href="/UnderConstruction.aspx">About Us</a><a href="/UnderConstruction.aspx">Employment Opportunities</a><a href="/UnderConstruction.aspx">Locations</a><a href="/UnderConstruction.aspx">Contact Us</a></p>
+    <p>
+        <a href="/AboutUs.aspx">About Us</a>
+        <a href="/Locations.aspx">Locations</a>
+        <a href="/Locations.aspx">Contact Us</a>
+    </p>
 </div>
     </form>
 </body>
