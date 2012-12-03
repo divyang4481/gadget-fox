@@ -214,12 +214,13 @@ namespace GadgetFox
             Description = PDesc.Value.ToString();
 
             Price = 0;
+            SalePrice = Convert.ToDecimal(0);
             if (PPrice.Value != System.DBNull.Value)
                 Price = Convert.ToDecimal(PPrice.Value);
             if (PSalePrice.Value != System.DBNull.Value)
                 SalePrice = Convert.ToDecimal(PSalePrice.Value);
 
-            SalePrice = Convert.ToDecimal(0);
+            
             InSale= Convert.ToInt32(PInSale.Value);
             Quantity = Convert.ToInt32(PQty.Value);
             CategoryName = CName.Value.ToString();
