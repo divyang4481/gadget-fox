@@ -39,7 +39,7 @@
         <tr >
             <td style="height: 26px"><asp:Label ID="labelAddSubCategory" runat="server">Sub Category:</asp:Label></td>
             <td style="height: 26px; width: 224px;">
-                <asp:DropDownList ID="dropDownAddSubCategory" runat="server" AppendDataBoundItems="True" DataSourceID="ObjectDataSource2" DataTextField="Name" Enabled="False" OnSelectedIndexChanged="dropDownAddSubCategory_SelectedIndexChanged" >
+                <asp:DropDownList ID="dropDownAddSubCategory" runat="server" DataSourceID="ObjectDataSource2" DataTextField="Name" Enabled="False" OnSelectedIndexChanged="dropDownAddSubCategory_SelectedIndexChanged" >
                     <asp:ListItem>--Select--</asp:ListItem>
                 </asp:DropDownList>
                 <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetSubCategories" TypeName="GadgetFox.Products">
@@ -52,13 +52,13 @@
         <tr >
             <td style="height: 29px"><asp:Label ID="labelAddDescription" runat="server">Description:</asp:Label></td>
             <td style="height: 29px; width: 224px;">
-                <asp:TextBox ID="textBoxAddProductDescription" runat="server"></asp:TextBox>
+                <asp:TextBox ID="textBoxAddProductDescription" runat="server" Height="93px" TextMode="MultiLine" Width="219px"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="*" ControlToValidate="textBoxAddProductDescription" SetFocusOnError="true" Display="Static" ErrorMessage="Description required." ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr >
-            <td><asp:Label ID="labelAddPrice" runat="server">Price:</asp:Label></td>
-            <td style="width: 224px">
+            <td class="auto-style1"><asp:Label ID="labelAddPrice" runat="server">Price:</asp:Label></td>
+            <td class="auto-style2">
                 <asp:TextBox ID="textBoxAddProductPrice" runat="server" AutoPostBack="True" OnTextChanged="textBoxAddProductPrice_TextChanged"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" Text="*" ControlToValidate="textBoxAddProductPrice" SetFocusOnError="true" Display="Static" ErrorMessage="Price required." ForeColor="Red"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" Text="*" ErrorMessage = "Must be a valid price without $." ControlToValidate="textBoxAddProductPrice" SetFocusOnError="True" Display="Static" ValidationExpression="^[0-9]*(\.)?[0-9]?[0-9]?$"></asp:RegularExpressionValidator>
@@ -124,3 +124,14 @@
     <p> 
                     <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="Please correct the following errors to create account" />
                 </asp:Content>
+<asp:Content ID="Content2" runat="server" contentplaceholderid="headContent">
+    <style type="text/css">
+        .auto-style1 {
+            height: 29px;
+        }
+        .auto-style2 {
+            width: 224px;
+            height: 29px;
+        }
+    </style>
+</asp:Content>
