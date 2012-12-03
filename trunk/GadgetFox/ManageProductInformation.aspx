@@ -52,7 +52,7 @@
         <tr >
             <td style="height: 29px"><asp:Label ID="labelAddDescription" runat="server">Description:</asp:Label></td>
             <td style="height: 29px">
-                <asp:TextBox ID="textBoxAddProductDescription" runat="server"></asp:TextBox>
+                <asp:TextBox ID="textBoxAddProductDescription" runat="server" Height="82px" TextMode="MultiLine" Width="221px"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" Text="*" ControlToValidate="textBoxAddProductDescription" SetFocusOnError="true" Display="Static" ErrorMessage="Description required." ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>
@@ -83,7 +83,7 @@
             <td>
                 <asp:TextBox ID="textBoxProductQuantity" runat="server" ></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" Text="*" ControlToValidate="textBoxProductQuantity" SetFocusOnError="true" Display="Static" ErrorMessage="Sale Price required." ForeColor="Red"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" Text="*" ControlToValidate="textBoxAddProductSalePrice" SetFocusOnError="True" Display="Static" ValidationExpression="^[0-9]*" ErrorMessage="Must be a valid number." ForeColor="Red"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" Text="*" ControlToValidate="textBoxProductQuantity" SetFocusOnError="True" Display="Static" ValidationExpression="^[0-9]*" ErrorMessage="Must be a valid number." ForeColor="Red"></asp:RegularExpressionValidator>
             </td>
         </tr>
         <tr >
