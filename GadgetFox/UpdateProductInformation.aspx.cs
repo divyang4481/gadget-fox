@@ -26,7 +26,8 @@ namespace GadgetFox
 
             // Retreive product info
             String pid = Request.QueryString["pid"];
-            if (pid != null && pid.Length > 0) {
+            if (pid != null && pid.Length > 0 && textBoxProductID.Text.Length < 1)
+            {
                 textBoxProductID.Text = pid;
 
                 textBoxProductID_TextChanged(this.textBoxProductID, EventArgs.Empty);
@@ -125,7 +126,7 @@ namespace GadgetFox
             catch (Exception ex)
             {
                 Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('" + ex.Message + "')</SCRIPT>");
-                Server.Transfer("Error.aspx");
+                Response.Redirect("Error.aspx");
             }
         }
 
@@ -148,7 +149,7 @@ namespace GadgetFox
             catch (Exception ex)
             {
                 Response.Write("<SCRIPT LANGUAGE='JavaScript'>alert('" + ex.Message + "')</SCRIPT>");
-                Server.Transfer("Error.aspx");
+                Response.Redirect("Error.aspx");
             }
 
             //Products prodObj = new Products();
@@ -237,7 +238,7 @@ namespace GadgetFox
             }
             finally
             {
-                Server.Transfer("SalesDashboard.aspx");
+                Response.Redirect("SalesDashboard.aspx");
             }
         }
 

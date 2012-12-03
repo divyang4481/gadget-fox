@@ -71,6 +71,7 @@
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
     <Content Include="Checkout.aspx" />
+    <Content Include="Error.aspx" />
     <Content Include="Locations.aspx" />
     <Content Include="EmployeeHome.aspx" />
     <Content Include="Forbidden.aspx" />
@@ -192,6 +193,13 @@
     </Compile>
     <Compile Include="Checkout.aspx.designer.cs">
       <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="Locations.aspx.cs">
       <DependentUpon>Locations.aspx</DependentUpon>
