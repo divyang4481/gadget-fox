@@ -3,175 +3,173 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>GadgetFox, a Tech Store</title>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GadgetFox, a Tech Store</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
 
-    <script type="text/javascript" src="js/jquery-1-4-2.min.js"></script>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/ddsmoothmenu.js">
+<script type="text/javascript" src="js/jquery-1-4-2.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/ddsmoothmenu.js">
 /***********************************************
 * Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
 * This notice MUST stay intact for legal use
 * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
 ***********************************************/
-    </script>
-    <script type="text/javascript" src="js/ddaccordion.js">
+</script>
+<script type="text/javascript" src="js/ddaccordion.js">
 /***********************************************
 * Accordion Content script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
 * Visit http://www.dynamicDrive.com for hundreds of DHTML scripts
 * This notice must stay intact for legal use
 ***********************************************/
-    </script>
-    <script type="text/javascript" src="js/gadget-fox.js"> </script>
-    <script type="text/javascript">
-        ddsmoothmenu.init({
-            mainmenuid: "menu_bar", //menu DIV id
-            orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
-            classname: 'ddsmoothmenu', //class added to menu's outer DIV
-            customtheme: ["#383838", "#900"],
-            contentsource: ["smoothcontainer", "navs/menu_bar.htm"]//"markup" //"markup" or ["container_id", "path_to_menu_file"]
-        })
+</script>
+<script type="text/javascript" src="js/gadget-fox.js"> </script>
+<script type="text/javascript">
+    ddsmoothmenu.init({
+        mainmenuid: "menu_bar", //menu DIV id
+        orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+        classname: 'ddsmoothmenu', //class added to menu's outer DIV
+        customtheme: ["#383838", "#900"],
+        contentsource: ["smoothcontainer", "navs/menu_bar.htm"]//"markup" //"markup" or ["container_id", "path_to_menu_file"]
+    })
 
-        ddaccordion.init({
-            headerclass: "expandable", //Shared CSS class name of headers group that are expandable
-            contentclass: "categoryitems", //Shared CSS class name of contents group
-            revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
-            mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
-            collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
-            defaultexpanded: [], //index of content(s) open by default [index1, index2, etc]. [] denotes no content
-            onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
-            animatedefault: false, //Should contents open by default be animated into view?
-            persiststate: true, //persist state of opened contents within browser session?
-            toggleclass: ["", "openheader"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
-            togglehtml: ["prefix", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
-            animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
-            oninit: function (headers, expandedindices) { //custom code to run when headers have initalized
-                //do nothing
-            },
-            onopenclose: function (header, index, state, isuseractivated) { //custom code to run whenever a header is opened or closed
-                //do nothing
-            }
-        })
-    </script>
+    ddaccordion.init({
+        headerclass: "expandable", //Shared CSS class name of headers group that are expandable
+        contentclass: "categoryitems", //Shared CSS class name of contents group
+        revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+        mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+        collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
+        defaultexpanded: [], //index of content(s) open by default [index1, index2, etc]. [] denotes no content
+        onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+        animatedefault: false, //Should contents open by default be animated into view?
+        persiststate: true, //persist state of opened contents within browser session?
+        toggleclass: ["", "openheader"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+        togglehtml: ["prefix", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+        animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+        oninit: function (headers, expandedindices) { //custom code to run when headers have initalized
+            //do nothing
+        },
+        onopenclose: function (header, index, state, isuseractivated) { //custom code to run whenever a header is opened or closed
+            //do nothing
+        }
+    })
+</script> 
 
 </head>
 
 <body>
     <form id="form1" runat="server">
-        <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-            <Scripts>
-            </Scripts>
-        </ajaxToolkit:ToolkitScriptManager>
-        <div id="header_wrapper">
-            <div id="menu">
-                <asp:TextBox ID="TextBox1" runat="server">email</asp:TextBox>
-                <asp:TextBox ID="TextBox2" runat="server">password</asp:TextBox>
-                <asp:Button ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
-                <br />
-                <asp:Image ID="Image3" runat="server" AlternateText="Youtube Icon" ImageUrl="~/images/youtube.png" />
-                <asp:Image ID="Image2" runat="server" AlternateText="Twitter Icon" ImageUrl="~/images/twitter.png" />
-                <asp:Image ID="Image1" runat="server" AlternateText="Facebook Icon" ImageUrl="~/images/facebook.png" />
-            </div>
-            <div id="site_title">
-                <h1><a href="http://www.GadgetFox.com"></a></h1>
-            </div>
-            <div class="cleaner"></div>
-            <div id="smoothcontainer">
-                <noscript>
+  <ajaxToolkit:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    <Scripts>
+    </Scripts>
+</ajaxToolkit:ToolkitScriptManager>
+<div id="header_wrapper">
+	<div id="menu">
+		<asp:TextBox ID="TextBox1" runat="server">email</asp:TextBox>
+        <asp:TextBox ID="TextBox2" runat="server">password</asp:TextBox>
+        <asp:Button ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
+        <br/>
+	    <asp:Image ID="Image3" runat="server" AlternateText="Youtube Icon" ImageUrl="~/images/youtube.png"/>
+        <asp:Image ID="Image2" runat="server" AlternateText="Twitter Icon" ImageUrl="~/images/twitter.png" />
+        <asp:Image ID="Image1" runat="server" AlternateText="Facebook Icon" ImageUrl="~/images/facebook.png" />
+    </div>
+	<div id="site_title"><h1><a href="http://www.GadgetFox.com"></a></h1></div>
+    <div class="cleaner"></div> 
+	<div id="smoothcontainer">
+		<noscript>
 			<a>No-Script, Menu-Bar is disabled</a>
 		</noscript>
-            </div>
-        </div>
-        <br />
-        <div class="arrowlistmenu">
-            <h3 class="menuheader expandable">Accesories</h3>
-            <ul class="categoryitems">
-                <li><a href="/SearchResults.aspx?subcategory=Computer Mice">Computer Mice</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Mousepads">Mousepads</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Monitors">Monitors</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Joysticks">Joysticks & Gamepads</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Flashdrives">Flashdrives</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Cables">Cables</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=USB Hubs">USB Hubs</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Fans">Fans</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Silver Compound">Silver Compound</a></li>
-                <li><a href="/SearchResults.aspx?category=Accessories">View All Accessories</a></li>
-            </ul>
+	</div>
+</div>
+<br/>
+<div class="arrowlistmenu">
+	<h3 class="menuheader expandable">Accesories</h3>
+	<ul class="categoryitems">
+		<li><a href="/SearchResults.aspx?subcategory=Computer Mice">Computer Mice</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Mousepads">Mousepads</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Monitors">Monitors</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Joysticks & Gamepads">Joysticks & Gamepads</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Flashdrives">Flashdrives</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Cables">Cables</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=USB Hubs">USB Hubs</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Fans">Fans</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Silver Compound">Silver Compound</a></li>
+		<li><a href="/SearchResults.aspx?category=Accessories">View All Accessories</a></li>
+	</ul>
 
-            <h3 class="menuheader expandable">Camcorders</h3>
-            <ul class="categoryitems">
-                <li><a href="/SearchResults.aspx?subcategory=DSLR">Cameras</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Hand-held">Camcoders</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Bags/Cases">Bags/Cases</a></li>
-                <li><a href="/SearchResults.aspx?category=Camcoders">View All Camcoder Products</a></li>
-            </ul>
+	<h3 class="menuheader expandable">Camcorders</h3>
+	<ul class="categoryitems">
+		<li><a href="/SearchResults.aspx?subcategory=Hand-held Cameras">Cameras</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Hand-held Camcorders">Camcorders</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Bags/Cases">Bags/Cases</a></li>
+		<li><a href="/SearchResults.aspx?category=Camcorders">View All Camcorder Products</a></li>
+	</ul>
+	
+	<h3 class="menuheader expandable">Computers</h3>
+	<ul class="categoryitems">
+		<li><span class="top"></span><span class="bottom"></span></li>
+		<li><a href="/SearchResults.aspx?subcategory=Desktops">Desktops</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Laptops">Laptops</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Notebooks">Notebooks</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Netbooks">Netbooks</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Tabets">Tablets</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Bags/Cases">Bags/Cases</a></li>
+		<li><a href="/SearchResults.aspx?category=Computers">View All Computer Products</a></li>
+	</ul>
+	
+	<h3 class="menuheader expandable">Hardware</h3>
+	<ul class="categoryitems">
+		<li><a href="/SearchResults.aspx?subcategory=RAM">RAM</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=HardDrives">HardDrives</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Motherboards">Motherboards</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Processors">Processors</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Heat Sinks">Heat Sinks</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=CD/Blu-ray Drives">CD/Blu-Ray Drives</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Power Suplies">Power Supplies</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Cases">Cases</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Routers">Routers</a></li>
+		<li><a href="/SearchResults.aspx?category=Hardware">View All Hardware</a></li>
+	</ul>
+	
+	<h3 class="menuheader expandable">Software</h3>
+	<ul class="categoryitems">
+		<li><span class="top"></span><span class="bottom"></span></li>
+		<li><a href="/SearchResults.aspx?subcategory=Security Software">Security Software</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Office Software">Office Software</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Operating Systems">Operating Systems</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Art and Graphics">Art and Graphics</a></li>
+		<li><a href="/SearchResults.aspx?category=Software">View All Software</a></li>
+	</ul>
+	
+	<h3 class="menuheader expandable">Media</h3>
+	<ul class="categoryitems">
+		<li><a href="/SearchResults.aspx?subcategory=Blank Optical Media">Blank Optical Media</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Movies">Movies</a></li>
+		<li><a href="/SearchResults.aspx?category=Media">View All Media</a></li>
+	</ul>
+	
+	<h3 class="menuheader expandable">Games</h3>
+	<ul class="categoryitems">
+		<li><a href="/SearchResults.aspx?subcategory=Xbox">Xbox</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=PS3">PS3</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=PC">PC</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Wii">Wii</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=3DS">3DS</a></li>
+		<li><a href="/SearchResults.aspx?subcategory=Vita">Vita</a></li>
+		<li><a  href="/SearchResults.aspx?category=Games">View All Games</a></li>
+	</ul>
+</div>
 
-            <h3 class="menuheader expandable">Computers</h3>
-            <ul class="categoryitems">
-                <li><span class="top"></span><span class="bottom"></span></li>
-                <li><a href="/SearchResults.aspx?subcategory=Desktops">Desktops</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Laptops">Laptops</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Notebooks">Notebooks</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Netbooks">Netbooks</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Tablets">Tablets</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Bags/Cases">Bags/Cases</a></li>
-                <li><a href="/SearchResults.aspx?category=Computer">View All Computer Products</a></li>
-            </ul>
+<div id="main">
+	<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+</div>
 
-            <h3 class="menuheader expandable">Hardware</h3>
-            <ul class="categoryitems">
-                <li><a href="/SearchResults.aspx?subcategory=RAM">RAM</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=HardDrives">HardDrives</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Motherboards">Motherboards</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Processors">Processors</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Heat Sinks">Heat Sinks</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=CD/Blu-ray Drives">CD/Blu-Ray Drives</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Power Suplies">Power Supplies</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Cases">Cases</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Routers">Routers</a></li>
-                <li><a href="/SearchResults.aspx?category=Hardware">View All Hardware</a></li>
-            </ul>
-
-            <h3 class="menuheader expandable">Software</h3>
-            <ul class="categoryitems">
-                <li><span class="top"></span><span class="bottom"></span></li>
-                <li><a href="/SearchResults.aspx?subcategory=Security Software">Security Software</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Office Software">Office Software</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Operating Systems">Operating Systems</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Art and Graphics">Art and Graphics</a></li>
-                <li><a href="/SearchResults.aspx?category=Software">View All Software</a></li>
-            </ul>
-
-            <h3 class="menuheader expandable">Media</h3>
-            <ul class="categoryitems">
-                <li><a href="/SearchResults.aspx?subcategory=Blank Optical Media">Blank Optical Media</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Movies">Movies</a></li>
-                <li><a href="/SearchResults.aspx?category=Media">View All Media</a></li>
-            </ul>
-
-            <h3 class="menuheader expandable">Games</h3>
-            <ul class="categoryitems">
-                <li><a href="/SearchResults.aspx?subcategory=Xbox">Xbox</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=PS3">PS3</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=PC">PC</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Wii">Wii</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=3DS">3DS</a></li>
-                <li><a href="/SearchResults.aspx?subcategory=Vita">Vita</a></li>
-                <li><a href="/SearchResults.aspx?category=Games">View All Games</a></li>
-            </ul>
-        </div>
-
-        <div id="main">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-
-        <div id="footer">
-            <p style="text-align: center;"><a href="/UnderConstruction.aspx">Legal</a><a href="/UnderConstruction.aspx">FAQ</a><a href="/UnderConstruction.aspx">Help</a></p>
-            <p><a href="/UnderConstruction.aspx">About Us</a><a href="/UnderConstruction.aspx">Employment Opportunities</a><a href="/UnderConstruction.aspx">Locations</a><a href="/UnderConstruction.aspx">Contact Us</a></p>
-        </div>
+<div id="footer">
+    <p style="text-align: center;"><a href="/UnderConstruction.aspx">Legal</a><a href="/UnderConstruction.aspx">FAQ</a><a href="/UnderConstruction.aspx">Help</a></p>
+    <p><a href="/UnderConstruction.aspx">About Us</a><a href="/UnderConstruction.aspx">Employment Opportunities</a><a href="/UnderConstruction.aspx">Locations</a><a href="/UnderConstruction.aspx">Contact Us</a></p>
+</div>
 
     </form>
 

@@ -109,7 +109,8 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 }
 
 #menu {
-	margin-top: 60px;
+    /*Margin-top is under the Gadgetfox logo, above the menu bar*/
+	margin-top: 00px; 
 	margin-right: 20px;
 	font-size: 12px;
 	float: right;

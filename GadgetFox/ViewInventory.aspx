@@ -1,9 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="ViewInventory.aspx.cs" Inherits="GadgetFox.ViewInventory" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="ViewInventory.aspx.cs" Inherits="GadgetFox.ViewInventory" EnableEventValidation="false"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <p style="height: 0px; margin-bottom: 50px; font-style: normal; font-size: large; top: auto;">
         Warehouse Inventory
     </p>
+
+    <asp:Button ID="btnExportToExcel" runat="server" OnClick="btnExportToExcel_Click1" Text="Export to Excel" Width="107px" />
+
+    <asp:Button ID="btnExportToWord" runat="server" OnClick="btnExportToWord_Click" Text="Export to Word" Width="102px" />
 
     <asp:LinkButton style="display: block; color: blue; margin-bottom: 10px;" ID="monitorInventoryButton" runat="server" Text="View low inventory" PostBackUrl="~/MonitorInventory.aspx"> </asp:LinkButton>
     <asp:GridView ID="gdvMonitorInventory" runat="server" CellPadding="4" GridLines="Vertical" SkinID="Professional" HeaderStyle-BackColor="#444444" HeaderStyle-ForeColor="White" AlternatingRowStyle-BackColor="#dddddd" BorderStyle="None"

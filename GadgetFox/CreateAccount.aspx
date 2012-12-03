@@ -4,9 +4,7 @@
     <p style="height: 0px; margin-bottom: 50px; font-style: normal; font-size: large; top: auto;">
         Create an Account
     </p>
-    <div>
-        <asp:Label ID="returnLabel" runat="server" ForeColor="#CC0000"></asp:Label>
-    </div>
+    <div><asp:Label ID="returnLabel" runat="server" ForeColor="#CC0000"></asp:Label></div>
     <asp:Table ID="Table1" runat="server" HorizontalAlign="Left">
         <asp:TableRow>
             <asp:TableCell>
