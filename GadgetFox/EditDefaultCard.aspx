@@ -43,7 +43,9 @@
                     <td>Card Number<asp:Label ID="Label7" runat="server" ForeColor="#CC0000" Text="*"></asp:Label></td>
                     <td>
                         <asp:TextBox ID="cardNumberTB" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="rFVCardNumber" runat="server" ErrorMessage="Enter card number" Text="*" ForeColor="Red" ControlToValidate="cardNumberTB"></asp:RequiredFieldValidator>
+                        <ajaxToolkit:MaskedEditExtender runat="server" ID="mEExtenderCardNum" TargetControlID="cardNumberTB" Mask="9999\-9999\-9999\-9999" ClearMaskOnLostFocus="False"></ajaxToolkit:MaskedEditExtender>
+                        <ajaxToolkit:MaskedEditValidator runat="server" ID="mEValidatorCardNum" ForeColor="Red" ControlToValidate="cardNumberTB" ControlExtender="mEExtenderCardNum" ValidationExpression="\d{4}\-\d{4}\-\d{4}\-\d{4}|____\-____\-____\-____" InvalidValueMessage="Invalid phone number" InvalidValueBlurredMessage="*"></ajaxToolkit:MaskedEditValidator>
+                        <asp:RequiredFieldValidator ID="rFVCardNumber" runat="server" ErrorMessage="Enter card number" Text="*" ForeColor="Red" ControlToValidate="cardNumberTB" InitialValue="____-____-____-____"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
@@ -269,7 +271,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2"> <br /></td>
+                    <td colspan="2">
+                        <br />
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="2">

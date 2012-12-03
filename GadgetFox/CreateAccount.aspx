@@ -1,9 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GadgetSite2.master" AutoEventWireup="true" CodeBehind="CreateAccount.aspx.cs" Inherits="GadgetFox.CreateAccount" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" Width="800px" Direction="LeftToRight" HorizontalAlign="Left">
     <p style="height: 0px; margin-bottom: 50px; font-style: normal; font-size: large; top: auto;">
         Create an Account
     </p>
-    <div><asp:Label ID="returnLabel" runat="server" ForeColor="#CC0000"></asp:Label></div>
+    <div>
+        <asp:Label ID="returnLabel" runat="server" ForeColor="#CC0000"></asp:Label>
+    </div>
     <asp:Table ID="Table1" runat="server" HorizontalAlign="Left">
         <asp:TableRow>
             <asp:TableCell>
@@ -19,9 +22,19 @@
             <asp:TableCell>
                 <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
                 <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ErrorMessage="Enter password" Text="*" ControlToValidate="txtPassword" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="rEConfirmPassword" runat="server" ErrorMessage="Invalid password" ValidationExpression="^[A-Za-z0-9]{3,15}$" Text="*" ControlToValidate="txtPassword" ForeColor="Red"></asp:RegularExpressionValidator>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+            </asp:TableCell>
+        </asp:TableRow>
+        <asp:TableRow>
+            <asp:TableCell>
+                <asp:Label ID="Label7" runat="server" Text="Confirm Password"></asp:Label>
+                <asp:CompareValidator ID="cVPassword" runat="server" ErrorMessage="Passwords do not match" Text="*" ControlToValidate="txtPassword" ControlToCompare="txtConfirmPw" ForeColor="Red"></asp:CompareValidator>
+            </asp:TableCell>
+            <asp:TableCell>
+                <asp:TextBox ID="txtConfirmPw" runat="server" TextMode="Password"></asp:TextBox>
             </asp:TableCell>
         </asp:TableRow>
         <asp:TableRow>
@@ -36,7 +49,7 @@
         <asp:TableRow>
             <asp:TableCell>
                 <asp:Label ID="Label4" runat="server" Text="Last name"></asp:Label>
-               <asp:RequiredFieldValidator ID="rfvLastName" runat="server" ErrorMessage="Enter last name" Text="*" ControlToValidate="txtLastName" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="rfvLastName" runat="server" ErrorMessage="Enter last name" Text="*" ControlToValidate="txtLastName" ForeColor="Red"></asp:RequiredFieldValidator>
             </asp:TableCell>
             <asp:TableCell>
                 <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
@@ -63,12 +76,12 @@
         </asp:TableRow>
         <asp:TableRow>
             <asp:TableCell ColumnSpan="2" HorizontalAlign="Center">
-                <asp:Button ID="btnCreate" runat="server" Text="Create" OnClick="btnCreate_Click"/>
+                <asp:Button ID="btnCreate" runat="server" Text="Create" OnClick="btnCreate_Click" />
             </asp:TableCell>
         </asp:TableRow>
-                <asp:TableRow>
+        <asp:TableRow>
             <asp:TableCell ColumnSpan="2">
-               <asp:ValidationSummary ID="validationSummary" runat="server" HeaderText="Not able to create account. Please correct the following errors and try again." />
+                <asp:ValidationSummary ID="validationSummary" runat="server" HeaderText="Not able to create account. Please correct the following errors and try again." />
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
