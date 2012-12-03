@@ -32,7 +32,7 @@
                 <asp:TemplateField HeaderText="Threshold" SortExpression="Threshold">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtThreshold" runat="server" Text='<%# Bind("Threshold") %>'></asp:TextBox>
-                        <asp:CompareValidator ID="cVThreshold" runat="server" Text="*" ErrorMessage="Threshold" ForeColor="Red" ControlToValidate="txtThreshold" Type="Integer" Operator="DataTypeCheck"></asp:CompareValidator>
+                        <asp:CompareValidator ID="cVThreshold" runat="server" Text="*" ErrorMessage="Threshold" ForeColor="Red" ControlToValidate="txtThreshold" Type="Integer" Operator="GreaterThanEqual" ValueToCompare="0"></asp:CompareValidator>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="Label3" runat="server" Text='<%# Bind("Threshold") %>'></asp:Label>
