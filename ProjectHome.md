@@ -1,0 +1,1 @@
+GadgetFox is an e-commerce website similar to Amazon, Best Buy, etc.  It is created to extend a business online.
